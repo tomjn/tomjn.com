@@ -216,3 +216,11 @@ function add_favicon(){
 }
 add_action('wp_head','add_favicon');
 add_action('admin_head','add_favicon');
+
+
+// Add Slideshare oEmbed
+function add_oembed_slideshare(){
+	wp_oembed_add_provider( 'http://www.slideshare.net/*', 'http://api.embed.ly/v1/api/oembed');
+}
+add_action('init','add_oembed_slideshare');
+
