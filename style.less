@@ -53,19 +53,21 @@ body {
 	}
 }
 
-@headerBGcolour = #fff;/*#333333;*/
+@headerBGcolour = #ffffff;/*#333333;*/
 #masthead {
-	float: left;
-	z-index:1;
+	
 	background: @headerBGcolour;
 	line-height:2.5em;
 	width: 100%;
 	@media all and (max-width: 500px){
+		float: left;
+		z-index:1;
 		position: fixed;
 		top: 0;
+		border-bottom:3px solid #9acd32;
 	}
 	font-size:16px;
-	border-bottom:3px solid #9acd32;
+	
 
 	.header-contents {
 		.page-padding;
