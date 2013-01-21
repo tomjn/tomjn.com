@@ -53,15 +53,17 @@ body {
 	}
 }
 
-@headerBGcolour = #8ab92c;/*#333333;*/
+@headerBGcolour = #fff;/*#333333;*/
 #masthead {
 	float: left;
 	z-index:1;
 	background: @headerBGcolour;
 	line-height:2.5em;
 	width: 100%;
-	position: fixed;
-	top: 0;
+	@media all and (max-width: 500px){
+		position: fixed;
+		top: 0;
+	}
 	font-size:16px;
 	border-bottom:3px solid #9acd32;
 
@@ -80,8 +82,8 @@ body {
 	}
 
 	a {
-		text-shadow: 1px 1px 1px #480;
-		color:#fff;
+		/*text-shadow: 1px 1px 1px #480;
+		color:#fff;*/
 		text-decoration:none;
 	}
 
@@ -121,10 +123,10 @@ body {
 				padding-left:32px;
 			}
 			.current_page_item a {
-				background: lighten(@headerBGcolour,20%);
+				background: darken(@headerBGcolour,20%);
 			}
 			a:active,a:hover {
-				background: lighten(@headerBGcolour, 40%);
+				background: darken(@headerBGcolour, 40%);
 			}
 		}
 	}
