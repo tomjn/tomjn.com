@@ -124,9 +124,10 @@ function tomjnscripts() {
 	global $post;
 
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
-	wp_enqueue_style( 'lessstyle', get_template_directory_uri().'/style.less',array(),'4.21' );
+	wp_enqueue_style( 'lessstyle', get_template_directory_uri().'/style.less',array(),'4.22' );
 
 	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
+	wp_enqueue_script( 'fittext', get_template_directory_uri() . '/js/jquery.fittext.js', array('jquery' ), '1.1' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -138,12 +139,7 @@ function tomjnscripts() {
 }
 add_action( 'wp_enqueue_scripts', 'tomjnscripts' );
 
-/**
- * Implement the Custom Header feature
- */
-//require( get_template_directory() . '/inc/custom-header.php' );
-
-function filter_ptags_on_images($content){
+function filter_ptags_on_images( $content ) {
    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
 
@@ -152,8 +148,7 @@ add_filter('the_content', 'filter_ptags_on_images');
 
 add_action( 'admin_head-upload.php', 'wpse_59182_bigger_media_thumbs' );
 
-function wpse_59182_bigger_media_thumbs() 
-{
+function wpse_59182_bigger_media_thumbs() {
     ?>
     <script type="text/javascript">
         jQuery(document).ready( function($) {
@@ -168,23 +163,13 @@ function wpse_59182_bigger_media_thumbs()
 }
 
 
-function tomjn_typekit_code(){
+function tomjn_typekit_code() {
 ?>
 <script type="text/javascript" src="//use.typekit.net/wtc2mfi.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<?php /*
-<script type="text/javascript" id="typekit_embed_code">
-  (function() {
-    var config = {
-      kitId: 'wtc2mfi',
-      scriptTimeout: 3000
-    };
-    var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/( |^)wf-loading( |$)/g,"");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script");tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(a&&a!="complete"&&a!="loaded")return;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
-  })();
-</script>
-<?php*/
+<?php
 }
-//add_action('admin_head','tomjn_typekit_code');
+
 add_action('wp_head','tomjn_typekit_code');
 
 add_filter("mce_external_plugins", "tomjn_mce_external_plugins");
@@ -192,21 +177,6 @@ function tomjn_mce_external_plugins($plugin_array){
 	$plugin_array['typekit']  =  get_template_directory_uri().'/typekit.tinymce.js';//('/ilc-syntax-buttons/ilcsyntax.js');
     return $plugin_array;
 }
-
-
-function ex_rewrite( $wp_rewrite ) {
-
-    add_rewrite_rule('preview/([0-9]{1,})/?$','index.php?preview=true&page_id=$matches[1]','top');
-
-/*    $feed_rules = array(
-        'preview/([0-9]{1,})/?$'    =>  'index.php?page_id=$1&preview=true'
-    );*/
-
-//    $wp_rewrite->rules = $feed_rules + $wp_rewrite->rules;
-    return $wp_rewrite;
-}
-// refresh/flush permalinks in the dashboard if this is changed in any way
-add_filter( 'generate_rewrite_rules', 'ex_rewrite' );
 
 add_editor_style( 'editor-style.less' );
 
