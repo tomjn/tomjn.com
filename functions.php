@@ -194,3 +194,14 @@ function add_oembed_slideshare(){
 }
 add_action('init','add_oembed_slideshare');
 
+// Create a new filtering function that will add our where clause to the query
+function password_post_filter( $where = '' ) {
+    // Make sure this only applies to loops / feeds on the frontend
+    if (!is_single() && !is_admin()) {
+        // exclude password protected
+        $where .= " AND post_password = ''";
+    }
+    return $where;
+}
+add_filter( 'posts_where', 'password_post_filter' );
+
