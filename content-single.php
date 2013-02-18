@@ -15,12 +15,6 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
-		if( has_post_thumbnail() ) {
-			echo '<p>test</p>';
-			the_post_thumbnail();
-		}
-		?>
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
