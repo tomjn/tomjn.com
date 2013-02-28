@@ -1,5 +1,14 @@
-@background: #ffffff;
+
+@backgroundcolour: #ffffff;
 @headerBGcolour = #ffffff;
+
+@hyperlink_active_colour = red;
+@block_background_colour = #FAFAFA;
+
+@desaturated_background = desaturate( @backgroundcolour,40%);
+@darkened = darken(@desaturated_background, 2%);
+@lightened = lighten(@desaturated_background,2%);
+@block_background_colour = contrast( @backgroundcolour, @darkened, @lightened );
 
 .clearfix() {
 	zoom: 1;
@@ -24,10 +33,15 @@
 	}
 }
 
+<<<<<<< HEAD
 @media only screen and (min-width: 500px){
 	.header-contents {
 		.page-padding;
 	}
+=======
+body {
+	background: @backgroundcolour;
+>>>>>>> more variable goodness
 }
 
 #image-navigation {
