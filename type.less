@@ -1,3 +1,13 @@
+
+.block_text {
+	max-width: 600px;
+	background: @block_background_colour;
+	border-left: 4px solid #DDD;
+	padding: 1.5em;
+	margin-bottom:1em;
+}
+
+
 body {
 	font-family: "quatro-slab", 'Droid Serif', serif;
 	font-size:14px;
@@ -27,8 +37,8 @@ p, #social .social-comment-body p, .entry-meta {
 
 	//
 	a:hover, a:active {
-		color:red;
-		border-color:red;
+		color: @hyperlink_active_colour;
+		border-color: @hyperlink_active_colour;
 	}
 }
 
@@ -59,20 +69,15 @@ h1, h2, h3, h4, h5, h6 {
 	font-size:14px;
 }
 
-¢social code, code {
+#social code, code {
 	border-radius: 2px;
 	border: 1px solid #E0E0E0;
 	background: white;
 	padding: 0.3em;
 }
 
-
 blockquote, #social blockquote {
-	max-width: 600px;
-	background: #FAFAFA;
-	border-left: 4px solid #DDD;
-	padding: 1.5em;
-	margin-bottom:1em;
+	.block_text;
 	footer {
 		text-align: right;
 		font-size: 80%;
@@ -114,4 +119,8 @@ blockquote, #social blockquote {
 		font-size: inherit;
 		line-height: inherit;
 	}
+}
+
+pre {
+	.block_text;
 }
