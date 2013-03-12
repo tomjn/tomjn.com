@@ -182,7 +182,7 @@ add_editor_style( 'editor-style.less' );
 
 
 function add_favicon(){
-	?><link rel="icon" type="image/png" href="<?php echo home_url(); ?>/favicon.png" /><?php
+	?><link rel="shortcut icon" type="image/png" href="<?php echo home_url(); ?>/favicon.png" /><?php
 }
 add_action('wp_head','add_favicon');
 add_action('admin_head','add_favicon');
