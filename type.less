@@ -1,4 +1,3 @@
-
 .block_text {
 	max-width: 600px;
 	background: @block_background_colour;
@@ -109,9 +108,14 @@ blockquote, #social blockquote {
 		}
 	}
 }
-.gist .gist-file .gist-data .line-numbers .line-number {
-	height: 24px;
-	line-height: 24px;
+.gist .gist-file .gist-data {
+	.line-pre {
+		max-width:none;
+	}
+	.line-numbers .line-number {
+		height: 24px;
+		line-height: 24px;
+	}
 }
 
 #social {
