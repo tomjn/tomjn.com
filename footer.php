@@ -15,9 +15,6 @@
 		<div class="footer-container">
 			<div class="site-info">
 				<?php do_action( '_s_credits' ); ?>
-				<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'tomjn' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'tomjn' ), 'WordPress' ); ?></a>
-				<span class="sep"> | </span>
-				<?php printf( __( 'Theme: %1$s by %2$s.', 'tomjn' ), 'tomjn', '<a href="http://tomjn.com/" rel="designer">Tom J Nowell</a>' ); ?>
 			</div><!-- .site-info -->
 		</div>
 	</footer><!-- .site-footer .site-footer -->
