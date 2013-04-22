@@ -9,13 +9,13 @@
  */
 
 get_header();
-$taxonomy = 'category';
+$taxonomy = '';
 if ( is_tax() ) {
 	$taxonomy = get_query_var( 'taxonomy' );
 } else {
 	if ( is_category() ) {
 		$taxonomy = 'category';
-	} else {
+	} else if ( is_tag() ) {
 		$taxonomy = 'post_tag';
 	}
 }
@@ -35,7 +35,13 @@ if ( have_posts() ) {
 				<header class="page-header">
 
 	<?php
-	echo '<h1>'.$taxobj->labels->singular_name.': '.$current_term->name.'</h1>';
+	$title = 'Archive';
+	if ( is_date() ) {
+		$title = 'Archive: '.get_the_time('F, Y');
+	} else {
+		$title = $taxobj->labels->singular_name.': '.$current_term->name;
+	}
+	echo '<h1>'.$title.'</h1>';
 	//$tag_description = tag_description();
 	//	if ( ! empty( $tag_description ) )
 	//		echo apply_filters( 'tax_archive_meta', '<div class="taxonomy-description">' . $tax_description . '</div>' );
@@ -45,20 +51,33 @@ if ( have_posts() ) {
 					<div class="taxonomy-term-choices">
 						<h1 class="page-title">
 	<?php
-	echo $tname;
+	if ( is_date() ) {
+		echo 'Archives';
+	} else {
+		echo $tname;
+	}
 	?>
 					</h1>
 	<?php
-	$terms = get_terms( array( $taxonomy ) );
-	if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
-		echo '<ul class="taxonomy-term-choices-list">';
-		foreach ( $terms as $term ) {
-			$class = '';
-			if ( $term->slug == $current_term->slug ) {
-				$class = 'active';
+	if ( is_date() ){
+		echo '<ul class="taxonomy-term-choices-list ">';
+		wp_get_archives( array( 'type' => 'monthly', 'format' => 'li', 'show_post_count' => 0 ) );
+		echo '</ul>';
+	} else {
+		$terms = get_terms( array( $taxonomy ) );
+		if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
+			echo '<ul class="taxonomy-term-choices-list">';
+			foreach ( $terms as $term ) {
+				$class = '';
+				if ( $term->slug == $current_term->slug ) {
+					$class = 'active';
+				}
+			    echo '<li class="'.$class.'"><a href="'.get_term_link( $term->slug, $taxonomy ).'">'.$term->name.'</a></li>';
 			}
-		    echo '<li class="'.$class.'"><a href="'.get_term_link( $term->slug, $taxonomy ).'">'.$term->name.'</a></li>';
+			echo '</ul>';
 		}
+		echo '<ul class="taxonomy-term-choices-list ">';
+		wp_get_archives( array( 'type' => 'monthly', 'format' => 'li', 'show_post_count' => 0 ) );
 		echo '</ul>';
 	}
 	?>
