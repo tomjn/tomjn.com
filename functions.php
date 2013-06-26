@@ -79,7 +79,7 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		add_theme_support( 'post-formats', array( 'aside', ) );
 
 		if ( function_exists( 'register_template' ) ) {
-			register_template( 'twin-column-pages', array( 'post_types' => array( 'page' ) ) );
+			register_template( 'twin-column-pages', array( 'post_types' => array( 'page', 'post' ) ) );
 
 			register_template_sidebar(
 				'Left Sidebar',
@@ -237,7 +237,7 @@ add_action( 'init', 'add_oembed_slideshare' );
 // Create a new filtering function that will add our where clause to the query
 function password_post_filter( $where = '' ) {
 	// Make sure this only applies to loops / feeds on the frontend
-	if ( !is_single() && !is_admin() ) {
+	if ( !is_single() && !is_page() && !is_admin() ) {
 		// exclude password protected
 		$where .= " AND post_password = ''";
 	}
