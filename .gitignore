@@ -1,4 +1,5 @@
 .htaccess
+.phptidy-cache
 wp-*.php
 xmlrpc.php
 wp-admin/
