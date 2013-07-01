@@ -1,0 +1,33 @@
+{
+	"name"       : "tomjn/tomjn",
+	"description": "WordPress theme powering tomjn.com.",
+	"keywords"   : ["wordpress"],
+	"type"       : "wordpress-theme",
+	"homepage"   : "https://github.com/Tarendai/tomjn.com",
+	"license"    : "GPL-3.0",
+	"authors"    : [
+		{
+			"name"    : "Tom J Nowell",
+			"email"   : "contact@tomjn.com",
+			"homepage": "http://www.tomjn.com/"
+		}
+	],
+	"support"    : {
+		"issues": "https://github.com/Tarendai/tomjn.com/issues",
+		"source": "https://github.com/Tarendai/tomjn.com/"
+	},
+	"repositories": [
+		{
+			"type": "git",
+			"url" : "https://github.com/Tarendai/tomjn.com.git"
+		}
+	],
+	"require"    : {
+		"composer/installers": "~1.0"
+	},
+	"extra": {
+		"installer-paths": {
+			"./tomjn/": ["tomjn/tomjn"]
+		}
+	}
+}
