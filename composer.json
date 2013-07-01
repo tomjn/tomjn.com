@@ -1,5 +1,5 @@
 {
-	"name"       : "tomjn/tomjn",
+	"name"       : "tomjn/tomjn-theme",
 	"description": "WordPress theme powering tomjn.com.",
 	"keywords"   : ["wordpress"],
 	"type"       : "wordpress-theme",
@@ -16,19 +16,8 @@
 		"issues": "https://github.com/Tarendai/tomjn.com/issues",
 		"source": "https://github.com/Tarendai/tomjn.com/"
 	},
-	"repositories": [
-		{
-			"type": "git",
-			"url" : "https://github.com/Tarendai/tomjn.com.git"
-		}
-	],
 	"require"    : {
 		"php": ">=5.3.3",
 		"composer/installers": "~1.0"
-	},
-	"extra": {
-		"installer-paths": {
-			"./tomjn/": ["tomjn/tomjn"]
-		}
 	}
 }
