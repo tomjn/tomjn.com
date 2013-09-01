@@ -17,7 +17,7 @@
 		<div class="grid__item  one-whole  lap-one-half  desk-one-third">
 			<?php
 			if ( has_post_thumbnail() ) {
-				the_post_thumbnail( 'medium' );
+				the_post_thumbnail( 'large' );
 			}
 			?>
 		</div>
