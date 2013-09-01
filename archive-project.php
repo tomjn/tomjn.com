@@ -43,14 +43,14 @@ if ( have_posts() ) {
 	<?php
 	//rewind_posts();
 
-//	_s_content_nav( 'nav-above' );
+	//	_s_content_nav( 'nav-above' );
 
 	/* Start the Loop */
 	while ( have_posts() ) {
 		the_post();
 
 		?>
-		<div class="grid__item one-whole lap-one-half desk-one-half">
+		<a href="<?php echo get_permalink(); ?>" class="grid__item one-whole lap-one-half desk-one-half">
 			<div class="grid">
 				<div class="grid__item one-third ">
 					<?php the_post_thumbnail( 'medium' ); ?>
@@ -60,7 +60,7 @@ if ( have_posts() ) {
 					<p><?php the_excerpt(); ?></p>
 				</div>
 			</div>
-		</div>
+		</a>
 		<?php
 	}
 	_s_content_nav( 'nav-below' );
