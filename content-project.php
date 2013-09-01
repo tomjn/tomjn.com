@@ -21,7 +21,7 @@
 					'support_url' => 'Support'
 				);
 				foreach ( $desired_links as $key => $desc ) {
-					$meta = get_post_meta( get_the_ID(), 'visit_url', true );
+					$meta = get_post_meta( get_the_ID(), $key, true );
 					if ( !empty( $meta ) ) {
 						$links[] = array( 'url' => $meta, 'text' => $desc );
 					}
