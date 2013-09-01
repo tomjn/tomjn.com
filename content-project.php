@@ -34,7 +34,7 @@
 					}
 					echo '</ul>';
 				}
-				the_excerpt(); ?>
+				?>
 			</header>
 		</div>
 		<div class="grid__item  one-whole  lap-one-half  desk-one-half">
