@@ -46,6 +46,8 @@
 		</div>
 	</div>
 
+	<hr/>
+
 	<div class="entry-content">
 		<?php
 		the_content();
