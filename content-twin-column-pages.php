@@ -12,11 +12,11 @@
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</header><!-- .entry-header -->
 
-	<div id="twin-columns">
-		<div id="left-column">
+	<div id="twin-columns" class="grid">
+		<div class="grid__item  one-whole palm-one-whole lap-one-half  desk-one-half">
 			<?php dynamic_sidebar('Left Sidebar'); ?>
 		</div>
-		<div id="right-column">
+		<div class="grid__item  one-whole palm-one-whole lap-one-half  desk-one-half">
 			<?php dynamic_sidebar('Right Sidebar'); ?>
 		</div>
 	</div>

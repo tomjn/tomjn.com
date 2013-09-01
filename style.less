@@ -16,7 +16,7 @@
 }
 
 @import "animate.less";
-
+@import "csswizardry-grids.less";
 @import "type.less";
 
 @media only screen and (min-width: 660px){ 
@@ -175,8 +175,6 @@ body {
 #twin-columns,#secondary {
 	.clearfix;
 	aside {
-		width:100%;
-		float: left;
 		.widget-title {
 			margin-top:0;
 		}
@@ -201,10 +199,10 @@ body {
 }
 /*.single-post, .page, .single {*/
 #secondary {
-	aside {
+	/*aside {
 		width: 311px;
 		margin-right: 30px;
-	}
+	}*/
 }
 /*}*/
 
@@ -278,7 +276,7 @@ footer {
 		padding: 0;
 	}
 }
-
+#secondary,
 .footer-container {
 	.center_in_page;
 }
@@ -300,20 +298,6 @@ footer {
 @media only screen and (min-width: 660px){
 	#twin-columns {
 		.clearfix;
-		#left-column {
-			.clearfix;
-			min-height: 1px;
-			width: 48%;
-			margin-right: 2%;
-			float: left;
-		}
-		#right-column {
-			.clearfix;
-			min-height: 1px;
-			width:48%;
-			margin-left:2%;
-			float:left;
-		}
 	}
 }
 .bordered {
@@ -355,7 +339,10 @@ footer {
 	margin-left: 0;
 	margin-right: 0;
 }
-
+.grid__item > img {
+	max-width:100%;
+	height:auto;
+}
 .gist {
 	margin-top: 1em;
 	margin-bottom: 1em;
