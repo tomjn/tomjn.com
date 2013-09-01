@@ -18,19 +18,20 @@ function _s_content_nav( $nav_id ) {
 	global $wp_query;
 
 	$nav_class = 'site-navigation paging-navigation';
-	if ( is_single() )
+	if ( is_single() ) 
 		$nav_class = 'site-navigation post-navigation';
 
 	?>
 	<nav role="navigation" id="<?php echo $nav_id; ?>" class="<?php echo $nav_class; ?>">
 		<h1 class="assistive-text"><?php _e( 'Post navigation', '_s' ); ?></h1>
 		<?php
-		if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
-			$post_type = get_post_type();
-			?>
-			<div><a href="<?php echo get_post_type_archive_link( $post_type );?>">&larr; View All</a></div>
-			<?php
-		}
+	if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
+		$post_type = get_post_type();
+		?>
+		<div><a href="<?php echo get_post_type_archive_link( $post_type );?>">&larr; View All</a></div>
+		<?php
+	}
+	if ( is_single() ) : // navigation links for single posts
 
 		previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', '_s' ) . '</span> %title' );
 		next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', '_s' ) . '</span>' );
