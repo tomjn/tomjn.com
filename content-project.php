@@ -19,7 +19,7 @@
 				}
 				$url = get_post_meta( get_the_ID(), 'docs_url', true );
 				if ( !empty( $url ) ) {
-					$links[] = array( 'url' => $visit_url, 'text' => 'View the documentation' );
+					$links[] = array( 'url' => $url, 'text' => 'View the documentation' );
 				}
 				$download_url = get_post_meta( get_the_ID(), 'download_url', true );
 				if ( !empty( $download_url ) ) {
@@ -31,7 +31,7 @@
 				}
 				$url = get_post_meta( get_the_ID(), 'support_url', true );
 				if ( !empty( $url ) ) {
-					$links[] = array( 'url' => $visit_url, 'text' => 'Support' );
+					$links[] = array( 'url' => $url, 'text' => 'Support' );
 				}
 				if ( !empty( $links ) ) {
 					echo '<ul class="project_links">';
