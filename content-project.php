@@ -14,15 +14,15 @@
 				<?php
 				$links = array();
 				$visit_url = get_post_meta( get_the_ID(), 'visit_url', true );
-				if ( !$visit_url ) {
+				if ( !empty( $visit_url_) ) {
 					$links[] = array( 'url' => $visit_url, 'text' => 'Visit the site' );
 				}
 				$download_url = get_post_meta( get_the_ID(), 'download_url', true );
-				if ( !$download_url ) {
+				if ( !empty( $download_url ) ) {
 					$links[] = array( 'url' => $download_url, 'text' => 'Download' );
 				}
 				$vcs_url = get_post_meta( get_the_ID(), 'vcs_url', true );
-				if ( !$vcs_url ) {
+				if ( !empty( $vcs_url ) ) {
 					$links[] = array( 'url' => $vcs_url, 'text' => 'View the code' );
 				}
 				if ( !empty( $links ) ) {
