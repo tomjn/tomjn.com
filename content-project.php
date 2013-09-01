@@ -13,25 +13,18 @@
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 				<?php
 				$links = array();
-				$visit_url = get_post_meta( get_the_ID(), 'visit_url', true );
-				if ( !empty( $visit_url ) ) {
-					$links[] = array( 'url' => $visit_url, 'text' => 'Visit the site' );
-				}
-				$url = get_post_meta( get_the_ID(), 'docs_url', true );
-				if ( !empty( $url ) ) {
-					$links[] = array( 'url' => $url, 'text' => 'View the documentation' );
-				}
-				$download_url = get_post_meta( get_the_ID(), 'download_url', true );
-				if ( !empty( $download_url ) ) {
-					$links[] = array( 'url' => $download_url, 'text' => 'Download' );
-				}
-				$vcs_url = get_post_meta( get_the_ID(), 'vcs_url', true );
-				if ( !empty( $vcs_url ) ) {
-					$links[] = array( 'url' => $vcs_url, 'text' => 'View the code' );
-				}
-				$url = get_post_meta( get_the_ID(), 'support_url', true );
-				if ( !empty( $url ) ) {
-					$links[] = array( 'url' => $url, 'text' => 'Support' );
+				$desired_links = array(
+					'visit_url' => 'Visit the site',
+					'docs_url' => 'View the documentation',
+					'download_url' => 'Download',
+					'vcs_url' => 'View the code',
+					'support_url' => 'Support'
+				);
+				foreach ( $desired_links as $key => $desc ) {
+					$meta = get_post_meta( get_the_ID(), 'visit_url', true );
+					if ( !empty( $meta ) ) {
+						$links[] = array( 'url' => $meta, 'text' => $desc );
+					}
 				}
 				if ( !empty( $links ) ) {
 					echo '<ul class="project_links">';
