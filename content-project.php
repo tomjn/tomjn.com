@@ -8,13 +8,13 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="grid">
 
-		<div class="grid__item  one-whole  lap-one-half  desk-three-fifths">
+		<div class="grid__item  one-whole  lap-one-half  desk-one-half">
 			<header class="entry-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 				<p><?php the_excerpt(); ?></p>
 			</header>
 		</div>
-		<div class="grid__item  one-whole  lap-one-half  desk-two-fifths">
+		<div class="grid__item  one-whole  lap-one-half  desk-one-half">
 			<?php
 			if ( has_post_thumbnail() ) {
 				the_post_thumbnail( 'large' );
