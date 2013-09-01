@@ -57,7 +57,7 @@ if ( have_posts() ) {
 				</div>
 				<div class="grid__item two-thirds">
 					<h2><?php the_title(); ?></h2>
-					<p><?php the_excerpt(); ?></p>
+					<?php the_excerpt(); ?>
 				</div>
 			</div>
 		</a>
