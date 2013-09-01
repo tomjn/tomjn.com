@@ -17,6 +17,10 @@
 				if ( !empty( $visit_url ) ) {
 					$links[] = array( 'url' => $visit_url, 'text' => 'Visit the site' );
 				}
+				$url = get_post_meta( get_the_ID(), 'docs_url', true );
+				if ( !empty( $url ) ) {
+					$links[] = array( 'url' => $visit_url, 'text' => 'View the documentation' );
+				}
 				$download_url = get_post_meta( get_the_ID(), 'download_url', true );
 				if ( !empty( $download_url ) ) {
 					$links[] = array( 'url' => $download_url, 'text' => 'Download' );
@@ -24,6 +28,10 @@
 				$vcs_url = get_post_meta( get_the_ID(), 'vcs_url', true );
 				if ( !empty( $vcs_url ) ) {
 					$links[] = array( 'url' => $vcs_url, 'text' => 'View the code' );
+				}
+				$url = get_post_meta( get_the_ID(), 'support_url', true );
+				if ( !empty( $url ) ) {
+					$links[] = array( 'url' => $visit_url, 'text' => 'Support' );
 				}
 				if ( !empty( $links ) ) {
 					echo '<ul class="project_links">';
