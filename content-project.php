@@ -14,7 +14,7 @@
 				<?php
 				$links = array();
 				$visit_url = get_post_meta( get_the_ID(), 'visit_url', true );
-				if ( !empty( $visit_url_) ) {
+				if ( !empty( $visit_url ) ) {
 					$links[] = array( 'url' => $visit_url, 'text' => 'Visit the site' );
 				}
 				$download_url = get_post_meta( get_the_ID(), 'download_url', true );
