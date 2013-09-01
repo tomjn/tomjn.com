@@ -26,6 +26,7 @@ function _s_content_nav( $nav_id ) {
 		<h1 class="assistive-text"><?php _e( 'Post navigation', '_s' ); ?></h1>
 		<?php
 		if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
+			$post_type = get_post_type();
 			?>
 			<div><a href="<?php echo get_post_type_archive_link( $post_type );?>">&larr; View All</a></div>
 			<?php
