@@ -50,7 +50,7 @@ if ( have_posts() ) {
 		the_post();
 
 		?>
-		<a href="<?php echo get_permalink(); ?>" class="grid__item one-whole lap-one-half desk-one-half">
+		<a href="<?php echo get_permalink(); ?>" class="project_listing_item grid__item one-whole lap-one-half desk-one-half">
 			<div class="grid">
 				<div class="grid__item one-third ">
 					<?php the_post_thumbnail( 'medium' ); ?>
