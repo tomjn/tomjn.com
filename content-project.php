@@ -11,7 +11,30 @@
 		<div class="grid__item  one-whole  lap-one-half  desk-one-half">
 			<header class="entry-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
-				<?php the_excerpt(); ?>
+				<?php
+				$links = array();
+				$visit_url = get_post_meta( get_the_ID(), 'visit_url', true );
+				if ( !$visit_url ) {
+					$links[] = array( 'url' => $visit_url, 'text' => 'Visit the site' );
+				}
+				$download_url = get_post_meta( get_the_ID(), 'download_url', true );
+				if ( !$download_url ) {
+					$links[] = array( 'url' => $download_url, 'text' => 'Download' );
+				}
+				$vcs_url = get_post_meta( get_the_ID(), 'vcs_url', true );
+				if ( !$vcs_url ) {
+					$links[] = array( 'url' => $vcs_url, 'text' => 'View the code' );
+				}
+				if ( !empty( $links ) ) {
+					echo '<ul class="project_links">';
+					foreach ( $links as $link ) {
+						echo '<li class="project_link">';
+						echo '<a href="'.$link['url'].'">'.$link['text'].'</a>';
+						echo '</li>';
+					}
+					echo '</ul>';
+				}
+				the_excerpt(); ?>
 			</header>
 		</div>
 		<div class="grid__item  one-whole  lap-one-half  desk-one-half">
