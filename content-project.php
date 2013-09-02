@@ -40,7 +40,7 @@
 					$the_tax = get_taxonomy( 'technology' );
 					?>
 					<span class="<?php echo $tax_name; ?>-links tax-tag-links">
-						<?php printf( __( '%1$s: %2$s', '_s' ), $the_tax->labels->name, $term_list ); ?>
+						<?php echo $term_list; ?>
 					</span><br>
 					<?php
 				}
