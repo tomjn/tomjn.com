@@ -35,6 +35,15 @@
 					}
 					echo '</ul>';
 				}
+				$term_list = get_the_term_list( get_the_ID(), 'technology', '', ' ', '' );
+				if ( !empty( $term_list ) ) {
+					$the_tax = get_taxonomy( 'technology' );
+					?>
+					<span class="<?php echo $tax_name; ?>-links">
+						<?php printf( __( '%1$s: %2$s', '_s' ), $the_tax->labels->name, $term_list ); ?>
+					</span><br>
+					<?php
+				}
 				?>
 			</header>
 		</div>
@@ -85,7 +94,7 @@
 		<?php edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
 		if ( shortcode_exists( 'followbutton' ) ) {
 			?>
-		<p><?php echo do_shortcode("[followbutton username='Tarendai' count='true' lang='en' theme='light']"); ?></p>
+		<p><?php echo do_shortcode( "[followbutton username='Tarendai' count='true' lang='en' theme='light']" ); ?></p>
 			<?php
 		}
 		?>
