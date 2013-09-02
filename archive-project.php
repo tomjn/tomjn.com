@@ -52,10 +52,10 @@ if ( have_posts() ) {
 		?>
 		<a href="<?php echo get_permalink(); ?>" class="project_listing_item grid__item one-whole lap-one-half desk-one-half">
 			<div class="grid">
-				<div class="grid__item one-third palm-one-quarter lap-one-third desk-one-third">
+				<div class="grid__item one-third palm-one-whole lap-one-third desk-one-third">
 					<?php the_post_thumbnail( 'medium' ); ?>
 				</div>
-				<div class="grid__item two-thirds palm-three-quarters lap-two-thirds desk-two-thirds">
+				<div class="grid__item two-thirds palm-one-whole lap-two-thirds desk-two-thirds">
 					<h2><?php the_title(); ?></h2>
 					<?php the_excerpt(); ?>
 				</div>
