@@ -18,8 +18,8 @@ get_header(); ?>
 				</header>
 				<?php _s_content_nav( 'nav-above' ); ?>
 
-				<div class="taxonomy-list">
-					<div class="taxonomy-term-choices">
+				<div class="taxonomy-list grid">
+					<div class="taxonomy-term-choices grid__item one-quarter palm-one-whole lap-one-third desk-one-quarter">
 						<h1 class="page-title">
 	<?php
 	echo 'Search:';
@@ -36,7 +36,7 @@ get_header(); ?>
 	echo '</ul>';
 	?>
 					</div>
-					<div class="taxonomy-listing">
+					<div class="taxonomy-listing grid__item three-quarters palm-one-whole lap-two-thirds desk-three-quarters">
 	<?php
 	//rewind_posts();
 
