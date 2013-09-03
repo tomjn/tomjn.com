@@ -50,7 +50,7 @@
 		<div class="grid__item  one-whole  lap-one-half  desk-one-half">
 			<?php
 			if ( has_post_thumbnail() ) {
-				the_post_thumbnail( 'large' );
+				the_post_thumbnail( 'project-main' );
 			}
 			?>
 		</div>

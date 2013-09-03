@@ -286,3 +286,7 @@ function title_format( $content ) {
 }
 add_filter( 'private_title_format', 'title_format' );
 add_filter( 'protected_title_format', 'title_format' );
+
+
+add_image_size( 'project-main', 512, 512, true );
+
