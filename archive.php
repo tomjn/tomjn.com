@@ -7,7 +7,7 @@
  * @package _s
  * @since _s 1.0
  */
-
+global $wp_query;
 get_header();
 $taxonomy = '';
 if ( is_tax() ) {
@@ -37,7 +37,7 @@ if ( have_posts() ) {
 	<?php
 	$title = 'Archive';
 	if ( is_date() ) {
-		$title = 'Archive: '.get_the_time('F, Y');
+		$title = 'Archive: '.get_the_time( 'F, Y' );
 	} else {
 		$title = $taxobj->labels->singular_name.': '.$current_term->name;
 	}
@@ -47,8 +47,8 @@ if ( have_posts() ) {
 	//		echo apply_filters( 'tax_archive_meta', '<div class="taxonomy-description">' . $tax_description . '</div>' );
 	?>
 				</header>
-				<div class="taxonomy-list">
-					<div class="taxonomy-term-choices">
+				<div class="taxonomy-list grid">
+					<div class="taxonomy-term-choices  grid__item one-third">
 						<h1 class="page-title">
 	<?php
 	if ( is_date() ) {
@@ -83,7 +83,7 @@ if ( have_posts() ) {
 	}
 	?>
 					</div>
-					<div class="taxonomy-listing">
+					<div class="taxonomy-listing  grid__item two-thirds">
 	<?php
 	//rewind_posts();
 

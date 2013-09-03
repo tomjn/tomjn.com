@@ -280,3 +280,9 @@ if ( ! function_exists( 'shortcode_exists' ) ) {
 if ( function_exists( 'add_taxonomy_templating_support' ) ) {
 	add_taxonomy_templating_support( 'category' );
 }
+
+function title_format( $content ) {
+	return '%s';
+}
+add_filter( 'private_title_format', 'title_format' );
+add_filter( 'protected_title_format', 'title_format' );

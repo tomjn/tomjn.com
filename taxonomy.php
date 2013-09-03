@@ -31,8 +31,8 @@ if ( have_posts() ) {
 	//		echo apply_filters( 'tax_archive_meta', '<div class="taxonomy-description">' . $tax_description . '</div>' );
 	?>
 				</header>
-				<div class="taxonomy-list">
-					<div class="taxonomy-term-choices">
+				<div class="taxonomy-list grid">
+					<div class="taxonomy-term-choices grid__item one-third">
 						<h1 class="page-title">
 	<?php
 	echo $tname;
@@ -53,7 +53,7 @@ if ( have_posts() ) {
 	}
 	?>
 					</div>
-					<div class="taxonomy-listing">
+					<div class="taxonomy-listing grid__item two-thirds">
 	<?php
 	//rewind_posts();
 
