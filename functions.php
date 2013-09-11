@@ -94,6 +94,17 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 				)
 			);
 			register_template_sidebar(
+				'Top Sidebar',
+				'twin-column-pages',
+				array(
+					'description' => 'Just a test',
+					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+					'after_widget' => "</aside>\n",
+					'before_title' => '<h3 class="widgettitle">',
+					'after_title' => "</h3>\n"
+				)
+			);
+			register_template_sidebar(
 				'Left Sidebar',
 				'twin-column-pages',
 				array(
