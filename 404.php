@@ -2,12 +2,11 @@
 /**
  * The template for displaying 404 pages (Not Found).
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
 
-get_header(); ?>
-
+get_header();
+?>
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
 
@@ -15,13 +14,12 @@ get_header(); ?>
 				<header class="entry-header">
 					<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', '_s' ); ?></h1>
 				</header>
-
 				<div class="entry-content">
 					<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', '_s' ); ?></p>
 
-					<?php get_search_form(); ?>
-
-					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+					<?php
+					get_search_form();
+					the_widget( 'WP_Widget_Recent_Posts' ); ?>
 
 					<div class="widget">
 						<h2 class="widgettitle"><?php _e( 'Most Used Categories', '_s' ); ?></h2>
@@ -34,14 +32,13 @@ get_header(); ?>
 					/* translators: %1$s: smilie */
 					$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', '_s' ), convert_smilies( ':)' ) ) . '</p>';
 					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+					the_widget( 'WP_Widget_Tag_Cloud' );
 					?>
+				</div>
+			</article>
 
-					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+		</div>
+	</div>
 
-				</div><!-- .entry-content -->
-			</article><!-- #post-0 -->
-
-		</div><!-- #content -->
-	</div><!-- #primary .site-content -->
-
-<?php get_footer(); ?>
+<?php
+get_footer();
