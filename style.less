@@ -579,14 +579,16 @@ object {
 	}
 }
 
-@media only screen and (min-width: 500px){
+@media only screen and ( min-width: 500px ) {
 	.header-contents {
 		.page-padding;
 	}
 }
 
-@media print { 
-	#masthead, .edit-link, #secondary, .site-footer, #respond { display: none !important; } 
+@media print {
+	#masthead, .edit-link, #secondary, .site-footer, #respond {
+		display: none !important;
+	}
 }
 
 body {
@@ -614,7 +616,10 @@ body {
 // 16, 20, 28, 72
 
 .page-padding {
-	padding:28px;
+	padding:28px 16px;
+	@media only screen and ( min-width: 500px ) {
+		padding:28px;
+	}
 }
 
 .admin-bar #masthead{
@@ -808,12 +813,6 @@ body {
 	.page-padding;
 	padding-top:20px;
 }
-
-/*@media all and (min-width: 500px){
-	#main {
-		padding-top:56px;
-	}
-}*/
 
 footer {
 	.page-padding;
