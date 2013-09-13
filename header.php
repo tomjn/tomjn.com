@@ -28,7 +28,11 @@
 
 				<nav role="navigation" class="site-navigation main-navigation">
 					<h1 class="assistive-text"><?php _e( 'Menu', 'tomjn' ); ?></h1>
-					<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'tomjn' ); ?>"><?php _e( 'Skip to content', 'tomjn' ); ?></a></div>
+					<div class="assistive-text skip-link">
+						<a href="#content" title="<?php esc_attr_e( 'Skip to content', 'tomjn' ); ?>">
+							<?php _e( 'Skip to content', 'tomjn' ); ?>
+						</a>
+					</div>
 
 					<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 				</nav>
