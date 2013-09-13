@@ -2,8 +2,7 @@
  * Handles toggling the main navigation menu for small screens.
  */
 jQuery( document ).ready( function( $ ) {
-	var $masthead = $( '#masthead' ),
-	    timeout = false;
+	var $masthead = $( '#masthead' ), timeout = false;
 
 	$.fn.smallMenu = function() {
 		$masthead.find( '.site-navigation' ).removeClass( 'main-navigation' ).addClass( 'main-small-navigation' );

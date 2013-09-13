@@ -147,10 +147,8 @@ add_action( 'widgets_init', 'tomjnwidgets_init' );
  * Enqueue scripts and styles
  */
 function tomjnscripts() {
-	global $post;
-
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '2' );
-	wp_enqueue_style( 'lessstyle', get_template_directory_uri().'/style.less',array(),'6' );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '3' );
+	wp_enqueue_style( 'lessstyle', get_template_directory_uri().'/style.less',array(), '6' );
 
 	//wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
 
