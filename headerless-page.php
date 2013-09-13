@@ -17,11 +17,9 @@ while ( have_posts() ) {
 	the_post();
 	get_template_part( 'content', 'page' );
 }
- // end of the loop.
 ?>
-
-	</div><!-- #content -->
-</div><!-- #primary .site-content -->
+	</div>
+</div>
 
 <?php
 get_sidebar();

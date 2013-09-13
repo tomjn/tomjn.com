@@ -11,18 +11,21 @@
 
 		<div class="entry-meta">
 			<?php _s_posted_on(); ?>
-		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
+		</div>
+	</header>
 
 	<div class="entry-content">
-		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
-	</div><!-- .entry-content -->
-
+		<?php
+		the_content();
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
+			'after' => '</div>'
+		) );
+		?>
+	</div>
 
 	<footer class="entry-meta">
 		<?php
-
 		$post_type = get_post_type();
 		foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 		    $term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
@@ -43,14 +46,13 @@
 			get_permalink(),
 			the_title_attribute( 'echo=0' )
 		);
-		?>
 
-		<?php edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
 		if ( shortcode_exists( 'followbutton' ) ) {
 			?>
 		<p><?php echo do_shortcode("[followbutton username='Tarendai' count='true' lang='en' theme='light']"); ?></p>
 			<?php
 		}
 		?>
-	</footer><!-- .entry-meta -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</footer>
+</article>

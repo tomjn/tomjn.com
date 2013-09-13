@@ -12,38 +12,28 @@
  * @since _s 1.0
  */
 
-get_header(); ?>
-
+get_header();
+?>
 		<div id="primary" class="site-content">
 			<div id="content" role="main">
+			<?php
+			if ( have_posts() ) {
+				_s_content_nav( 'nav-above' );
+				while ( have_posts() ) {
+					the_post();
+					get_template_part( 'content', get_post_format() );
 
-			<?php if ( have_posts() ) : ?>
+				}
+				_s_content_nav( 'nav-below' );
+			} elseif ( current_user_can( 'edit_posts' ) ) {
 
-				<?php _s_content_nav( 'nav-above' ); ?>
+				get_template_part( 'no-results', 'index' );
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+			}
+			?>
+			</div>
+		</div>
 
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
-
-				<?php endwhile; ?>
-
-				<?php _s_content_nav( 'nav-below' ); ?>
-
-			<?php elseif ( current_user_can( 'edit_posts' ) ) : ?>
-
-				<?php get_template_part( 'no-results', 'index' ); ?>
-
-			<?php endif; ?>
-
-			</div><!-- #content -->
-		</div><!-- #primary .site-content -->
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php
+get_sidebar();
+get_footer();

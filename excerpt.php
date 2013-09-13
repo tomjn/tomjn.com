@@ -12,9 +12,9 @@
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php _s_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		</div>
 		<?php endif; ?>
-	</header><!-- .entry-header -->
+	</header>
 
 <?php
 if ( is_search() || is_archive() ) {
@@ -22,14 +22,14 @@ if ( is_search() || is_archive() ) {
 	?>
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+	</div>
 	<?php
 } else {
 		?>
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', '_s' ) ); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
-	</div><!-- .entry-content -->
+	</div>
 	<?php
 }
 ?>
@@ -37,7 +37,7 @@ if ( is_search() || is_archive() ) {
 <?php
 $post_type = get_post_type();
 foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
-    $term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
+	$term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
 	if ( !empty( $term_list ) ) {
 		$the_tax = get_taxonomy( $tax_name );
 		?>
@@ -47,12 +47,13 @@ foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 		<?php
 	}
 }
-?>
 
-		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
+		if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) {
+			?>
 		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', '_s' ), __( '1 Comment', '_s' ), __( '% Comments', '_s' ) ); ?></span>
-		<?php endif; ?>
-
-		<?php edit_post_link( __( 'Edit', '_s' ), ' <span class="edit-link">', '</span>' ); ?>
+			<?php
+		}
+		edit_post_link( __( 'Edit', '_s' ), ' <span class="edit-link">', '</span>' );
+		?>
 	</footer><!-- #entry-meta -->
 </article><!-- #post-<?php the_ID(); ?> -->

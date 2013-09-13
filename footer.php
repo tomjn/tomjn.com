@@ -8,19 +8,20 @@
  * @since _s 1.0
  */
 ?>
-
-	</div><!-- #main -->
+	</div>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="footer-container">
 			<div class="site-info">
 				<?php do_action( '_s_credits' ); ?>
-			</div><!-- .site-info -->
+			</div>
 		</div>
-	</footer><!-- .site-footer .site-footer -->
-</div><!-- #page .hfeed .site -->
+	</footer>
+</div>
 
-<?php wp_footer(); ?>
+<?php
+wp_footer();
+?>
 
 </body>
 </html>

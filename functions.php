@@ -32,21 +32,6 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		require( get_template_directory() . '/inc/template-tags.php' );
 
 		/**
-		 * Custom functions that act independently of the theme templates
-		 */
-		//require( get_template_directory() . '/inc/tweaks.php' );
-
-		/**
-		 * Custom Theme Options
-		 */
-		//require( get_template_directory() . '/inc/theme-options/theme-options.php' );
-
-		/**
-		 * WordPress.com-specific functions and definitions
-		 */
-		//require( get_template_directory() . '/inc/wpcom.php' );
-
-		/**
 		 * Make theme available for translation
 		 * Translations can be filed in the /languages/ directory
 		 * If you're building a theme based on tomjn, use a find and replace
@@ -76,7 +61,7 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		/**
 		 * Add support for the Aside Post Formats
 		 */
-		add_theme_support( 'post-formats', array( 'aside', ) );
+		add_theme_support( 'post-formats', array( 'aside' ) );
 
 		if ( function_exists( 'register_template' ) ) {
 			register_template( 'panelcat', array( 'post_types' => array(), 'taxonomies' => array( 'category' ) ) );
@@ -86,7 +71,7 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 				'Top Sidebar',
 				'panelcat',
 				array(
-					'description' => 'Just a testssss',
+					'description' => 'Just a test',
 					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 					'after_widget' => "</aside>\n",
 					'before_title' => '<h3 class="widgettitle">',
@@ -129,7 +114,7 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 			);
 		}
 	}
-} // tomjnsetup
+}
 add_action( 'after_setup_theme', 'tomjnsetup' );
 
 /**
@@ -174,62 +159,65 @@ function tomjnscripts() {
 add_action( 'wp_enqueue_scripts', 'tomjnscripts' );
 
 function filter_ptags_on_images( $content ) {
-   return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
+	return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
 }
 
 add_filter( 'the_content', 'filter_ptags_on_images' );
 
 
 add_action( 'admin_head-upload.php', 'wpse_59182_bigger_media_thumbs' );
-
 function wpse_59182_bigger_media_thumbs() {
-    ?>
-    <script type="text/javascript">
-        jQuery(document).ready( function($) {
-            $('img').each(function(){
-                $(this).removeAttr('width').css('max-width','100%');
-                $(this).removeAttr('height').css('max-height','100%');
-            });
-            $('.column-icon').css('width', '130px');
-        });
-    </script>
-    <?php
+	?>
+	<script type="text/javascript">
+		jQuery(document).ready( function($) {
+			$('img').each(function(){
+				$(this).removeAttr('width').css('max-width','100%');
+				$(this).removeAttr('height').css('max-height','100%');
+			});
+			$('.column-icon').css('width', '130px');
+		});
+	</script>
+	<?php
 }
 
 
 function tomjn_typekit_code() {
 	?>
 	<script type="text/javascript" src="//use.typekit.net/wtc2mfi.js"></script>
-	<script type="text/javascript">try{Typekit.load({
-        inactive: function() {
-          // load google fonts instead
-          WebFontConfig = {
-		    google: { families: [ 'Gentium+Book+Basic:400,400italic,700,700italic:latin' ] }
-		  };
-		  (function() {
-		    var wf = document.createElement('script');
-		    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-		      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-		    wf.type = 'text/javascript';
-		    wf.async = 'true';
-		    var s = document.getElementsByTagName('script')[0];
-		    s.parentNode.insertBefore(wf, s);
-		  })();
-        }
-      });}catch(e){
+	<script type="text/javascript">
+	try{
+		Typekit.load({
+			inactive: function() {
+				// load google fonts instead
+				WebFontConfig = {
+					google: { families: [ 'Gentium+Book+Basic:400,400italic,700,700italic:latin' ] }
+				};
+				(function() {
+					var wf = document.createElement('script');
+					wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+					  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+					wf.type = 'text/javascript';
+					wf.async = 'true';
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(wf, s);
+				})();
+			}
+		});
+	}catch(e){
 		WebFontConfig = {
-		    google: { families: [ 'Crete+Round:400,400italic:latin' ] }
-		  };
-		  (function() {
-		    var wf = document.createElement('script');
-		    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-		      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-		    wf.type = 'text/javascript';
-		    wf.async = 'true';
-		    var s = document.getElementsByTagName('script')[0];
-		    s.parentNode.insertBefore(wf, s);
-		  })();
-		}</script>
+			google: { families: [ 'Crete+Round:400,400italic:latin' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})();
+	}
+	</script>
 	<?php
 }
 
@@ -237,8 +225,8 @@ add_action( 'wp_head', 'tomjn_typekit_code' );
 
 add_filter( 'mce_external_plugins', 'tomjn_mce_external_plugins' );
 function tomjn_mce_external_plugins( $plugin_array ) {
-	$plugin_array['typekit'] = get_template_directory_uri().'/typekit.tinymce.js';//('/ilc-syntax-buttons/ilcsyntax.js');
-    return $plugin_array;
+	$plugin_array['typekit'] = get_template_directory_uri().'/typekit.tinymce.js';
+	return $plugin_array;
 }
 
 add_editor_style( 'editor-style.less' );
@@ -279,7 +267,7 @@ if ( ! function_exists( 'shortcode_exists' ) ) {
 		global $shortcode_tags;
 
 		if ( ! $shortcode )
-		return false;
+			return false;
 
 		if ( array_key_exists( $shortcode, $shortcode_tags ) )
 			return true;

@@ -8,12 +8,14 @@
 
 get_header();
 ?>
-
 		<div id="primary" class="site-content image-attachment">
 			<div id="content" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
-
+			<?php
+			while ( have_posts() ) {
+				the_post();
+				global $post;
+				?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="entry-header">
 						<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -32,16 +34,15 @@ get_header();
 								);
 							?>
 							<?php edit_post_link( __( 'Edit', '_s' ), '<span class="sep"> | </span> <span class="edit-link">', '</span>' ); ?>
-						</div><!-- .entry-meta -->
+						</div>
 
 						<nav id="image-navigation">
 							<span class="previous-image"><?php previous_image_link( false, __( '&larr; Previous', '_s' ) ); ?></span>
 							<span class="next-image"><?php next_image_link( false, __( 'Next &rarr;', '_s' ) ); ?></span>
-						</nav><!-- #image-navigation -->
-					</header><!-- .entry-header -->
+						</nav>
+					</header>
 
 					<div class="entry-content">
-
 						<div class="entry-attachment">
 							<div class="attachment">
 								<?php
@@ -75,37 +76,49 @@ get_header();
 								?></a>
 							</div><!-- .attachment -->
 
-							<?php if ( ! empty( $post->post_excerpt ) ) : ?>
-							<div class="entry-caption">
-								<?php the_excerpt(); ?>
-							</div>
-							<?php endif; ?>
-						</div><!-- .entry-attachment -->
+							<?php
+							if ( ! empty( $post->post_excerpt ) ) {
+								?>
+								<div class="entry-caption">
+									<?php the_excerpt(); ?>
+								</div>
+								<?php
+							}
+							?>
+						</div>
 
-						<?php the_content(); ?>
-						<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
+						<?php
+						the_content();
+						wp_link_pages( array(
+							'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
+							'after' => '</div>'
+						) );
+						?>
 
-					</div><!-- .entry-content -->
+					</div>
 
 					<footer class="entry-meta">
-						<?php if ( comments_open() && pings_open() ) : // Comments and trackbacks open ?>
-							<?php printf( __( '<a class="comment-link" href="#respond" title="Post a comment">Post a comment</a> or leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', '_s' ), get_trackback_url() ); ?>
-						<?php elseif ( ! comments_open() && pings_open() ) : // Only trackbacks open ?>
-							<?php printf( __( 'Comments are closed, but you can leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', '_s' ), get_trackback_url() ); ?>
-						<?php elseif ( comments_open() && ! pings_open() ) : // Only comments open ?>
-							<?php _e( 'Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', '_s' ); ?>
-						<?php elseif ( ! comments_open() && ! pings_open() ) : // Comments and trackbacks closed ?>
-							<?php _e( 'Both comments and trackbacks are currently closed.', '_s' ); ?>
-						<?php endif; ?>
-						<?php edit_post_link( __( 'Edit', '_s' ), ' <span class="edit-link">', '</span>' ); ?>
-					</footer><!-- .entry-meta -->
-				</article><!-- #post-<?php the_ID(); ?> -->
+						<?php
+						if ( comments_open() && pings_open() ) {
+							printf( __( '<a class="comment-link" href="#respond" title="Post a comment">Post a comment</a> or leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', '_s' ), get_trackback_url() );
+						} elseif ( ! comments_open() && pings_open() ) {
+							printf( __( 'Comments are closed, but you can leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', '_s' ), get_trackback_url() );
+						} elseif ( comments_open() && ! pings_open() ) {
+							_e( 'Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', '_s' );
+						} elseif ( ! comments_open() && ! pings_open() ) {
+							_e( 'Both comments and trackbacks are currently closed.', '_s' );
+						}
+						edit_post_link( __( 'Edit', '_s' ), ' <span class="edit-link">', '</span>' );
+						?>
+					</footer>
+				</article>
 
-				<?php comments_template(); ?>
+				<?php
+				comments_template();
+			}
+			?>
+			</div>
+		</div>
 
-			<?php endwhile; // end of the loop. ?>
-
-			</div><!-- #content -->
-		</div><!-- #primary .site-content -->
-
-<?php get_footer(); ?>
+<?php
+get_footer();

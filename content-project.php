@@ -61,9 +61,12 @@
 	<div class="entry-content">
 		<?php
 		the_content();
-		wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) );
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
+			'after' => '</div>'
+		) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 
 	<footer class="entry-meta">
@@ -89,14 +92,12 @@
 			get_permalink(),
 			the_title_attribute( 'echo=0' )
 		);
-		?>
-
-		<?php edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
 		if ( shortcode_exists( 'followbutton' ) ) {
 			?>
-		<p><?php echo do_shortcode( "[followbutton username='Tarendai' count='true' lang='en' theme='light']" ); ?></p>
+			<p><?php echo do_shortcode( "[followbutton username='Tarendai' count='true' lang='en' theme='light']" ); ?></p>
 			<?php
 		}
 		?>
-	</footer><!-- .entry-meta -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</footer>
+</article>

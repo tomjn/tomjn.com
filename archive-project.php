@@ -41,9 +41,6 @@ if ( have_posts() ) {
 
 					<div class="taxonomy-listing grid">
 	<?php
-	//rewind_posts();
-
-	//	_s_content_nav( 'nav-above' );
 
 	/* Start the Loop */
 	while ( have_posts() ) {
@@ -71,9 +68,8 @@ if ( have_posts() ) {
 ?>
 					</div>
 				</div>
-			</div><!-- #content -->
-		</section><!-- #primary .site-content -->
-
+			</div>
+		</section>
 <?php
 get_sidebar();
 get_footer();

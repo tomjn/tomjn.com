@@ -42,9 +42,6 @@ if ( have_posts() ) {
 		$title = $taxobj->labels->singular_name.': '.$current_term->name;
 	}
 	echo '<h1>'.$title.'</h1>';
-	//$tag_description = tag_description();
-	//	if ( ! empty( $tag_description ) )
-	//		echo apply_filters( 'tax_archive_meta', '<div class="taxonomy-description">' . $tax_description . '</div>' );
 	?>
 				</header>
 				<div class="taxonomy-list grid">
@@ -57,7 +54,7 @@ if ( have_posts() ) {
 		echo $tname;
 	}
 	?>
-					</h1>
+						</h1>
 	<?php
 	if ( is_date() ){
 		echo '<ul class="taxonomy-term-choices-list ">';
@@ -85,9 +82,6 @@ if ( have_posts() ) {
 					</div>
 					<div class="taxonomy-listing  grid__item three-quarters palm-one-whole lap-two-thirds desk-three-quarters">
 	<?php
-	//rewind_posts();
-
-//	_s_content_nav( 'nav-above' );
 
 	/* Start the Loop */
 	while ( have_posts() ) {
@@ -107,8 +101,8 @@ if ( have_posts() ) {
 ?>
 					</div>
 				</div>
-			</div><!-- #content -->
-		</section><!-- #primary .site-content -->
+			</div>
+		</section>
 
 <?php
 get_sidebar();
