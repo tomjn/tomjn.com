@@ -29,7 +29,10 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		/**
 		 * Custom template tags for this theme.
 		 */
-		require( get_template_directory() . '/inc/template-tags.php' );
+		require_once( get_template_directory() . '/inc/template-tags.php' );
+
+		remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
 		/**
 		 * Make theme available for translation
@@ -280,7 +283,7 @@ if ( function_exists( 'add_taxonomy_templating_support' ) ) {
 	add_taxonomy_templating_support( 'category' );
 }
 
-function title_format( $content ) {
+function title_format() {
 	return '%s';
 }
 add_filter( 'private_title_format', 'title_format' );
