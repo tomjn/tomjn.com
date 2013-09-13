@@ -24,6 +24,6 @@
 		<header id="masthead" class="site-header" role="banner">
 			<div class="header-contents">
 			</div>
-		</header><!-- #masthead .site-header -->
+		</header>
 
 		<div id="main">

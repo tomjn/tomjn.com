@@ -74,7 +74,7 @@ get_header();
 									$attachment_size = apply_filters( '_s_attachment_size', array( 1200, 1200 ) ); // Filterable image size.
 									echo wp_get_attachment_image( $post->ID, $attachment_size );
 								?></a>
-							</div><!-- .attachment -->
+							</div>
 
 							<?php
 							if ( ! empty( $post->post_excerpt ) ) {

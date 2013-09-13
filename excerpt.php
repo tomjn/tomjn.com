@@ -7,13 +7,20 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', '_s' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-
-		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php _s_posted_on(); ?>
-		</div>
-		<?php endif; ?>
+		<h1 class="entry-title">
+			<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', '_s' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+				<?php the_title(); ?>
+			</a>
+		</h1>
+		<?php
+		if ( 'post' == get_post_type() ) {
+			?>
+			<div class="entry-meta">
+				<?php _s_posted_on(); ?>
+			</div>
+			<?php
+		}
+		?>
 	</header>
 
 <?php
@@ -50,10 +57,10 @@ foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 
 		if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) {
 			?>
-		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', '_s' ), __( '1 Comment', '_s' ), __( '% Comments', '_s' ) ); ?></span>
+			<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', '_s' ), __( '1 Comment', '_s' ), __( '% Comments', '_s' ) ); ?></span>
 			<?php
 		}
 		edit_post_link( __( 'Edit', '_s' ), ' <span class="edit-link">', '</span>' );
 		?>
-	</footer><!-- #entry-meta -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</footer>
+</article>

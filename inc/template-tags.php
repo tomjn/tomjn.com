@@ -8,50 +8,50 @@
  * @since _s 1.0
  */
 
-if ( ! function_exists( '_s_content_nav' ) ):
-/**
- * Display navigation to next/previous pages when applicable
- *
- * @since _s 1.0
- */
-function _s_content_nav( $nav_id ) {
-	global $wp_query;
+if ( ! function_exists( '_s_content_nav' ) ) {
+	/**
+	 * Display navigation to next/previous pages when applicable
+	 *
+	 * @since _s 1.0
+	 */
+	function _s_content_nav( $nav_id ) {
+		global $wp_query;
 
-	$nav_class = 'site-navigation paging-navigation';
-	if ( is_single() ) 
-		$nav_class = 'site-navigation post-navigation';
+		$nav_class = 'site-navigation paging-navigation';
+		if ( is_single() )
+			$nav_class = 'site-navigation post-navigation';
 
-	?>
-	<nav role="navigation" id="<?php echo $nav_id; ?>" class="<?php echo $nav_class; ?>">
-		<h1 class="assistive-text"><?php _e( 'Post navigation', '_s' ); ?></h1>
-		<?php
-	if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
-		$post_type = get_post_type();
 		?>
-		<div><a href="<?php echo get_post_type_archive_link( $post_type );?>">&larr; View All</a></div>
+		<nav role="navigation" id="<?php echo $nav_id; ?>" class="<?php echo $nav_class; ?>">
+			<h1 class="assistive-text"><?php _e( 'Post navigation', '_s' ); ?></h1>
+			<?php
+		if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
+			$post_type = get_post_type();
+			?>
+			<div><a href="<?php echo get_post_type_archive_link( $post_type );?>">&larr; View All</a></div>
+			<?php
+		}
+		if ( is_single() ) : // navigation links for single posts
+
+			previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', '_s' ) . '</span> %title' );
+			next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', '_s' ) . '</span>' );
+
+		elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
+
+			<?php if ( get_next_posts_link() ) : ?>
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_s' ) ); ?></div>
+			<?php endif; ?>
+
+			<?php if ( get_previous_posts_link() ) : ?>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
+			<?php endif; ?>
+
+		<?php endif; ?>
+
+		</nav>
 		<?php
 	}
-	if ( is_single() ) : // navigation links for single posts
-
-		previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', '_s' ) . '</span> %title' );
-		next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', '_s' ) . '</span>' );
-
-	elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
-
-		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_s' ) ); ?></div>
-		<?php endif; ?>
-
-		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
-		<?php endif; ?>
-
-	<?php endif; ?>
-
-	</nav><!-- #<?php echo $nav_id; ?> -->
-	<?php
 }
-endif; // _s_content_nav
 
 
 
@@ -65,7 +65,7 @@ function _s_content_nav_projects( $nav_id ) {
 	global $wp_query;
 
 	$nav_class = 'site-navigation paging-navigation';
-	if ( is_single() ) 
+	if ( is_single() )
 		$nav_class = 'site-navigation post-navigation';
 
 	?>
@@ -90,7 +90,7 @@ function _s_content_nav_projects( $nav_id ) {
 
 	<?php endif; ?>
 
-	</nav><!-- #<?php echo $nav_id; ?> -->
+	</nav>
 	<?php
 }
 endif; // _s_content_nav
@@ -121,7 +121,7 @@ function _s_comment( $comment, $args, $depth ) {
 				<div class="comment-author vcard">
 					<?php echo get_avatar( $comment, 40 ); ?>
 					<?php printf( __( '%s <span class="says">says:</span>', '_s' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
-				</div><!-- .comment-author .vcard -->
+				</div>
 				<?php if ( $comment->comment_approved == '0' ) : ?>
 					<em><?php _e( 'Your comment is awaiting moderation.', '_s' ); ?></em>
 					<br />
@@ -135,15 +135,15 @@ function _s_comment( $comment, $args, $depth ) {
 					</time></a>
 					<?php edit_comment_link( __( '(Edit)', '_s' ), ' ' );
 					?>
-				</div><!-- .comment-meta .commentmetadata -->
+				</div>
 			</footer>
 
 			<div class="comment-content"><?php comment_text(); ?></div>
 
 			<div class="reply">
 				<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-			</div><!-- .reply -->
-		</article><!-- #comment-## -->
+			</div>
+		</article>
 
 	<?php
 			break;

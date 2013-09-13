@@ -10,7 +10,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
-	</header><!-- .entry-header -->
+	</header>
 
 	<div id="twin-columns" class="grid">
 		<div class="grid__item  one-whole">
@@ -31,6 +31,7 @@
 			'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
 			'after' => '</div>'
 		) );
-		edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' ); ?>
+		edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
+		?>
 	</div>
 </article>
