@@ -6,6 +6,7 @@
  * @since tomjn 1.0
  */
 
+require_once( 'inc/attr.php' );
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
@@ -25,6 +26,8 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 	 * @since tomjn 1.0
 	 */
 	function tomjnsetup() {
+
+		$attr = editor_attr::instance();
 
 		/**
 		 * Custom template tags for this theme.

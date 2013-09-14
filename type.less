@@ -33,7 +33,7 @@ a:hover, a:active {
 	color:red;
 }
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
 }
 
 p:last-child {
@@ -78,15 +78,15 @@ h4 {
 	h1 {
 		font-size:32px;
 	}
-	
+
 	h2 {
 		font-size:27px;
 	}
-	
+
 	h3 {
 		font-size:20px;
 	}
-	
+
 	h4 {
 		font-size:16px;
 		text-transform: uppercase;
@@ -171,4 +171,47 @@ pre {
 
 #masthead .main-small-navigation .menu ul {
 	list-style: none;
+}
+
+.pullquote {
+	float: right;
+	max-width: 400px;
+	clear: right;
+	font-size: 36px;
+	line-height: 1.2em;
+	background: none;
+	border: none;
+	padding: 0;
+	text-align: right;
+	margin-right: 0;
+}
+
+
+blockquote .attribute {
+	font-size:50%;
+	line-height:1.1em;
+	line-height: 1.1em;
+	color: #a0a0a0;
+}
+
+@media only screen and ( max-width: 700px ) {
+	.pullquote {
+		float: none;
+		max-width: 100%;
+		clear: both;
+		font-size: 24px;
+		line-height: 1.2em;
+		background: none;
+		border: none;
+		padding: 0 1em;
+		text-align: left;
+		margin-left:0;
+		margin-right: 0;
+	}
+
+}
+@media only screen and ( max-width: 700px ) {
+	.pullquote {
+		padding: 0 0.25em;
+	}
 }
