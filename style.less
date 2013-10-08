@@ -1,14 +1,13 @@
-@backgroundcolour: #fcfcfc;
-@headerBGcolour = #fcfcfc;
+@backgroundcolour = #ffffff;
+@headerBGcolour = #ffffff;
 
-@hyperlink_active_colour = red;
-@block_background_colour = #F8F8F8;
+@hyperlink_active_colour = #ff0000;
+@block_background_colour = #FAFAFA;
 
 @desaturated_background = desaturate( @backgroundcolour,40%);
 @darkened = darken(@desaturated_background, 2%);
 @lightened = lighten(@desaturated_background,2%);
 @block_background_colour = contrast( @backgroundcolour, @darkened, @lightened );
-
 
 /* pulled from style.css */
 
@@ -34,13 +33,13 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 }
 html {
-	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
-	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
-	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
-	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+	font-size: 62.5%;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 }
 body {
-	background: #fff;
+	background: #ffffff;
 }
 article,
 aside,
@@ -306,19 +305,6 @@ textarea {
 	padding-left: 3px;
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
-}
-
-/* Links */
-a {
-	color: royalblue;
-}
-a:visited {
-	color: purple;
-}
-a:hover,
-a:focus,
-a:active {
-	color: midnightblue;
 }
 
 /* Alignment */

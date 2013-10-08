@@ -150,10 +150,8 @@ add_action( 'widgets_init', 'tomjnwidgets_init' );
  * Enqueue scripts and styles
  */
 function tomjnscripts() {
+	wp_enqueue_style( 'lessstyle', get_template_directory_uri().'/style.less',array(), '7' );
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '3' );
-	wp_enqueue_style( 'lessstyle', get_template_directory_uri().'/style.less',array(), '6' );
-
-	//wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -183,14 +181,14 @@ function wpse_59182_bigger_media_thumbs() {
 	<?php
 }
 
-
-function tomjn_typekit_code() {
-	?>
-	<script type="text/javascript" src="//use.typekit.net/wtc2mfi.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	<?php
+if ( !function_exists( 'tomjn_typekit_code' ) ) {
+	function tomjn_typekit_code() {
+		?>
+		<script type="text/javascript" src="//use.typekit.net/wtc2mfi.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<?php
+	}
 }
-
 add_action( 'wp_head', 'tomjn_typekit_code' );
 
 add_filter( 'mce_external_plugins', 'tomjn_mce_external_plugins' );
@@ -201,6 +199,15 @@ function tomjn_mce_external_plugins( $plugin_array ) {
 
 add_editor_style( 'editor-style.less' );
 
+// pass variables into all .less files
+add_filter( 'less_vars', 'tomjn_less_vars', 10, 2 );
+if ( !function_exists( 'tomjn_less_vars' ) ) {
+	function tomjn_less_vars( $vars, $handle ) {
+		// $handle is a reference to the handle used with wp_enqueue_style()
+		$vars[ 'typekitfontstack' ] = '"quatro-slab", "Crete Round", "Palatino Linotype", "Book Antiqua", Palatino, serif';
+		return $vars;
+	}
+}
 
 function add_favicon(){
 	?><link rel="shortcut icon" type="image/png" href="<?php echo home_url(); ?>/favicon.png" /><?php
