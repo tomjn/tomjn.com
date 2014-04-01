@@ -160,9 +160,12 @@ function tomjnscripts() {
 add_action( 'wp_enqueue_scripts', 'tomjnscripts' );
 
 function filter_ptags_on_images( $content ) {
-	return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
+	$content = preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
+	// and iframe tags too
+	$content = preg_replace( '/<p>\s*(<a .*>)?\s*(<iframe .*><\/iframe>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
+	return $content;
+	
 }
-
 add_filter( 'the_content', 'filter_ptags_on_images' );
 
 
