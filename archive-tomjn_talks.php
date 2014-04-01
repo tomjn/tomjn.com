@@ -35,7 +35,7 @@ if ( have_posts() ) {
 				<header class="page-header">
 
 	<?php
-	echo '<h1>Projects &amp; Work</h1>';
+	echo '<h1>Talks</h1>';
 	?>
 				</header>
 
