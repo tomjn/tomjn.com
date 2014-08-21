@@ -44,6 +44,15 @@
 					</span><br>
 					<?php
 				}
+				$tech_term_list = get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', ' ', '' );
+				if ( !empty( $tech_term_list ) ) {
+					$the_tax = get_taxonomy( 'tomjn_talk_tag' );
+					?>
+					<span class="<?php echo $tax_name; ?>-links tax-tag-links">
+						<?php echo $tech_term_list; ?>
+					</span><br>
+					<?php
+				}
 				?>
 			</header>
 		</div>
