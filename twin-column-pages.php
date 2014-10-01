@@ -19,7 +19,9 @@ get_header();
 				while ( have_posts() ) {
 					the_post();
 					get_template_part( 'content', 'twin-column-pages' );
-					comments_template( '', true );
+					if ( has_comments() || comments_open() ) {
+						comments_template( '', true );
+					}
 				}
 				?>
 			</div>
