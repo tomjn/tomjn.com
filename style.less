@@ -610,23 +610,43 @@ body {
 .admin-bar #masthead{
 	top:28px;
 }
-.entry-content, #social .social-comment-body {
-	.clearfix;
-	p{
-		max-width:640px;
+.entry-content, #social {
+	.social-actions a,
+	.social-comment-meta a,
+	.social-actions a:hover,
+	.social-comment-meta a:hover {
+		text-decoration: none;
 	}
-	img {
-		margin:1.5em;
+	.social-actions,
+	.social-actions a,
+	.social-comment-meta,
+	.social-comment-meta a,
+	.social-last-reply-when {
+		font-family: inherit;
 	}
-	img:first-child {
-		margin-top: 0;
-	}
-	img.wp-smiley {
-		margin:0;
-	}
-	.wp-caption {
+	.social-comment-body {
+		.clearfix;
+		p{
+			max-width:640px;
+		}
 		img {
-			margin: 1.2% auto 0;
+			margin:1.5em;
+		}
+		img:first-child {
+			margin-top: 0;
+		}
+		img.wp-smiley {
+			margin:0;
+		}
+		.wp-caption {
+			img {
+				margin: 1.2% auto 0;
+			}
+		}
+	}
+	.social-nav {
+		li a {
+			padding: 0.5em 12px 4px 12px;
 		}
 	}
 }
