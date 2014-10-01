@@ -13,9 +13,15 @@
 	</header>
 
 	<div id="twin-columns" class="grid">
-		<div class="grid__item  one-whole">
-			<?php dynamic_sidebar('Top Sidebar'); ?>
-		</div>
+		<?php
+		if ( is_active_sidebar( 'Top Sidebar' ) ) {
+			?>
+			<div class="grid__item  one-whole">
+				<?php dynamic_sidebar('Top Sidebar'); ?>
+			</div>
+			<?php
+		}
+		?>
 		<div class="grid__item  one-whole palm-one-whole lap-one-half  desk-one-half">
 			<?php dynamic_sidebar('Left Sidebar'); ?>
 		</div>
