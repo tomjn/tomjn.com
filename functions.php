@@ -269,3 +269,7 @@ add_filter( 'protected_title_format', 'title_format' );
 
 add_image_size( 'project-main', 512, 512, true );
 
+add_action( 'wp_enqueue_scripts', 'jk_load_dashicons' );
+function jk_load_dashicons() {
+	wp_enqueue_style( 'dashicons' );
+}
