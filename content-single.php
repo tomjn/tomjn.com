@@ -1,9 +1,3 @@
-<?php
-/**
- * @package _s
- * @since _s 1.0
- */
-?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
@@ -28,13 +22,13 @@
 		<?php
 		$post_type = get_post_type();
 		foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
-		    $term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
+			$term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
 			if ( !empty( $term_list ) ) {
 				$the_tax = get_taxonomy( $tax_name );
 				?>
 				<span class="<?php echo $tax_name; ?>-links tax-tag-links">
-					<?php printf( __( '%1$s: %2$s', '_s' ), $the_tax->labels->name, $term_list ); ?>
-				</span><br>
+					<?php echo $term_list; ?>
+				</span>
 				<?php
 			}
 		}
@@ -47,7 +41,7 @@
 			the_title_attribute( 'echo=0' )
 		);
 
-		edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( __( 'Edit', '_s' ), ' <span class="edit-link">', '</span>' );
 		if ( shortcode_exists( 'followbutton' ) ) {
 			?>
 		<p><?php echo do_shortcode("[followbutton username='Tarendai' count='true' lang='en' theme='light']"); ?></p>
