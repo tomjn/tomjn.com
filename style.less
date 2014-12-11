@@ -395,6 +395,19 @@ textarea {
 }
 .entry-meta {
 	clear: both;
+	.post_tag-links a:before, .category-links a:before {
+		content: "\f318";
+		font-family: "dashicons";
+		vertical-align: bottom;
+		margin-right: 5px;
+		color:gray;
+		:hover {
+			color: @hyperlink_active_colour;
+		}
+	}
+	.post_tag-links a:before {
+		content: "\f323";
+	}
 }
 .byline {
 	display: none;
