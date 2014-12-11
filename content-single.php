@@ -36,7 +36,7 @@
 		$meta_text = __( 'Bookmark the <a href="%1$s" title="Permalink to %2$s" rel="bookmark">permalink</a>.', '_s' );
 
 		printf(
-			$meta_text,
+			'<p>'.$meta_text.'</p>',
 			get_permalink(),
 			the_title_attribute( 'echo=0' )
 		);
