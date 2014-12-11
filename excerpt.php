@@ -1,10 +1,3 @@
-<?php
-/**
- * @package _s
- * @since _s 1.0
- */
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title">
@@ -48,8 +41,8 @@ foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 	if ( !empty( $term_list ) ) {
 		$the_tax = get_taxonomy( $tax_name );
 		?>
-		<span class="<?php echo $tax_name; ?>-links">
-			<?php printf( __( '%1$s: %2$s<br>', '_s' ), $the_tax->labels->name, $term_list ); ?>
+		<span class="<?php echo $tax_name; ?>-links tax-tag-links">
+			<?php echo $term_list; ?>
 		</span>
 		<?php
 	}
