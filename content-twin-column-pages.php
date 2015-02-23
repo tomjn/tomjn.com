@@ -21,14 +21,15 @@
 
 	<div id="twin-columns" class="grid">
 		<?php
-		if ( is_active_sidebar( 'Top Sidebar' ) ) {
+		if ( is_active_sidebar( 'Top Sidebar' ) || is_active_template_sidebar('Top Sidebar') ) {
 			?>
 			<div class="grid__item  one-whole">
 				<?php dynamic_sidebar('Top Sidebar'); ?>
 			</div>
 			<?php
 		}
-		if ( is_active_sidebar( 'Left Sidebar' ) || is_active_sidebar( 'Right Sidebar' ) ) {
+		if (	is_active_sidebar( 'Left Sidebar' ) || is_active_sidebar( 'Right Sidebar' ) ||
+			is_active_template_sidebar( 'Left Sidebar' ) || is_active_template_sidebar( 'Right Sidebar' ) ) {
 			?>
 			<div class="grid__item  one-whole palm-one-whole lap-one-half  desk-one-half">
 				<?php dynamic_sidebar('Left Sidebar'); ?>
