@@ -101,12 +101,6 @@
 			get_permalink(),
 			the_title_attribute( 'echo=0' )
 		);
-		edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
-		if ( shortcode_exists( 'followbutton' ) ) {
-			?>
-			<p><?php echo do_shortcode( "[followbutton username='Tarendai' count='true' lang='en' theme='light']" ); ?></p>
-			<?php
-		}
 		?>
 	</footer>
 </article>
