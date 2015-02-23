@@ -8,9 +8,16 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php
+	$title = the_title( '','',false);
+	if ( !empty( $title ) ) {
+		?>
 	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h1 class="entry-title"><?php echo esc_html( $title ); ?></h1>
 	</header>
+		<?php
+	}
+	?>
 
 	<div id="twin-columns" class="grid">
 		<?php
@@ -21,13 +28,17 @@
 			</div>
 			<?php
 		}
+		if ( is_active_sidebar( 'Left Sidebar' ) || is_active_sidebar( 'Right Sidebar' ) ) {
+			?>
+			<div class="grid__item  one-whole palm-one-whole lap-one-half  desk-one-half">
+				<?php dynamic_sidebar('Left Sidebar'); ?>
+			</div>
+			<div class="grid__item  one-whole palm-one-whole lap-one-half  desk-one-half">
+				<?php dynamic_sidebar('Right Sidebar'); ?>
+			</div>
+			<?php
+		}
 		?>
-		<div class="grid__item  one-whole palm-one-whole lap-one-half  desk-one-half">
-			<?php dynamic_sidebar('Left Sidebar'); ?>
-		</div>
-		<div class="grid__item  one-whole palm-one-whole lap-one-half  desk-one-half">
-			<?php dynamic_sidebar('Right Sidebar'); ?>
-		</div>
 	</div>
 
 	<div class="entry-content">
@@ -37,7 +48,6 @@
 			'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
 			'after' => '</div>'
 		) );
-		edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
 		?>
 	</div>
 </article>
