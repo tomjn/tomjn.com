@@ -273,3 +273,12 @@ add_action( 'wp_enqueue_scripts', 'jk_load_dashicons' );
 function jk_load_dashicons() {
 	wp_enqueue_style( 'dashicons' );
 }
+
+
+add_filter( 'wp_title', 'tomjn_hack_wp_title_for_home' );
+function tomjn_hack_wp_title_for_home( $title ) {
+	if( empty( $title ) && ( is_home() || is_front_page() ) ) {
+		return  get_bloginfo( 'name' );
+	}
+	return $title;
+}
