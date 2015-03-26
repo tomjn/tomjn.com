@@ -26,8 +26,8 @@
 			if ( !empty( $term_list ) ) {
 				$the_tax = get_taxonomy( $tax_name );
 				?>
-				<span class="<?php echo $tax_name; ?>-links tax-tag-links">
-					<?php echo $term_list; ?>
+				<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
+					<?php echo wp_kses_post( $term_list ); ?>
 				</span>
 				<?php
 			}
@@ -37,8 +37,8 @@
 
 		printf(
 			'<p>'.$meta_text.'</p>',
-			get_permalink(),
-			the_title_attribute( 'echo=0' )
+			esc_url( get_permalink() ),
+			esc_attr( the_title_attribute( 'echo=0' ) )
 		);
 		?>
 	</footer>
