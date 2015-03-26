@@ -23,18 +23,11 @@ if ( !empty( $taxobj ) ) {
 			if ( have_posts() ) {
 				?>
 				<header class="page-header">
-
-				<?php
-				echo '<h1>'.$current_term->name.'</h1>';
-				?>
+					<h1><?php echo esc_html( $current_term->name ) ?></h1>
 				</header>
 				<div class="taxonomy-list grid">
 					<div class="taxonomy-term-choices grid__item one-quarter palm-one-whole lap-one-third desk-one-quarter">
-						<h1 class="page-title">
-							<?php
-							echo $tname;
-							?>
-						</h1>
+						<h1 class="page-title"><?php echo esc_html( $tname ); ?></h1>
 						<?php
 						$terms = get_terms( array( $taxonomy ) );
 						if ( !empty( $terms ) ) {
@@ -44,7 +37,7 @@ if ( !empty( $taxobj ) ) {
 								if ( $term->slug == $current_term->slug ) {
 									$class = 'active';
 								}
-							    echo '<li class="'.$class.'"><a href="'.get_term_link( $term->slug, $taxonomy ).'">'.$term->name.'</a></li>';
+							    echo '<li class="'.esc_attr( $class ).'"><a href="'.esc_url( get_term_link( $term->slug, $taxonomy ) ).'">'.esc_html( $term->name ).'</a></li>';
 							}
 							echo '</ul>';
 						}
