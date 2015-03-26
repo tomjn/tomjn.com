@@ -1,6 +1,7 @@
 @backgroundcolour = #ffffff;
 @headerBGcolour = #ffffff;
 
+
 @hyperlink_active_colour = #ff0000;
 @block_background_colour = #FAFAFA;
 
@@ -560,6 +561,9 @@ object {
 		font-size: 72px;
 		margin-top:0;
 	}
+	.home #masthead .site-title {
+		font-size:72px;
+	}
 	.single {
 		.entry-title {
 			line-height: 1em;
@@ -706,10 +710,12 @@ body {
 
 	hgroup,
 	nav {
-		margin-right:24px;
-		float: left;
 		width:auto;
 		clear:none;
+		.animated();
+		.fadeInDown();
+		margin-right:24px;
+		float:left;
 		.menu {
 			a {
 				padding-right: 1em;
@@ -720,8 +726,6 @@ body {
 				}
 			}
 		}
-		.animated();
-		.fadeInDown();
 	}
 	.main-small-navigation {
 		margin-right:0;
@@ -755,6 +759,16 @@ body {
 	.menu-top-menu-container,
 	#menu-top-menu {
 		float: left;
+	}
+}
+.home #masthead {
+	h1 {
+		font-size:22px;
+	}
+	hgroup {
+		float:none;
+		margin-top:1em;
+		margin-bottom:0.5em;
 	}
 }
 
