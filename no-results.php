@@ -16,9 +16,13 @@
 
 	<div class="entry-content">
 		<?php
-		if ( is_home() ) {
+		if ( is_home() && is_user_logged_in() ) {
 			?>
-			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', '_s' ), admin_url( 'post-new.php' ) ); ?></p>
+			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', '_s' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+			<?php
+		} else if ( is_home() ) {
+			?>
+			<p><?php echo __( 'There are no posts here yet! Come back later', '_s' ); ?></p>
 			<?php
 		} elseif ( is_search() ) {
 			?>
