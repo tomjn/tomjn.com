@@ -41,7 +41,7 @@ if ( have_posts() ) {
 	} else {
 		$title = $taxobj->labels->singular_name.': '.$current_term->name;
 	}
-	echo '<h1>'.$title.'</h1>';
+	echo '<h1>'.esc_html( $title ).'</h1>';
 	?>
 				</header>
 				<div class="taxonomy-list grid">
@@ -71,7 +71,7 @@ if ( have_posts() ) {
 	if ( is_date() ) {
 		echo 'Archives';
 	} else {
-		echo $tname;
+		echo esc_html( $tname );
 	}
 	?>
 						</h1>
@@ -89,7 +89,7 @@ if ( have_posts() ) {
 				if ( $term->slug == $current_term->slug ) {
 					$class = 'active';
 				}
-			    echo '<li class="'.$class.'"><a href="'.get_term_link( $term->slug, $taxonomy ).'">'.$term->name.'</a></li>';
+			    echo '<li class="'.esc_attr( $class ).'"><a href="'.esc_url( get_term_link( $term->slug, $taxonomy ) ).'">'.esc_html($term->name).'</a></li>';
 			}
 			echo '</ul>';
 		}
