@@ -18,7 +18,6 @@
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
 			'after' => '</div>'
-		) );
-		edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' ); ?>
+		) ); ?>
 	</div>
 </article>
