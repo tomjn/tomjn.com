@@ -29,9 +29,13 @@
 				if ( !empty( $links ) ) {
 					echo '<ul class="project_links">';
 					foreach ( $links as $link ) {
-						echo '<li class="project_link">';
-						echo '<a href="'.$link['url'].'">'.$link['text'].'</a>';
-						echo '</li>';
+						?>
+						<li class="project_link">
+							<a href="<?php echo esc_url( $link['url']); ?>">
+								<?php echo wp_kses_post( $link['text']); ?>
+							</a>
+						</li>
+						<?php
 					}
 					echo '</ul>';
 				}
@@ -39,8 +43,8 @@
 				if ( !empty( $term_list ) ) {
 					$the_tax = get_taxonomy( 'technology' );
 					?>
-					<span class="<?php echo $tax_name; ?>-links tax-tag-links">
-						<?php echo $term_list; ?>
+					<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
+						<?php echo wp_kses_post( $term_list ); ?>
 					</span><br>
 					<?php
 				}
@@ -48,8 +52,8 @@
 				if ( !empty( $tech_term_list ) ) {
 					$the_tax = get_taxonomy( 'tomjn_talk_tag' );
 					?>
-					<span class="<?php echo $tax_name; ?>-links tax-tag-links">
-						<?php echo $tech_term_list; ?>
+					<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
+						<?php echo wp_kses_post( $tech_term_list ); ?>
 					</span><br>
 					<?php
 				}
@@ -87,8 +91,8 @@
 			if ( !empty( $term_list ) ) {
 				$the_tax = get_taxonomy( $tax_name );
 				?>
-				<span class="<?php echo $tax_name; ?>-links tax-tag-links">
-					<?php printf( __( '%1$s: %2$s', '_s' ), $the_tax->labels->name, $term_list ); ?>
+				<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
+					<?php printf( __( '%1$s: %2$s', '_s' ), esc_html( $the_tax->labels->name ) , wp_kses_post( $term_list )  ); ?>
 				</span><br>
 				<?php
 			}
@@ -98,7 +102,7 @@
 
 		printf(
 			$meta_text,
-			get_permalink(),
+			esc_url( get_permalink() ),
 			the_title_attribute( 'echo=0' )
 		);
 		?>
