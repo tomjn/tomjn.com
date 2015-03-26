@@ -16,7 +16,9 @@ get_header();
 			if ( have_posts() ) : ?>
 
 				<header class="page-header">
-					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', '_s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+					<h1 class="page-title">
+						<?php printf( __( 'Search Results for: %s', '_s' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?>
+					</h1> 
 				</header>
 				<?php
 				_s_content_nav( 'nav-above' );
@@ -24,11 +26,7 @@ get_header();
 
 				<div class="taxonomy-list grid">
 					<div class="taxonomy-term-choices grid__item one-quarter palm-one-whole lap-one-third desk-one-quarter">
-						<h1 class="page-title">
-	<?php
-	echo 'Search:';
-	?>
-					</h1>
+						<h1 class="page-title">Search:</h1>
 	<?php
 	get_template_part( 'searchform' );
 
