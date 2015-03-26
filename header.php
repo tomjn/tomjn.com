@@ -22,12 +22,12 @@
 		<header id="masthead" class="site-header" role="banner">
 			<div class="header-contents">
 				<hgroup>
-					<h1 class="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name', 'display' ) ); ?></a></h1>
 					<?php
 					$description = get_bloginfo( 'description' );
 					if ( !empty( $description) ) {
 						?>
-						<h2 class="site-description"><?php echo $description; ?></h2>
+						<h2 class="site-description"><?php echo esc_html( $description ); ?></h2>
 						<?php
 					}
 					?>
