@@ -33,21 +33,16 @@ if ( !empty( $taxobj ) ) {
 if ( have_posts() ) {
 	?>
 				<header class="page-header">
-
-	<?php
-	echo '<h1>Projects &amp; Work</h1>';
-	?>
+					<h1>Projects &amp; Work</h1>
 				</header>
-
 					<div class="taxonomy-listing grid">
 	<?php
 
 	/* Start the Loop */
 	while ( have_posts() ) {
 		the_post();
-
 		?>
-		<a href="<?php echo get_permalink(); ?>" class="project_listing_item grid__item one-whole palm-one-whole lap-one-half desk-one-half">
+		<a href="<?php echo esc_url( get_permalink() ); ?>" class="project_listing_item grid__item one-whole palm-one-whole lap-one-half desk-one-half">
 			<div class="grid">
 				<div class="grid__item one-third palm-one-whole lap-one-whole desk-one-third">
 					<?php the_post_thumbnail( 'project-main' ); ?>
