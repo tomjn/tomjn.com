@@ -752,17 +752,23 @@ body {
 		float: left;
 	}
 }
+
 .home #masthead {
 	h1 {
-		font-size:22px;
+		font-size:36px;
 	}
 	hgroup {
 		float:none;
 		margin-top:1em;
 		margin-bottom:0.5em;
 	}
+	.header-contents {
+		margin-bottom: 0;
+		@media only screen and ( min-width: 500px ) {
+			margin-top:2em;
+		}
+	}
 }
-
 #twin-columns,#secondary {
 	.clearfix;
 	aside {
