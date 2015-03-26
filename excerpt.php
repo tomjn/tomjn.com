@@ -1,7 +1,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title">
-			<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', '_s' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+			<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', '_s' ), esc_attr( the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
 				<?php the_title(); ?>
 			</a>
 		</h1>
@@ -42,7 +42,7 @@ foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 		$the_tax = get_taxonomy( $tax_name );
 		?>
 		<span class="<?php echo $tax_name; ?>-links tax-tag-links">
-			<?php echo $term_list; ?>
+			<?php echo wp_kses_post( $term_list ); ?>
 		</span>
 		<?php
 	}
