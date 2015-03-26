@@ -22,13 +22,13 @@ if ( ! function_exists( '_s_content_nav' ) ) {
 			$nav_class = 'site-navigation post-navigation';
 
 		?>
-		<nav role="navigation" id="<?php echo $nav_id; ?>" class="<?php echo $nav_class; ?>">
+		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo esc_attr( $nav_class ); ?>">
 			<h1 class="assistive-text"><?php _e( 'Post navigation', '_s' ); ?></h1>
 			<?php
 		if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
 			$post_type = get_post_type();
 			?>
-			<div><a href="<?php echo get_post_type_archive_link( $post_type );?>">&larr; View All</a></div>
+			<div><a href="<?php echo esc_url( get_post_type_archive_link( $post_type ) );?>">&larr; View All</a></div>
 			<?php
 		}
 		if ( is_single() ) : // navigation links for single posts
@@ -69,13 +69,13 @@ function _s_content_nav_projects( $nav_id ) {
 		$nav_class = 'site-navigation post-navigation';
 
 	?>
-	<nav role="navigation" id="<?php echo $nav_id; ?>" class="<?php echo $nav_class; ?>">
+	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo esc_attr( $nav_class ); ?>">
 		<h1 class="assistive-text"><?php _e( 'Post navigation', '_s' ); ?></h1>
 		<?php
 	if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
 		$post_type = get_post_type();
 		?>
-		<div><a href="<?php echo get_post_type_archive_link( $post_type );?>">&larr; View All</a></div>
+		<div><a href="<?php echo esc_url( get_post_type_archive_link( $post_type ) );?>">&larr; View All</a></div>
 		<?php
 	}
 	if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
@@ -120,7 +120,7 @@ function _s_comment( $comment, $args, $depth ) {
 			<footer>
 				<div class="comment-author vcard">
 					<?php echo get_avatar( $comment, 40 ); ?>
-					<?php printf( __( '%s <span class="says">says:</span>', '_s' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+					<?php printf( __( '%s <span class="says">says:</span>', '_s' ), sprintf( '<cite class="fn">%s</cite>', esc_url( get_comment_author_link() ) ) ); ?>
 				</div>
 				<?php if ( $comment->comment_approved == '0' ) : ?>
 					<em><?php _e( 'Your comment is awaiting moderation.', '_s' ); ?></em>
@@ -131,7 +131,7 @@ function _s_comment( $comment, $args, $depth ) {
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
 					<?php
 						/* translators: 1: date, 2: time */
-						printf( __( '%1$s at %2$s', '_s' ), get_comment_date(), get_comment_time() ); ?>
+						printf( __( '%1$s at %2$s', '_s' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) ); ?>
 					</time></a>
 					<?php edit_comment_link( __( '(Edit)', '_s' ), ' ' );
 					?>
