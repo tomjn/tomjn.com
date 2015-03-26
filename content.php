@@ -47,7 +47,7 @@ foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 		$the_tax = get_taxonomy( $tax_name );
 		?>
 		<span class="<?php echo $tax_name; ?>-links">
-			<?php printf( __( '%1$s: %2$s<br>', '_s' ), $the_tax->labels->name, $term_list ); ?>
+			<?php printf( __( '%1$s: %2$s<br>', '_s' ), esc_html( $the_tax->labels->name ), wp_kses_post( $term_list ) ); ?>
 		</span>
 		<?php
 	}
@@ -58,7 +58,6 @@ if ( ! post_password_required() && ( comments_open() || '0' != get_comments_numb
 	<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', '_s' ), __( '1 Comment', '_s' ), __( '% Comments', '_s' ) ); ?></span>
 	<?php
 }
-edit_post_link( __( 'Edit', '_s' ), ' <span class="edit-link">', '</span>' );
 ?>
 	</footer>
 </article>
