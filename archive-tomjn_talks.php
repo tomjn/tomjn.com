@@ -44,8 +44,8 @@ if ( have_posts() ) {
 		the_post();
 
 		?>
-		<a href="<?php echo esc_url( get_permalink() ); ?>" class="project_listing_item grid__item one-whole palm-one-whole lap-one-half desk-one-half">
-			<h2><?php the_title(); ?></h2>
+		<div class="project_listing_item grid__item one-whole palm-one-whole lap-one-half desk-one-half">
+			<h2><a  href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
 			<?php
 			$term_list = get_the_term_list( get_the_ID(), 'technology', '', ' ', '' );
 			if ( !empty( $term_list ) ) {
@@ -67,7 +67,7 @@ if ( have_posts() ) {
 			}
 			the_excerpt();
 			?>
-		</a>
+		</div>
 		<?php
 	}
 	_s_content_nav( 'nav-below' );
