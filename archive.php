@@ -39,9 +39,13 @@ if ( have_posts() ) {
 	if ( is_date() ) {
 		$title = 'Archive: '.get_the_time( 'F, Y' );
 	} else {
-		$title = $taxobj->labels->singular_name.': '.$current_term->name;
+		if ( !empty( $taxobj->labels->singular_name ) && !empty( $current_term->name ) ) {
+			$title = $taxobj->labels->singular_name.': '.$current_term->name;
+		}
 	}
-	echo '<h1>'.esc_html( $title ).'</h1>';
+	if ( !empty( $title ) ) {
+		echo '<h1>'.esc_html( $title ).'</h1>';
+	}
 	?>
 				</header>
 				<div class="taxonomy-list grid">
