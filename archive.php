@@ -102,7 +102,7 @@ if ( have_posts() ) {
 			}
 			echo '</ul>';
 		}
-		echo '<h1>Archives</h1>';
+		echo '<h1>Date Archives</h1>';
 		echo '<ul class="taxonomy-term-choices-list ">';
 		wp_get_archives( array( 'type' => 'monthly', 'format' => 'li', 'show_post_count' => 0 ) );
 		echo '</ul>';
