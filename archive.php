@@ -70,23 +70,28 @@ if ( have_posts() ) {
 ?>
 					</div>
 					<div class="taxonomy-term-choices  grid__item one-quarter palm-one-whole lap-one-third desk-one-quarter">
-						<h1 class="page-title">
-	<?php
-	if ( is_date() ) {
-		echo 'Archives';
-	} else {
-		echo esc_html( $tname );
-	}
-	?>
-						</h1>
 	<?php
 	if ( is_date() ){
+		echo '<h1 class="page-title">';
+		if ( is_date() ) {
+			echo 'Archives';
+		} else {
+			echo esc_html( $tname );
+		}
+		echo '</h1>';
 		echo '<ul class="taxonomy-term-choices-list ">';
 		wp_get_archives( array( 'type' => 'monthly', 'format' => 'li', 'show_post_count' => 0 ) );
 		echo '</ul>';
 	} else {
 		$terms = get_terms( array( $taxonomy ) );
 		if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
+			echo '<h1 class="page-title">';
+			if ( is_date() ) {
+				echo 'Terms';
+			} else {
+				echo esc_html( $tname );
+			}
+			echo '</h1>';
 			echo '<ul class="taxonomy-term-choices-list">';
 			foreach ( $terms as $term ) {
 				$class = '';
