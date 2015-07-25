@@ -46,7 +46,27 @@ if ( have_posts() ) {
 		?>
 		<a href="<?php echo esc_url( get_permalink() ); ?>" class="project_listing_item grid__item one-whole palm-one-whole lap-one-half desk-one-half">
 			<h2><?php the_title(); ?></h2>
-			<?php the_excerpt(); ?>
+			<?php
+			$term_list = get_the_term_list( get_the_ID(), 'technology', '', ' ', '' );
+			if ( !empty( $term_list ) ) {
+				$the_tax = get_taxonomy( 'technology' );
+				?>
+				<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
+					<?php echo wp_kses_post( $term_list ); ?>
+				</span><br>
+				<?php
+			}
+			$tech_term_list = get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', ' ', '' );
+			if ( !empty( $tech_term_list ) ) {
+				$the_tax = get_taxonomy( 'tomjn_talk_tag' );
+				?>
+				<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
+					<?php echo wp_kses_post( $tech_term_list ); ?>
+				</span><br>
+				<?php
+			}
+			the_excerpt();
+			?>
 		</a>
 		<?php
 	}
