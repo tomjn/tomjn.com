@@ -281,3 +281,12 @@ function tomjn_hack_wp_title_for_home( $title ) {
 	}
 	return $title;
 }
+
+
+add_action( 'tomjn_footer_notes', 'tomjn_footer_notes' );
+function tomjn_footer_notes() {
+	?>
+	<p>Content licensed as <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-by-sa-3</a> with attribution required, <a href="https://btc.blockr.io/address/info/36YaqRn79RzrEXW8oH47DZZ1xGkoZgcnNj">BTC</a>, <a href="https://twitter.com/tarendai" rel="me">twitter</a></p>
+	<?php
+}
+

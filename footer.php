@@ -6,6 +6,13 @@
  */
 ?>
 	</div>
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="footer-container">
+			<div class="site-info">
+				<?php do_action( 'tomjn_footer_notes' ); ?>
+			</div>
+		</div>
+	</footer>
 </div>
 <?php
 wp_footer();
