@@ -78,6 +78,7 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		if ( function_exists( 'register_template' ) ) {
 			register_template( 'panelcat', array( 'post_types' => array(), 'taxonomies' => array( 'category' ) ) );
 			register_template( 'twin-column-pages', array( 'post_types' => array( 'page', 'post' ) ) );
+			register_template( 'page_archive', array( 'post_types' => array( 'post' ) ) );
 
 			register_template_sidebar(
 				'Top Sidebar',
