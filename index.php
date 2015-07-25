@@ -11,7 +11,10 @@
  * @package _s
  * @since _s 1.0
  */
-
+if ( !is_singular() ) {
+	get_template_part( 'archive' );
+	return;
+}
 get_header();
 ?>
 		<div id="primary" class="site-content">
