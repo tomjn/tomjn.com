@@ -25,29 +25,30 @@ get_header();
 				?>
 
 				<div class="taxonomy-list grid">
+					<div class="taxonomy-listing grid__item three-quarters palm-one-whole lap-two-thirds desk-three-quarters">
+					<?php
+
+
+					while ( have_posts() ) {
+						the_post();
+						get_template_part( 'content', 'search' );
+					}
+					_s_content_nav( 'nav-below' );
+
+					?>
+					</div>
 					<div class="taxonomy-term-choices grid__item one-quarter palm-one-whole lap-one-third desk-one-quarter">
 						<h1 class="page-title">Search:</h1>
-	<?php
-	get_template_part( 'searchform' );
+					<?php
+					get_template_part( 'searchform' );
 
-	echo '<h1>Archives</h1>';
-	echo '<ul class="taxonomy-term-choices-list ">';
-	wp_get_archives( array( 'type' => 'monthly', 'format' => 'li', 'show_post_count' => 0 ) );
-	echo '</ul>';
-	?>
+					echo '<h1>Archives</h1>';
+					echo '<ul class="taxonomy-term-choices-list ">';
+					wp_get_archives( array( 'type' => 'monthly', 'format' => 'li', 'show_post_count' => 0 ) );
+					echo '</ul>';
+					?>
 					</div>
-					<div class="taxonomy-listing grid__item three-quarters palm-one-whole lap-two-thirds desk-three-quarters">
-	<?php
-
-
-	while ( have_posts() ) {
-		the_post();
-		get_template_part( 'content', 'search' );
-	}
-	_s_content_nav( 'nav-below' );
-
-	?>
-					</div>
+					
 				</div>
 
 			<?php else : ?>
