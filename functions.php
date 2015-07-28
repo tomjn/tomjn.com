@@ -166,7 +166,6 @@ function filter_ptags_on_images( $content ) {
 	// and iframe tags too
 	$content = preg_replace( '/<p>\s*(<a .*>)?\s*(<iframe .*><\/iframe>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
 	return $content;
-	
 }
 add_filter( 'the_content', 'filter_ptags_on_images' );
 
@@ -189,8 +188,8 @@ function wpse_59182_bigger_media_thumbs() {
 if ( !function_exists( 'tomjn_typekit_code' ) ) {
 	function tomjn_typekit_code() {
 		?>
-		<script type="text/javascript" src="//use.typekit.net/wtc2mfi.js"></script>
-		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script src="//use.typekit.net/wtc2mfi.js"></script>
+		<script >try{Typekit.load();}catch(e){}</script>
 		<?php
 	}
 }
