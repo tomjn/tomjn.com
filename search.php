@@ -18,7 +18,7 @@ get_header();
 				<header class="page-header">
 					<h1 class="page-title">
 						<?php printf( __( 'Search Results for: %s', '_s' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?>
-					</h1> 
+					</h1>
 				</header>
 				<?php
 				_s_content_nav( 'nav-above' );
