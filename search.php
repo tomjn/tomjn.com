@@ -48,7 +48,6 @@ get_header();
 					echo '</ul>';
 					?>
 					</div>
-					
 				</div>
 
 			<?php else : ?>
