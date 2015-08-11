@@ -17,7 +17,7 @@
 	</header>
 
 <?php
-if ( is_search() || is_archive() ) {
+if ( !is_singular() ) {
 	// Only display Excerpts for Search and archives
 	?>
 	<div class="entry-summary">
