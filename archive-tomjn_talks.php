@@ -48,7 +48,7 @@ if ( have_posts() ) {
 			<header>
 				<h2><a  href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
 				<?php
-				$term_list = get_the_term_list( get_the_ID(), 'technology', '', ' ', '' );
+				$term_list = get_the_term_list( get_the_ID(), 'technology', '', '', '' );
 				if ( !empty( $term_list ) ) {
 					$the_tax = get_taxonomy( 'technology' );
 					?>
@@ -57,7 +57,7 @@ if ( have_posts() ) {
 					</span>
 					<?php
 				}
-				$tech_term_list = get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', ' ', '' );
+				$tech_term_list = get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', '', '' );
 				if ( !empty( $tech_term_list ) ) {
 					$the_tax = get_taxonomy( 'tomjn_talk_tag' );
 					?>
