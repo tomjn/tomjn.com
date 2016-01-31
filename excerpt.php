@@ -37,7 +37,7 @@ if ( !is_singular() ) {
 <?php
 $post_type = get_post_type();
 foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
-	$term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
+	$term_list = get_the_term_list( get_the_ID(), $tax_name, '', '', '' );
 	if ( !empty( $term_list ) ) {
 		$the_tax = get_taxonomy( $tax_name );
 		?>
