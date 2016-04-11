@@ -42,7 +42,7 @@ if ( ! class_exists( 'editor_attr' ) ) {
 					'classes' => 'pullquote'
 				)
 			);
-			$settings[ 'style_formats' ] = json_encode( $style_formats );
+			$settings[ 'style_formats' ] = wp_json_encode( $style_formats );
 			return $settings;
 		}
 
