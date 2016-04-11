@@ -208,7 +208,7 @@ add_filter( 'less_vars', 'tomjn_less_vars', 10, 2 );
 if ( !function_exists( 'tomjn_less_vars' ) ) {
 	function tomjn_less_vars( $vars, $handle ) {
 		// $handle is a reference to the handle used with wp_enqueue_style()
-		$vars[ 'typekitfontstack' ] = '"quatro-slab", "Crete Round", "Palatino Linotype", "Book Antiqua", Palatino, serif';
+		$vars[ 'typekitfontstack' ] = '"quatro-slab", "Roboto Slab", Crete Round", "Palatino Linotype", "Book Antiqua", Palatino, serif';
 		return $vars;
 	}
 }
@@ -285,7 +285,7 @@ function tomjn_hack_wp_title_for_home( $title ) {
 add_action( 'tomjn_footer_notes', 'tomjn_footer_notes' );
 function tomjn_footer_notes() {
 	?>
-	<p>Content licensed as <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-by-sa-3</a> with attribution required, <a href="https://btc.blockr.io/address/info/36YaqRn79RzrEXW8oH47DZZ1xGkoZgcnNj">Bitcoin</a>, <a href="https://twitter.com/tarendai" rel="me">twitter</a></p>
+	<p>Content licensed as <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-by-sa-3</a> with attribution required, <a href="https://twitter.com/tarendai" rel="me">twitter</a></p>
 	<?php
 }
 
