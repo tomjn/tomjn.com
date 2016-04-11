@@ -208,7 +208,7 @@ add_filter( 'less_vars', 'tomjn_less_vars', 10, 2 );
 if ( !function_exists( 'tomjn_less_vars' ) ) {
 	function tomjn_less_vars( $vars, $handle ) {
 		// $handle is a reference to the handle used with wp_enqueue_style()
-		$vars[ 'typekitfontstack' ] = '"quatro-slab", "Roboto Slab", Crete Round", "Palatino Linotype", "Book Antiqua", Palatino, serif';
+		$vars[ 'typekitfontstack' ] = '"quatro-slab", "Roboto Slab", "Crete Round", "Palatino Linotype", "Book Antiqua", Palatino, serif';
 		return $vars;
 	}
 }
