@@ -1,14 +1,14 @@
-@backgroundcolour = #ffffff;
-@headerBGcolour = #ffffff;
+@backgroundcolour: #ffffff;
+@headerBGcolour: #ffffff;
 
 
-@hyperlink_active_colour = #ff0000;
-@block_background_colour = #FAFAFA;
+@hyperlink_active_colour: #ff0000;
+@block_background_colour: #FAFAFA;
 
-@desaturated_background = desaturate( @backgroundcolour,40%);
-@darkened = darken(@desaturated_background, 2%);
-@lightened = lighten(@desaturated_background,2%);
-@block_background_colour = contrast( @backgroundcolour, @darkened, @lightened );
+@desaturated_background: desaturate( @backgroundcolour,40%);
+@darkened: darken(@desaturated_background, 2%);
+@lightened: lighten(@desaturated_background,2%);
+@block_background_colour: contrast( @backgroundcolour, @darkened, @lightened );
 
 /* pulled from style.css */
 
