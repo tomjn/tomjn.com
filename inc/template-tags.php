@@ -116,7 +116,7 @@ function _s_comment( $comment, $args, $depth ) {
 		default :
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		<article id="comment-<?php comment_ID(); ?>" class="comment comment<?php echo esc_attr( $comment->comment_type ) ?>">
+		<article id="comment-<?php comment_ID(); ?>" class="comment comment-type-<?php echo esc_attr( $comment->comment_type ) ?>">
 			<footer>
 				<div class="comment-author vcard">
 					<?php echo wp_kses_post( get_avatar( $comment, 40 ) );
