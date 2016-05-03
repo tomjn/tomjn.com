@@ -119,8 +119,12 @@ function _s_comment( $comment, $args, $depth ) {
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<footer>
 				<div class="comment-author vcard">
-					<?php echo get_avatar( $comment, 40 ); ?>
-					<?php printf( __( '%s <span class="says">says:</span>', '_s' ), sprintf( '<cite class="fn">%s</cite>', esc_url( get_comment_author_link() ) ) ); ?>
+					<?php echo wp_kses_post( get_avatar( $comment, 40 ) );
+					$comment_author = get_comment_author_link();
+					if ( empty( $comment_author ) ) {
+						$comment_author = 'Unknown';
+					}
+					printf( __( '%s <span class="says">says:</span>', '_s' ), '<cite class="fn">'.wp_kses_post( $comment_author ).'</cite>' ); ?>
 				</div>
 				<?php if ( $comment->comment_approved == '0' ) : ?>
 					<em><?php _e( 'Your comment is awaiting moderation.', '_s' ); ?></em>
