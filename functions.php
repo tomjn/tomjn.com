@@ -145,6 +145,42 @@ function tomjnwidgets_init() {
 			'after_title' => '</h1>',
 		)
 	);
+	
+	register_sidebar(
+		array(
+			'name' => __( 'Top Home', 'tomjn' ),
+			'description' => __( 'A full width area at the top of the homepage', 'tomjn' ),
+			'id' => 'sidebar-top-home',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h1 class="widget-title">',
+			'after_title' => '</h1>',
+		)
+	);
+	
+	register_sidebar(
+		array(
+			'name' => __( 'Left Home', 'tomjn' ),
+			'description' => __( 'A half width area on the left of the homepage, appears above the right hand on mobiles', 'tomjn' ),
+			'id' => 'sidebar-left-home',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h1 class="widget-title">',
+			'after_title' => '</h1>',
+		)
+	);
+	
+	register_sidebar(
+		array(
+			'name' => __( 'Right Home', 'tomjn' ),
+			'description' => __( 'A half width area on the right of the homepage, appears below the left hand on mobiles', 'tomjn' ),
+			'id' => 'sidebar-right-home',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h1 class="widget-title">',
+			'after_title' => '</h1>',
+		)
+	);
 }
 add_action( 'widgets_init', 'tomjnwidgets_init' );
 
