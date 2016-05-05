@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article <?php post_class(); ?>>
 	<div id="twin-columns" class="grid">
 		<?php
 		if ( is_active_sidebar( 'sidebar-home-top' ) ) {
