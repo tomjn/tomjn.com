@@ -22,7 +22,7 @@
 		<header id="masthead" class="site-header" role="banner">
 			<div class="header-contents">
 				<hgroup>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name', 'display' ) ); ?></a></h1>
+					<h1 class="site-title"><a class="h-card" rel="me" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name', 'display' ) ); ?></a></h1>
 					<?php
 					$description = get_bloginfo( 'description' );
 					if ( !empty( $description) ) {
