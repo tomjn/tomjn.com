@@ -150,7 +150,7 @@ function tomjnwidgets_init() {
 		array(
 			'name' => __( 'Top Home', 'tomjn' ),
 			'description' => __( 'A full width area at the top of the homepage', 'tomjn' ),
-			'id' => 'sidebar-top-home',
+			'id' => 'sidebar-home-top',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' => '</aside>',
 			'before_title' => '<h1 class="widget-title">',
@@ -162,7 +162,7 @@ function tomjnwidgets_init() {
 		array(
 			'name' => __( 'Left Home', 'tomjn' ),
 			'description' => __( 'A half width area on the left of the homepage, appears above the right hand on mobiles', 'tomjn' ),
-			'id' => 'sidebar-left-home',
+			'id' => 'sidebar-home-left',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' => '</aside>',
 			'before_title' => '<h1 class="widget-title">',
@@ -174,7 +174,7 @@ function tomjnwidgets_init() {
 		array(
 			'name' => __( 'Right Home', 'tomjn' ),
 			'description' => __( 'A half width area on the right of the homepage, appears below the left hand on mobiles', 'tomjn' ),
-			'id' => 'sidebar-right-home',
+			'id' => 'sidebar-home-right',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' => '</aside>',
 			'before_title' => '<h1 class="widget-title">',
