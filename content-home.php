@@ -1,15 +1,4 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-	$title = the_title( '','',false);
-	if ( !empty( $title ) ) {
-		?>
-    	<header class="entry-header">
-    		<h1 class="entry-title"><?php echo esc_html( $title ); ?></h1>
-    	</header>
-		<?php
-	}
-	?>
-
 	<div id="twin-columns" class="grid">
 		<?php
 		if ( is_active_sidebar( 'sidebar-home-top' ) ) {
