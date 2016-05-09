@@ -333,3 +333,14 @@ function _tomjn_home_cancel_query( $query, \WP_Query $q ) {
     return $query;
 }
 add_filter( 'posts_request', '_tomjn_home_cancel_query', 100, 2 );
+
+function tomjn_get_the_term_list( $id, $taxonomy, $before, $sep, $after ) {
+	$result = get_transient();
+	if ( !$result ) {
+		$result = get_the_term_list( $id, $taxonomy, $before, $sep, $after );
+		if ( $result ) {
+			set_transient( 'tomjn_get_the_term_list_'.$id.'_'.$taxonomy , $result, 60 * 60 * 24 );
+		}
+	}
+	return $result;
+}
