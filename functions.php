@@ -325,3 +325,10 @@ function tomjn_footer_notes() {
 	<?php
 }
 
+function _tomjn_home_cancel_query( $query, \WP_Query $q ) {
+    if ( !$q->is_admin() && !$q->is_feed() && $q->is_home() && $q->is_main_query() ) {
+        $query = false;
+    }
+    return $query;
+}
+add_filter( 'posts_request', '_tomjn_home_cancel_query', 100, 2 );
