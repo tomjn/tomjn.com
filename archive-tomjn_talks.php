@@ -57,7 +57,7 @@ if ( have_posts() ) {
 					</span>
 					<?php
 				}
-				$tech_term_list = get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', '', '' );
+				$tech_term_list = tomjn_get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', '', '' );
 				if ( !empty( $tech_term_list ) ) {
 					$the_tax = get_taxonomy( 'tomjn_talk_tag' );
 					?>
