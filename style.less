@@ -10,6 +10,8 @@
 @lightened: lighten(@desaturated_background,2%);
 @block_background_colour: contrast( @backgroundcolour, @darkened, @lightened );
 
+@text_colour: #404040;
+
 /* pulled from style.css */
 
 /* =Reset
@@ -92,7 +94,7 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
+	color: @text_colour;
 	font-family: sans-serif;
 	font-size: 16px;
 	font-size: 1.6rem;
@@ -235,14 +237,7 @@ button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	background: #f5f5f5; /* Old browsers */
-	background: -moz-linear-gradient(top,  #f5f5f5 60%, #dcdcdc 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,#f5f5f5), color-stop(100%,#dcdcdc)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* IE10+ */
-	background: linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#dcdcdc',GradientType=0 ); /* IE6-9 */
+	background: @darkened; /* Old browsers */
 	border-color: #bbb #bbb #aaa #bbb;
 }
 button:focus,
@@ -278,7 +273,7 @@ input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly i
 }
 input[type=text],
 textarea {
-	color: #666;
+	color: @text_colour;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
@@ -362,14 +357,14 @@ textarea {
 .main-navigation ul ul a {
 	width: 200px;
 }
-.main-navigation ul ul li {
+/*.main-navigation ul ul li {
 }
 .main-navigation li:hover > a {
 }
 .main-navigation ul ul :hover > a {
 }
 .main-navigation ul ul a:hover {
-}
+}*/
 .main-navigation ul li:hover > ul {
 	display: block;
 }
@@ -503,10 +498,10 @@ img.size-full {
 #content .gallery dd {
 	margin: 0;
 }
-#content .gallery-columns-4 .gallery-item {
+/*#content .gallery-columns-4 .gallery-item {
 }
 #content .gallery-columns-4 .gallery-item img {
-}
+}*/
 
 /* Make sure embeds and iframes fit their containers */
 embed,
