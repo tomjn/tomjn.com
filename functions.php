@@ -239,16 +239,6 @@ function tomjn_mce_external_plugins( $plugin_array ) {
 
 add_editor_style( 'editor-style.less' );
 
-// pass variables into all .less files
-add_filter( 'less_vars', 'tomjn_less_vars', 10, 2 );
-if ( !function_exists( 'tomjn_less_vars' ) ) {
-	function tomjn_less_vars( $vars, $handle ) {
-		// $handle is a reference to the handle used with wp_enqueue_style()
-		$vars[ 'typekitfontstack' ] = '"quatro-slab", "Roboto Slab", "Crete Round", "Palatino Linotype", "Book Antiqua", Palatino, serif';
-		return $vars;
-	}
-}
-
 function add_favicon(){
 	?><link rel="shortcut icon" type="image/png" href="<?php echo esc_url( home_url() ); ?>/favicon.png" /><?php
 }
