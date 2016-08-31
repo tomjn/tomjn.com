@@ -224,14 +224,19 @@ input {
 	background: whiteSmoke;
 	padding: 0px 10px;
 	border-radius: 3px;
-	border: 1px solid #EAEAEA;
+	border: 1px solid #E6E6E6;
+	font-weight:normal;
 }
 
+#cancel-comment-reply-link {
+	.tomjn_button();
+}
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	.tomjn_button();
+	padding:0.25em 0.5em;
 	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
 	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
 }
