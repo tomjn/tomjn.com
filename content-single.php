@@ -32,14 +32,6 @@
 				<?php
 			}
 		}
-
-		$meta_text = __( 'Bookmark the <a href="%1$s" title="Permalink to %2$s" rel="bookmark">permalink</a>.', '_s' );
-
-		printf(
-			'<p>'.$meta_text.'</p>',
-			esc_url( get_permalink() ),
-			esc_attr( the_title_attribute( 'echo=0' ) )
-		);
 		?>
 	</footer>
 </article>
