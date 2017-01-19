@@ -74,26 +74,6 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		 * Add support for the Aside Post Formats
 		 */
 		add_theme_support( 'post-formats', array( 'aside' ) );
-
-		if ( function_exists( 'register_template' ) ) {
-			register_template( 'panelcat', array( 'post_types' => array(), 'taxonomies' => array( 'category' ) ) );
-			register_template( 'twin-column-pages', array( 'post_types' => array( 'page', 'post' ) ) );
-
-			register_template_sidebar(
-				'Top Sidebar',
-				'panelcat',
-				array(
-					'description' => 'Just a test',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget' => "</aside>\n",
-					'before_title' => '<h3 class="widgettitle">',
-					'after_title' => "</h3>\n"
-				)
-			);
-			register_template_sidebar(
-				'Top Sidebar',
-				'twin-column-pages',
-
 	}
 }
 add_action( 'after_setup_theme', 'tomjnsetup' );
