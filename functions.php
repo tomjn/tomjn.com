@@ -208,11 +208,16 @@ function tomjn_mce_external_plugins( $plugin_array ) {
 
 add_editor_style( 'editor-style.less' );
 
-function add_favicon(){
+function tomjn_add_favicon(){
 	?><link rel="shortcut icon" type="image/png" href="<?php echo esc_url( home_url() ); ?>/favicon.png" /><?php
 }
-add_action( 'wp_head', 'add_favicon' );
-add_action( 'admin_head', 'add_favicon' );
+add_action( 'wp_head', 'tomjn_add_favicon' );
+add_action( 'admin_head', 'tomjn_add_favicon' );
+
+function tomjn_add_frontend_header_tags(){
+	?><meta name="theme-color" content="#ffffff"><?php
+}
+add_action( 'wp_head', 'tomjn_add_frontend_header_tags' );
 
 
 // Add Slideshare oEmbed
