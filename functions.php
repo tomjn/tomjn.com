@@ -75,57 +75,6 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		 * Add support for the Aside Post Formats
 		 */
 		add_theme_support( 'post-formats', array( 'aside' ) );
-
-		if ( function_exists( 'register_template' ) ) {
-			register_template( 'panelcat', array( 'post_types' => array(), 'taxonomies' => array( 'category' ) ) );
-			register_template( 'twin-column-pages', array( 'post_types' => array( 'page', 'post' ) ) );
-
-			register_template_sidebar(
-				'Top Sidebar',
-				'panelcat',
-				array(
-					'description' => 'Just a test',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget' => "</aside>\n",
-					'before_title' => '<h3 class="widgettitle">',
-					'after_title' => "</h3>\n",
-				)
-			);
-			register_template_sidebar(
-				'Top Sidebar',
-				'twin-column-pages',
-				array(
-					'description' => 'Just a test',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget' => "</aside>\n",
-					'before_title' => '<h3 class="widgettitle">',
-					'after_title' => "</h3>\n",
-				)
-			);
-			register_template_sidebar(
-				'Left Sidebar',
-				'twin-column-pages',
-				array(
-					'description' => 'Just a test',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget' => "</aside>\n",
-					'before_title' => '<h3 class="widgettitle">',
-					'after_title' => "</h3>\n"
-				)
-			);
-
-			register_template_sidebar(
-				'Right Sidebar',
-				'twin-column-pages',
-				array(
-					'description' => 'This is another sidebar',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget' => "</aside>\n",
-					'before_title' => '<h3 class="widgettitle">',
-					'after_title' => "</h3>\n"
-				)
-			);
-		}
 	}
 }
 add_action( 'after_setup_theme', 'tomjnsetup' );
@@ -256,7 +205,7 @@ add_action( 'init', 'add_oembed_slideshare' );
 // Create a new filtering function that will add our where clause to the query
 function password_post_filter( $where = '' ) {
 	// Make sure this only applies to loops / feeds on the frontend
-	if ( ! is_single() && !is_page() && ! is_admin() ) {
+	if ( ! is_single() && ! is_page() && ! is_admin() ) {
 		// exclude password protected
 		$where .= " AND post_password = ''";
 	}
