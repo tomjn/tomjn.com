@@ -137,8 +137,7 @@ add_action( 'widgets_init', 'tomjnwidgets_init' );
  * Enqueue scripts and styles
  */
 function tomjnscripts() {
-	wp_enqueue_style( 'lessstyle', get_template_directory_uri().'/style.less',array(), '7' );
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '3' );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '4' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
