@@ -187,7 +187,7 @@ function tomjn_mce_external_plugins( $plugin_array ) {
 	return $plugin_array;
 }
 
-add_editor_style( 'editor-style.less' );
+add_editor_style( 'editor-style.css' );
 
 function add_favicon() {
 	?><link rel="shortcut icon" type="image/png" href="<?php echo esc_url( home_url() ); ?>/favicon.png" /><?php
