@@ -12,8 +12,9 @@ require_once( 'inc/attr.php' );
  *
  * @since tomjn 1.0
  */
-if ( ! isset( $content_width ) )
+if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
+}
 
 if ( ! function_exists( 'tomjnsetup' ) ) {
 	/**
@@ -58,7 +59,7 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		 * Enable support for Post Thumbnails
 		 */
 		add_theme_support( 'post-thumbnails' );
-		
+
 		add_image_size( 'project-main', 512, 512, true );
 
 		/**
@@ -66,7 +67,7 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		 */
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'tomjn' )
+				'primary' => __( 'Primary Menu', 'tomjn' ),
 			)
 		);
 
@@ -74,6 +75,57 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 		 * Add support for the Aside Post Formats
 		 */
 		add_theme_support( 'post-formats', array( 'aside' ) );
+
+		if ( function_exists( 'register_template' ) ) {
+			register_template( 'panelcat', array( 'post_types' => array(), 'taxonomies' => array( 'category' ) ) );
+			register_template( 'twin-column-pages', array( 'post_types' => array( 'page', 'post' ) ) );
+
+			register_template_sidebar(
+				'Top Sidebar',
+				'panelcat',
+				array(
+					'description' => 'Just a test',
+					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+					'after_widget' => "</aside>\n",
+					'before_title' => '<h3 class="widgettitle">',
+					'after_title' => "</h3>\n",
+				)
+			);
+			register_template_sidebar(
+				'Top Sidebar',
+				'twin-column-pages',
+				array(
+					'description' => 'Just a test',
+					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+					'after_widget' => "</aside>\n",
+					'before_title' => '<h3 class="widgettitle">',
+					'after_title' => "</h3>\n",
+				)
+			);
+			register_template_sidebar(
+				'Left Sidebar',
+				'twin-column-pages',
+				array(
+					'description' => 'Just a test',
+					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+					'after_widget' => "</aside>\n",
+					'before_title' => '<h3 class="widgettitle">',
+					'after_title' => "</h3>\n"
+				)
+			);
+
+			register_template_sidebar(
+				'Right Sidebar',
+				'twin-column-pages',
+				array(
+					'description' => 'This is another sidebar',
+					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+					'after_widget' => "</aside>\n",
+					'before_title' => '<h3 class="widgettitle">',
+					'after_title' => "</h3>\n"
+				)
+			);
+		}
 	}
 }
 add_action( 'after_setup_theme', 'tomjnsetup' );
@@ -94,7 +146,7 @@ function tomjnwidgets_init() {
 			'after_title' => '</h1>',
 		)
 	);
-	
+
 	register_sidebar(
 		array(
 			'name' => __( 'Top Home', 'tomjn' ),
@@ -106,7 +158,7 @@ function tomjnwidgets_init() {
 			'after_title' => '</h1>',
 		)
 	);
-	
+
 	register_sidebar(
 		array(
 			'name' => __( 'Left Home', 'tomjn' ),
@@ -118,7 +170,7 @@ function tomjnwidgets_init() {
 			'after_title' => '</h1>',
 		)
 	);
-	
+
 	register_sidebar(
 		array(
 			'name' => __( 'Right Home', 'tomjn' ),
@@ -138,6 +190,7 @@ add_action( 'widgets_init', 'tomjnwidgets_init' );
  */
 function tomjnscripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '4' );
+	wp_enqueue_style( 'dashicons' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -169,7 +222,7 @@ function wpse_59182_bigger_media_thumbs() {
 	<?php
 }
 
-if ( !function_exists( 'tomjn_typekit_code' ) ) {
+if ( ! function_exists( 'tomjn_typekit_code' ) ) {
 	function tomjn_typekit_code() {
 		?>
 		<script src="//use.typekit.net/wtc2mfi.js"></script>
@@ -187,20 +240,15 @@ function tomjn_mce_external_plugins( $plugin_array ) {
 
 add_editor_style( 'editor-style.less' );
 
-function tomjn_add_favicon(){
+function add_favicon() {
 	?><link rel="shortcut icon" type="image/png" href="<?php echo esc_url( home_url() ); ?>/favicon.png" /><?php
 }
-add_action( 'wp_head', 'tomjn_add_favicon' );
-add_action( 'admin_head', 'tomjn_add_favicon' );
-
-function tomjn_add_frontend_header_tags(){
-	?><meta name="theme-color" content="#ffffff"><?php
-}
-add_action( 'wp_head', 'tomjn_add_frontend_header_tags' );
+add_action( 'wp_head', 'add_favicon' );
+add_action( 'admin_head', 'add_favicon' );
 
 
 // Add Slideshare oEmbed
-function add_oembed_slideshare(){
+function add_oembed_slideshare() {
 	wp_oembed_add_provider( 'http://www.slideshare.net/*', 'http://api.embed.ly/v1/api/oembed' );
 }
 add_action( 'init', 'add_oembed_slideshare' );
@@ -208,7 +256,7 @@ add_action( 'init', 'add_oembed_slideshare' );
 // Create a new filtering function that will add our where clause to the query
 function password_post_filter( $where = '' ) {
 	// Make sure this only applies to loops / feeds on the frontend
-	if ( !is_single() && !is_page() && !is_admin() ) {
+	if ( ! is_single() && !is_page() && ! is_admin() ) {
 		// exclude password protected
 		$where .= " AND post_password = ''";
 	}
@@ -216,45 +264,17 @@ function password_post_filter( $where = '' ) {
 }
 add_filter( 'posts_where', 'password_post_filter' );
 
-if ( ! function_exists( 'shortcode_exists' ) ) {
-	/**
-	 * Check if a shortcode is registered in WordPress.
-	 *
-	 * Examples: shortcode_exists( 'caption' ) - will return true.
-	 *           shortcode_exists( 'blah' )    - will return false.
-	 */
-	function shortcode_exists( $shortcode = false ) {
-		global $shortcode_tags;
-
-		if ( ! $shortcode )
-			return false;
-
-		if ( array_key_exists( $shortcode, $shortcode_tags ) )
-			return true;
-
-		return false;
-	}
-}
-
-if ( function_exists( 'add_taxonomy_templating_support' ) ) {
-	add_taxonomy_templating_support( 'category' );
-}
-
 function title_format() {
 	return '%s';
 }
 add_filter( 'private_title_format', 'title_format' );
 add_filter( 'protected_title_format', 'title_format' );
 
-add_action( 'wp_enqueue_scripts', 'jk_load_dashicons' );
-function jk_load_dashicons() {
-	wp_enqueue_style( 'dashicons' );
-}
 
 
 add_filter( 'wp_title', 'tomjn_hack_wp_title_for_home' );
 function tomjn_hack_wp_title_for_home( $title ) {
-	if( empty( $title ) && ( is_home() || is_front_page() ) ) {
+	if ( empty( $title ) && ( is_home() || is_front_page() ) ) {
 		return  get_bloginfo( 'name' );
 	}
 	return $title;
@@ -269,11 +289,11 @@ function tomjn_footer_notes() {
 }
 
 function _tomjn_home_cancel_query( $query, \WP_Query $q ) {
-    if ( !$q->is_admin() && !$q->is_feed() && $q->is_home() && $q->is_main_query() ) {
-        $query = false;
-	$q->set( 'fields', 'ids' );
-    }
-    return $query;
+	if ( ! $q->is_admin() && ! $q->is_feed() && $q->is_home() && $q->is_main_query() ) {
+		$query = false;
+		$q->set( 'fields', 'ids' );
+	}
+	return $query;
 }
 add_filter( 'posts_request', '_tomjn_home_cancel_query', 100, 2 );
 
