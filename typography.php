@@ -57,6 +57,42 @@ get_header();
                     </small>
                 </blockquote>
             </div>
+            <h3>Forms</h3>
+            <form method="get" action="/">
+            	<div class="typo">
+            		<span class="note"></span>
+            	</div>
+            	<div class="typo">
+            		<span class="note">Password</span>
+            		<label for="password-input">Password</label>
+                        <input id="password-input" type="password" value="">
+            	</div>
+            	<div class="typo">
+            		<span class="note">Placeholder</span>
+            		<label for="placeholder-input">Placeholder</label>
+                        <input id="placeholder-input" type="text" placeholder="placeholder">
+            	</div>
+            	<div class="typo">
+            		<span class="note">Disabled</span>
+            		<label for="disabled-input">Disabled</label>
+                        <input id="disabled-input" type="text" disabled="" placeholder="Disabled input here...">
+            	</div>
+            	<div class="typo">
+            		<span class="note">Checkboxes and Radios</span>
+                    <label>
+                        <input type="checkbox" name="optionsCheckboxes"><span class="checkbox-material"><span class="check"></span></span> First Checkbox
+                    </label>
+                    <label>
+                        <input type="checkbox" name="optionsCheckboxes"><span class="checkbox-material"><span class="check"></span></span> Second Checkbox
+                    </label>
+                    <label>
+                        <input type="radio" name="optionsRadios" checked="true"><span class="circle"></span><span class="check"></span> First Radio
+                    </label>
+                    <label>
+                        <input type="radio" name="optionsRadios"><span class="circle"></span><span class="check"></span> Second Radio
+                    </label>
+            	</div>
+            </form>
 		</article>
 	</div>
 </div>
