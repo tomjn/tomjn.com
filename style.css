@@ -20,10 +20,15 @@ and Blueprint http://www.blueprintcss.org/
 .tomjn-button-style {
   padding: 0.25em 0.5em;
   background: transparent;
-  border: 1px solid #eee;
+  border: 1px solid #e8e8e8;
   border-radius: 4px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
+}
+.tomjn-button-style-hover {
+  background: #fafafa;
+  /* Old browsers */
+  border-color: #bbb #bbb #aaa #bbb;
 }
 /* pulled from style.css */
 /* =Reset
@@ -312,7 +317,7 @@ input[type="reset"],
 input[type="submit"] {
   padding: 0.25em 0.5em;
   background: transparent;
-  border: 1px solid #eee;
+  border: 1px solid #e8e8e8;
   border-radius: 4px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
@@ -6932,11 +6937,17 @@ article footer {
 .commentlist .comment-reply-link {
   padding: 0.25em 0.5em;
   background: transparent;
-  border: 1px solid #eee;
+  border: 1px solid #e8e8e8;
   border-radius: 4px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
   margin-top: 1em;
+  display: inline-block;
+}
+.commentlist .comment-reply-link:hover {
+  background: #fafafa;
+  /* Old browsers */
+  border-color: #bbb #bbb #aaa #bbb;
 }
 .commentlist .vcard {
   min-height: 40px;
