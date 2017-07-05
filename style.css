@@ -6912,7 +6912,7 @@ article footer {
   margin-left: 0;
   list-style: none;
 }
-.commentlist > article {
+.commentlist article {
   max-width: 800px;
 }
 .commentlist .avatar {
