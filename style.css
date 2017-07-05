@@ -17,6 +17,14 @@ Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
 */
+.tomjn-button-style {
+  padding: 0.25em 0.5em;
+  background: transparent;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  cursor: pointer;
+  /* Improves usability and consistency of cursor style between image-type 'input' and others */
+}
 /* pulled from style.css */
 /* =Reset
 -------------------------------------------------------------- */
@@ -305,13 +313,11 @@ input[type="submit"] {
   padding: 0.25em 0.5em;
   background: transparent;
   border: 1px solid #eee;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
   -webkit-appearance: button;
   /* Corrects inability to style clickable 'input' types in iOS */
-  font-size: 12px;
-  font-size: 1.4rem;
 }
 button:hover,
 html input[type="button"]:hover,
@@ -6587,75 +6593,6 @@ body {
   display: table;
   clear: both;
 }
-.entry-content .social-actions a,
-#social .social-actions a,
-.entry-content .social-comment-meta a,
-#social .social-comment-meta a,
-.entry-content .social-actions a:hover,
-#social .social-actions a:hover,
-.entry-content .social-comment-meta a:hover,
-#social .social-comment-meta a:hover {
-  text-decoration: none;
-}
-.entry-content .social-actions,
-#social .social-actions,
-.entry-content .social-actions a,
-#social .social-actions a,
-.entry-content .social-comment-meta,
-#social .social-comment-meta,
-.entry-content .social-comment-meta a,
-#social .social-comment-meta a,
-.entry-content .social-last-reply-when,
-#social .social-last-reply-when {
-  font-family: inherit;
-}
-.entry-content .social-comment-body,
-#social .social-comment-body {
-  zoom: 1;
-}
-.entry-content .social-comment-body:before,
-#social .social-comment-body:before {
-  content: '';
-  display: block;
-}
-.entry-content .social-comment-body:after,
-#social .social-comment-body:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-.entry-content .social-comment-body p,
-#social .social-comment-body p,
-.entry-content .social-comment-body ul li,
-#social .social-comment-body ul li {
-  max-width: 800px;
-}
-.entry-content .social-comment-body img,
-#social .social-comment-body img {
-  margin: 1.5em;
-}
-.entry-content .social-comment-body img:first-child,
-#social .social-comment-body img:first-child {
-  margin-top: 0;
-}
-.entry-content .social-comment-body img.wp-smiley,
-#social .social-comment-body img.wp-smiley {
-  margin: 0;
-}
-.entry-content .social-comment-body .wp-caption img,
-#social .social-comment-body .wp-caption img {
-  margin: 1.2% auto 0;
-}
-.entry-content .social-nav .social-current-tab a,
-#social .social-nav .social-current-tab a,
-.entry-content .social-nav li a,
-#social .social-nav li a {
-  padding: 0.5em 12px 4px 12px;
-}
-.entry-content .social-actions,
-#social .social-actions {
-  padding-left: 50px;
-}
 #masthead {
   background: #ffffff;
   line-height: 2.5em;
@@ -6989,10 +6926,14 @@ article footer {
 .commentlist li.comment {
   padding-left: 50px;
 }
-.commentlist .reply {
-  margin-left: 44px;
-  font-style: oblique;
-  font-size: 80%;
+.commentlist .comment-reply-link {
+  padding: 0.25em 0.5em;
+  background: transparent;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  cursor: pointer;
+  /* Improves usability and consistency of cursor style between image-type 'input' and others */
+  /*font-size:1.4rem;*/
 }
 .commentlist footer {
   padding-left: 0;
