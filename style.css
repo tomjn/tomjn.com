@@ -6919,6 +6919,7 @@ article footer {
 }
 .commentlist article {
   max-width: 800px;
+  margin-bottom: 1.5em;
 }
 .commentlist .avatar {
   float: left;
@@ -6926,7 +6927,9 @@ article footer {
   margin-left: -60px;
 }
 .commentlist .pingback,
-.commentlist li.comment {
+.commentlist li.comment,
+.commentlist .social-twitter,
+.commentlist .social-twitter-rt {
   padding-left: 60px;
   margin-bottom: 1em;
   list-style: none;
@@ -6941,7 +6944,7 @@ article footer {
   border-radius: 4px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
-  margin-top: 1em;
+  margin-top: 0.5em;
   display: inline-block;
 }
 .commentlist .comment-reply-link:hover {
