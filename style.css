@@ -6912,6 +6912,9 @@ article footer {
   margin-left: 0;
   list-style: none;
 }
+.commentlist > article {
+  max-width: 800px;
+}
 .commentlist .avatar {
   float: left;
   border-radius: 4px;
@@ -6933,7 +6936,11 @@ article footer {
   border-radius: 4px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
-  /*font-size:1.4rem;*/
+}
+.commentlist .vcard {
+  min-height: 40px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 1em;
 }
 .commentlist footer {
   padding-left: 0;
