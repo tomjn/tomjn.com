@@ -195,7 +195,20 @@ blockquote, #social blockquote {
 }
 code, kbd, tt, var {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: inherit;
+	font-size: 90%; /* the font looks a bit weirdly big compared to quaddro sans */
+	background: @pale_highlight_colour;
+	border: 1px solid @pale_highlight_border_colour;
+	color: #555;
+}
+
+pre > code,
+pre > kbd,
+pre > tt,
+pre > var {
+	color: inherit;
+	font-size:inherit;
+	background: transparent;
+	border:none;
 }
 #social {
 	.social-comment-body {
