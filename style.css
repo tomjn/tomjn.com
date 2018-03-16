@@ -6428,6 +6428,7 @@ pre {
   border-left: 4px solid #DDD;
   padding: 1.5em;
   margin-bottom: 1em;
+  max-width: 100%;
 }
 #masthead .main-small-navigation .menu ul {
   list-style: none;
