@@ -138,6 +138,16 @@ add_action( 'widgets_init', 'tomjnwidgets_init' );
  * Enqueue scripts and styles
  */
 function tomjnscripts() {
+	// hint to the browser to request a few extra things via http2
+	header("Link: <".get_stylesheet_uri().">; rel=preload; as=style", false);
+	header("Link: </wp-content/plugins/gutenberg/blocks/build/style.css>; rel=preload; as=style", false);
+	header("Link: </wp-content/plugins/jetpack/css/jetpack.css>; rel=preload; as=style", false);
+	header("Link: </wp-includes/js/jquery/jquery.js>; rel=preload; as=script", false);
+	header("Link: <https://use.typekit.net/wtc2mfi.js>; rel=preload; as=script", false);
+	header("Link: </wp-includes/js/wp-emoji-release.min.js?ver=4.9.5>; rel=preload; as=script", false);
+	header("Link: </wp-includes/css/dashicons.min.css?ver=4.9.5>; rel=preload; as=style", false);
+	
+	// enqueue our styles
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '4' );
 	wp_enqueue_style( 'dashicons' );
 
@@ -199,6 +209,7 @@ add_action( 'admin_head', 'add_favicon' );
 // Add Slideshare oEmbed
 function add_oembed_slideshare() {
 	wp_oembed_add_provider( 'http://www.slideshare.net/*', 'http://api.embed.ly/v1/api/oembed' );
+	wp_oembed_add_provider( 'https://www.slideshare.net/*', 'http://api.embed.ly/v1/api/oembed' );
 }
 add_action( 'init', 'add_oembed_slideshare' );
 
@@ -233,7 +244,7 @@ function tomjn_hack_wp_title_for_home( $title ) {
 add_action( 'tomjn_footer_notes', 'tomjn_footer_notes' );
 function tomjn_footer_notes() {
 	?>
-	<p>Content licensed as <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-by-sa-3</a> with attribution required, <a href="https://twitter.com/tarendai" rel="me">twitter</a></p>
+	<p>Content licensed as <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-by-sa-3</a> with attribution required, <a href="https://twitter.com/tarendai" rel="me">twitter</a></p>
 	<?php
 }
 
