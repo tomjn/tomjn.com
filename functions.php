@@ -139,13 +139,12 @@ add_action( 'widgets_init', 'tomjnwidgets_init' );
  */
 function tomjnscripts() {
 	// hint to the browser to request a few extra things via http2
-	header("Link: <".get_stylesheet_uri().">; rel=preload; as=style", false);
+	header("Link: <".get_stylesheet_uri()."?ver=4>; rel=preload; as=style", false);
 	header("Link: </wp-content/plugins/gutenberg/blocks/build/style.css>; rel=preload; as=style", false);
-	header("Link: </wp-content/plugins/jetpack/css/jetpack.css>; rel=preload; as=style", false);
-	header("Link: </wp-includes/js/jquery/jquery.js>; rel=preload; as=script", false);
+	header("Link: </wp-includes/js/jquery/jquery.js?ver=1.12.4>; rel=preload; as=script", false);
 	header("Link: <https://use.typekit.net/wtc2mfi.js>; rel=preload; as=script", false);
-	header("Link: </wp-includes/js/wp-emoji-release.min.js?ver=4.9.5>; rel=preload; as=script", false);
-	header("Link: </wp-includes/css/dashicons.min.css?ver=4.9.5>; rel=preload; as=style", false);
+	header("Link: </wp-includes/js/wp-emoji-release.min.js?ver=4.9.8>; rel=preload; as=script", false);
+	header("Link: </wp-includes/css/dashicons.min.css?ver=4.9.8>; rel=preload; as=style", false);
 	
 	// enqueue our styles
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '4' );
@@ -184,7 +183,7 @@ function wpse_59182_bigger_media_thumbs() {
 if ( ! function_exists( 'tomjn_typekit_code' ) ) {
 	function tomjn_typekit_code() {
 		?>
-		<script src="//use.typekit.net/wtc2mfi.js"></script>
+		<script src="https://use.typekit.net/wtc2mfi.js"></script>
 		<script >try{Typekit.load();}catch(e){}</script>
 		<?php
 	}
@@ -198,13 +197,6 @@ function tomjn_mce_external_plugins( $plugin_array ) {
 }
 
 add_editor_style( 'editor-style.css' );
-
-function add_favicon() {
-	?><link rel="shortcut icon" type="image/png" href="<?php echo esc_url( home_url() ); ?>/favicon.png" /><?php
-}
-add_action( 'wp_head', 'add_favicon' );
-add_action( 'admin_head', 'add_favicon' );
-
 
 // Add Slideshare oEmbed
 function add_oembed_slideshare() {
