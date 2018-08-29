@@ -49,10 +49,13 @@ if ( !empty( $taxobj ) ) {
 							echo '<ul class="taxonomy-term-choices-list">';
 							foreach ( $terms as $term ) {
 								$class = '';
-								if ( $term->slug == $current_term->slug ) {
+								if ( $term->slug === $current_term->slug ) {
 									$class = 'active';
 								}
-							    echo '<li class="'.esc_attr( $class ).'"><a href="'.esc_url( get_term_link( $term->slug, $taxonomy ) ).'">'.esc_html( $term->name ).'</a></li>';
+								$term_link = get_term_link( $term->slug, $taxonomy );
+								if ( ! is_wp_error( $term_link ) ) {
+									echo '<li class="' . esc_attr( $class ).'"><a href="' . esc_url( $term_link ) . '">' . esc_html( $term->name ) . '</a></li>';
+								}
 							}
 							echo '</ul>';
 						}

@@ -23,7 +23,7 @@ get_header();
 						<div class="entry-meta">
 							<?php
 								$metadata = wp_get_attachment_metadata();
-								printf( __( 'Published <span class="entry-date"><time class="entry-date" datetime="%1$s" pubdate>%2$s</time></span>, <a href="%3$s" title="Direct link">direct link</a>, posted in <a href="%4$s" title="Return to %5$s">%5$s</a>', '_s' ),
+								printf( wp_kses_post( __( 'Published <span class="entry-date"><time class="entry-date" datetime="%1$s" pubdate>%2$s</time></span>, <a href="%3$s" title="Direct link">direct link</a>, posted in <a href="%4$s" title="Return to %5$s">%5$s</a>', '_s' ) ),
 									esc_attr( get_the_date( 'c' ) ),
 									esc_html( get_the_date() ),
 									esc_url( wp_get_attachment_url() ),
@@ -55,7 +55,7 @@ get_header();
 						</div>
 						<?php
 						the_content();
-						wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) );
+						wp_link_pages( array( 'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ), 'after' => '</div>' ) );
 						?>
 					</div>
 				</article>

@@ -28,7 +28,7 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 	 */
 	function tomjnsetup() {
 
-		$attr = editor_attr::instance();
+		//$attr = editor_attr::instance();
 
 		/**
 		 * Custom template tags for this theme.

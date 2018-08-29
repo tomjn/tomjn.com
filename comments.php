@@ -27,8 +27,8 @@ if ( have_comments() ) {
 	?>
 	<h2 class="comments-title">
 		<?php
-			printf( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', intval( get_comments_number() ), '_s' ),
-				number_format_i18n( get_comments_number() ), '<span>' . wp_kses_post( get_the_title() ) . '</span>' );
+			printf( wp_kses_post( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', intval( get_comments_number() ), '_s' ) ),
+				esc_html( number_format_i18n( get_comments_number() ) ), '<span>' . wp_kses_post( get_the_title() ) . '</span>' );
 		?>
 	</h2>
 
@@ -36,7 +36,7 @@ if ( have_comments() ) {
 	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) {
 		// are there comments to navigate through ?>
 		<nav role="navigation" id="comment-nav-above" class="site-navigation comment-navigation">
-			<h1 class="assistive-text"><?php _e( 'Comment navigation', '_s' ); ?></h1>
+			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', '_s' ); ?></h1>
 			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', '_s' ) ); ?></div>
 			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', '_s' ) ); ?></div>
 		</nav>
@@ -61,7 +61,7 @@ if ( have_comments() ) {
 		// are there comments to navigate through
 		?>
 		<nav role="navigation" id="comment-nav-below" class="site-navigation comment-navigation">
-			<h1 class="assistive-text"><?php _e( 'Comment navigation', '_s' ); ?></h1>
+			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', '_s' ); ?></h1>
 			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', '_s' ) ); ?></div>
 			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', '_s' ) ); ?></div>
 		</nav>
@@ -70,9 +70,9 @@ if ( have_comments() ) {
 }
 
 // If comments are closed and there are comments, let's leave a little note, shall we?
-if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
+if ( ! comments_open() && have_comments() && post_type_supports( get_post_type(), 'comments' ) ) {
 	?>
-	<p class="nocomments"><?php _e( 'Comments are closed.', '_s' ); ?></p>
+	<p class="nocomments"><?php esc_html_e( 'Comments are closed.', '_s' ); ?></p>
 	<?php
 }
 

@@ -23,7 +23,7 @@ if ( is_tax() ) {
 $current_term =	$wp_query->queried_object;
 $tname = $taxonomy;
 $taxobj = get_taxonomy( $taxonomy );
-if ( !empty( $taxobj ) ) {
+if ( ! empty( $taxobj ) ) {
 	$tname = $taxobj->labels->name;
 }
 ?>
@@ -40,11 +40,11 @@ if ( have_posts() ) {
 		$title = 'Archive: '.get_the_time( 'F, Y' );
 	} else {
 		if ( !empty( $taxobj->labels->singular_name ) && !empty( $current_term->name ) ) {
-			$title = $taxobj->labels->singular_name.': '.$current_term->name;
+			$title = $taxobj->labels->singular_name.': ' . $current_term->name;
 		}
 	}
-	if ( !empty( $title ) ) {
-		echo '<h1>'.esc_html( $title ).'</h1>';
+	if ( ! empty( $title ) ) {
+		echo '<h1>' . esc_html( $title ) . '</h1>';
 	}
 	?>
 				</header>
@@ -95,10 +95,13 @@ if ( have_posts() ) {
 			echo '<ul class="taxonomy-term-choices-list">';
 			foreach ( $terms as $term ) {
 				$class = '';
-				if ( $term->slug == $current_term->slug ) {
+				if ( $term->slug === $current_term->slug ) {
 					$class = 'active';
 				}
-			    echo '<li class="'.esc_attr( $class ).'"><a href="'.esc_url( get_term_link( $term->slug, $taxonomy ) ).'">'.esc_html($term->name).'</a></li>';
+				$term_link = get_term_link( $term->slug, $taxonomy );
+				if ( !is_wp_error( $term_link ) ) {
+				    echo '<li class="' . esc_attr( $class ) . '"><a href="' . esc_url( $term_link ) . '">'.esc_html( $term->name ) . '</a></li>';
+				}
 			}
 			echo '</ul>';
 		}

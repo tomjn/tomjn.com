@@ -85,7 +85,7 @@
 				$the_tax = get_taxonomy( $tax_name );
 				?>
 				<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
-					<?php printf( __( '%1$s: %2$s', '_s' ), esc_html( $the_tax->labels->name ) , wp_kses_post( $term_list )  ); ?>
+					<?php printf( wp_kses_post( __( '%1$s: %2$s', '_s' ) ), esc_html( $the_tax->labels->name ) , wp_kses_post( $term_list )  ); ?>
 				</span><br>
 				<?php
 			}
@@ -94,7 +94,7 @@
 		$meta_text = __( 'Bookmark the <a href="%1$s" title="Permalink to %2$s" rel="bookmark">permalink</a>.', '_s' );
 
 		printf(
-			$meta_text,
+			wp_kses_post( $meta_text ),
 			esc_url( get_permalink() ),
 			the_title_attribute( 'echo=0' )
 		);

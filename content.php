@@ -11,7 +11,7 @@
 		<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', '_s' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 		</h1>
 		<?php
-		if ( 'post' == get_post_type() ) {
+		if ( 'post' === get_post_type() ) {
 			?>
 			<div class="entry-meta">
 				<?php _s_posted_on(); ?>
@@ -32,8 +32,12 @@ if ( is_search() || is_archive() ) {
 } else {
 	?>
 	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', '_s' ) ); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
+		<?php
+		the_content( wp_kses_post( __( 'Continue reading <span class="meta-nav">&rarr;</span>', '_s' ) ) );
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
+			'after' => '</div>'
+		) ); ?>
 	</div>
 	<?php
 }
@@ -46,16 +50,16 @@ foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 	if ( !empty( $term_list ) ) {
 		$the_tax = get_taxonomy( $tax_name );
 		?>
-		<span class="<?php echo $tax_name; ?>-links">
-			<?php printf( __( '%1$s: %2$s<br>', '_s' ), esc_html( $the_tax->labels->name ), wp_kses_post( $term_list ) ); ?>
+		<span class="<?php echo esc_attr( $tax_name ); ?>-links">
+			<?php printf( wp_kses_post( __( '%1$s: %2$s<br>', '_s' ) ), esc_html( $the_tax->labels->name ), wp_kses_post( $term_list ) ); ?>
 		</span>
 		<?php
 	}
 }
 
-if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) {
+if ( ! post_password_required() && ( comments_open() || have_comments() ) ) {
 	?>
-	<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', '_s' ), __( '1 Comment', '_s' ), __( '% Comments', '_s' ) ); ?></span>
+	<span class="comments-link"><?php comments_popup_link( esc_html__( 'Leave a comment', '_s' ), esc_html__( '1 Comment', '_s' ), esc_html__( '% Comments', '_s' ) ); ?></span>
 	<?php
 }
 ?>

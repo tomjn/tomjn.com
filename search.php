@@ -17,7 +17,7 @@ get_header();
 
 				<header class="page-header">
 					<h1 class="page-title">
-						<?php printf( __( 'Search Results for: %s', '_s' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?>
+						<?php printf( esc_html__( 'Search Results for: %s', '_s' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?>
 					</h1>
 				</header>
 				<?php
@@ -44,7 +44,11 @@ get_header();
 
 					echo '<h1>Archives</h1>';
 					echo '<ul class="taxonomy-term-choices-list ">';
-					wp_get_archives( array( 'type' => 'monthly', 'format' => 'li', 'show_post_count' => 0 ) );
+					wp_get_archives( array(
+						'type' => 'monthly',
+						'format' => 'li',
+						'show_post_count' => 0
+					) );
 					echo '</ul>';
 					?>
 					</div>
