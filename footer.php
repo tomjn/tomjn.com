@@ -6,7 +6,7 @@
  */
 ?>
 	</div>
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer">
 		<div class="footer-container">
 			<div class="site-info">
 				<?php do_action( 'tomjn_footer_notes' ); ?>

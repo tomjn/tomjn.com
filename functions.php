@@ -174,7 +174,7 @@ add_filter( 'the_content', 'filter_ptags_on_images' );
 add_action( 'admin_head-upload.php', 'wpse_59182_bigger_media_thumbs' );
 function wpse_59182_bigger_media_thumbs() {
 	?>
-	<script type="text/javascript">
+	<script>
 		jQuery(document).ready( function($) {
 			$('img').each(function(){
 				$(this).removeAttr('width').css('max-width','100%');
@@ -242,7 +242,7 @@ function tomjn_hack_wp_title_for_home( $title ) {
 add_action( 'tomjn_footer_notes', 'tomjn_footer_notes' );
 function tomjn_footer_notes() {
 	?>
-	<p>Content licensed as <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-by-sa-3</a> with attribution required, <a href="https://twitter.com/tarendai" rel="me">twitter</a></p>
+	<p>Content licensed as <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="licensei noreferrer noopener">cc-by-sa-3</a> with attribution required, <a href="https://twitter.com/tarendai" rel="me noreferrer noopener">twitter</a></p>
 	<?php
 }
 
@@ -266,3 +266,4 @@ function tomjn_get_the_term_list( $id, $taxonomy, $before, $sep, $after ) {
 	}
 	return $result;
 }
+

@@ -7,7 +7,8 @@
  * @package _s
  * @since _s 1.0
  */
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>" />
@@ -19,10 +20,14 @@
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site">
 		<?php do_action( 'before' ); ?>
-		<header id="masthead" class="site-header" role="banner">
+		<header id="masthead" class="site-header">
 			<div class="header-contents">
 				<hgroup>
-					<h1 class="site-title"><a class="h-card" rel="me" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name', 'display' ) ); ?></a></h1>
+					<h1 class="site-title">
+						<a class="h-card" rel="me" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+							<?php echo esc_html( get_bloginfo( 'name', 'display' ) ); ?>
+						</a>
+					</h1>
 					<?php
 					$description = get_bloginfo( 'description' );
 					if ( !empty( $description) ) {
@@ -33,7 +38,7 @@
 					?>
 				</hgroup>
 
-				<nav role="navigation" class="site-navigation main-navigation">
+				<nav class="site-navigation main-navigation">
 					<h1 class="assistive-text"><?php esc_html_e( 'Menu', 'tomjn' ); ?></h1>
 					<div class="assistive-text skip-link">
 						<a href="#content" title="<?php esc_attr_e( 'Skip to content', 'tomjn' ); ?>">
