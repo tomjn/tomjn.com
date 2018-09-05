@@ -23,7 +23,7 @@ if ( ! function_exists( '_s_content_nav' ) ) {
 
 		?>
 		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo esc_attr( $nav_class ); ?>">
-			<h1 class="assistive-text"><?php _e( 'Post navigation', '_s' ); ?></h1>
+			<h1 class="assistive-text"><?php esc_html_e( 'Post navigation', '_s' ); ?></h1>
 			<?php
 		if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
 			$post_type = get_post_type();
@@ -70,7 +70,7 @@ function _s_content_nav_projects( $nav_id ) {
 
 	?>
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo esc_attr( $nav_class ); ?>">
-		<h1 class="assistive-text"><?php _e( 'Post navigation', '_s' ); ?></h1>
+		<h1 class="assistive-text"><?php esc_html_e( 'Post navigation', '_s' ); ?></h1>
 		<?php
 	if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
 		$post_type = get_post_type();
@@ -110,7 +110,7 @@ function _s_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p><?php _e( 'Pingback:', '_s' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', '_s' ), ' ' ); ?></p>
+		<p><?php esc_html_e( 'Pingback:', '_s' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( esc_html__( '(Edit)', '_s' ), ' ' ); ?></p>
 	<?php
 			break;
 		default :
@@ -124,10 +124,10 @@ function _s_comment( $comment, $args, $depth ) {
 					if ( empty( $comment_author ) ) {
 						$comment_author = 'Unknown';
 					}
-					printf( __( '%s <span class="says">says:</span>', '_s' ), '<cite class="fn">'.wp_kses_post( $comment_author ).'</cite>' ); ?>
+					printf( wp_kses_post( __( '%s <span class="says">says:</span>', '_s' ) ), '<cite class="fn">' . wp_kses_post( $comment_author ) . '</cite>' ); ?>
 				</div>
-				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em><?php _e( 'Your comment is awaiting moderation.', '_s' ); ?></em>
+				<?php if ( $comment->comment_approved === '0' ) : ?>
+					<em><?php esc_html_e( 'Your comment is awaiting moderation.', '_s' ); ?></em>
 					<br />
 				<?php endif; ?>
 
@@ -135,7 +135,7 @@ function _s_comment( $comment, $args, $depth ) {
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
 					<?php
 						/* translators: 1: date, 2: time */
-						printf( __( '%1$s at %2$s', '_s' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) ); ?>
+						printf( wp_kses_post( __( '%1$s at %2$s', '_s' ) ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) ); ?>
 					</time></a>
 					<?php edit_comment_link( __( '(Edit)', '_s' ), ' ' );
 					?>
@@ -162,7 +162,10 @@ if ( ! function_exists( '_s_posted_on' ) ) :
  * @since _s 1.0
  */
 function _s_posted_on() {
-	printf( __( 'Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', '_s' ),
+	printf(
+		wp_kses_post(
+			__( 'Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', '_s' )
+		),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
@@ -180,7 +183,8 @@ endif;
  * @since _s 1.0
  */
 function _s_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
+	$all_the_cool_cats = get_transient( 'all_the_cool_cats' );
+	if ( false === $all_the_cool_cats ) {
 		// Create an array of all the categories that are attached to posts
 		$all_the_cool_cats = get_categories( array(
 			'hide_empty' => 1,
@@ -192,7 +196,7 @@ function _s_categorized_blog() {
 		set_transient( 'all_the_cool_cats', $all_the_cool_cats );
 	}
 
-	if ( '1' != $all_the_cool_cats ) {
+	if ( 1 > $all_the_cool_cats ) {
 		// This blog has more than 1 category so _s_categorized_blog should return true
 		return true;
 	} else {

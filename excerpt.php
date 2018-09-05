@@ -6,7 +6,7 @@
 			</a>
 		</h1>
 		<?php
-		if ( 'post' == get_post_type() ) {
+		if ( 'post' === get_post_type() ) {
 			?>
 			<div class="entry-meta">
 				<?php _s_posted_on(); ?>
@@ -27,8 +27,8 @@ if ( !is_singular() ) {
 } else {
 		?>
 	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', '_s' ) ); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
+		<?php the_content( wp_kses_post( __( 'Continue reading <span class="meta-nav">&rarr;</span>', '_s' ) ) ); ?>
+		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
 	</div>
 	<?php
 }
@@ -41,7 +41,7 @@ foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 	if ( !empty( $term_list ) ) {
 		$the_tax = get_taxonomy( $tax_name );
 		?>
-		<span class="<?php echo $tax_name; ?>-links tax-tag-links">
+		<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
 			<?php echo wp_kses_post( $term_list ); ?>
 		</span>
 		<?php

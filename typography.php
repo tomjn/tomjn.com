@@ -37,7 +37,7 @@ get_header();
 			for ( $i = 1; $i < 5; $i++ ) {
 				?>
 				<div class="typo">
-					<h<?php echo $i; ?>><span class="note">Heading <?php echo $i; ?></span>The Quick Brown Fox Jumped Over The Lazy Dog</h<?php echo $i; ?>>
+					<h<?php echo intval( $i ); ?>><span class="note">Heading <?php echo intval( $i ); ?></span>The Quick Brown Fox Jumped Over The Lazy Dog</h<?php echo intval( $i ); ?>>
 				</div>
 				<?php
 			}

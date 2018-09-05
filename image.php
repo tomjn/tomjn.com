@@ -23,7 +23,7 @@ get_header();
 						<div class="entry-meta">
 							<?php
 								$metadata = wp_get_attachment_metadata();
-								printf( __( 'Published <span class="entry-date"><time class="entry-date" datetime="%1$s" pubdate>%2$s</time></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%7$s</a>', '_s' ),
+								printf( wp_kses_post( __( 'Published <span class="entry-date"><time class="entry-date" datetime="%1$s" pubdate>%2$s</time></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%7$s</a>', '_s' ) ),
 									esc_attr( get_the_date( 'c' ) ),
 									esc_html( get_the_date() ),
 									esc_url( wp_get_attachment_url() ),
@@ -49,9 +49,19 @@ get_header();
 									 * Grab the IDs of all the image attachments in a gallery so we can get the URL of the next adjacent image in a gallery,
 									 * or the first image (if we're looking at the last image in a gallery), or, in a gallery of one, just the link to that image file
 									 */
-									$attachments = array_values( get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) ) );
+									$children = get_posts( array(
+										'post_parent' => $post->post_parent,
+										'post_status' => 'inherit',
+										'post_type' => 'attachment',
+										'post_mime_type' => 'image',
+										'order' => 'ASC',
+										'orderby' => 'menu_order ID',
+										'posts_per_page' => 150,
+										'suppress_filters' => false,
+									) );
+									$attachments = array_values( $children );
 									foreach ( $attachments as $k => $attachment ) {
-										if ( $attachment->ID == $post->ID )
+										if ( $attachment->ID === $post->ID )
 											break;
 									}
 									$k++;
@@ -89,7 +99,7 @@ get_header();
 						<?php
 						the_content();
 						wp_link_pages( array(
-							'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
+							'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
 							'after' => '</div>'
 						) );
 						?>
