@@ -7031,3 +7031,10 @@ article footer {
 .site-footer:hover {
   opacity: 1;
 }
+.wp-block-gallery {
+  margin: 3em -8px 2em -8px;
+}
+.wp-block-gallery .blocks-gallery-item img {
+  border: 1px solid #f6f6f6;
+  border-radius: 4px;
+}
