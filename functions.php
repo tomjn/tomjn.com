@@ -138,22 +138,23 @@ add_action( 'widgets_init', 'tomjnwidgets_init' );
  * Enqueue scripts and styles
  */
 function tomjnscripts() {
+	$wordpress_version = get_bloginfo( 'version' );
 	// hint to the browser to request a few extra things via http2
-	header("Link: <".get_stylesheet_uri()."?ver=4>; rel=preload; as=style", false);
+	header("Link: <".get_stylesheet_uri()."?ver=5>; rel=preload; as=style", false);
 	header("Link: </wp-content/plugins/gutenberg/blocks/build/style.css>; rel=preload; as=style", false);
 	header("Link: </wp-includes/js/jquery/jquery.js?ver=1.12.4>; rel=preload; as=script", false);
 	header("Link: </wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1>; rel=preload; as=script", false);
 	header("Link: <https://use.typekit.net/wtc2mfi.js>; rel=preload; as=script", false);
 	header("Link: <https://www.googletagmanager.com/gtag/js?id=UA-6510359-3>; rel=preload; as=script", false);
 	header("Link: <https://tomjn.com/wp-content/uploads/2016/11/favicon.png>; rel=preload; as=image", false);
-	header("Link: </wp-includes/js/wp-emoji-release.min.js?ver=4.9.8>; rel=preload; as=script", false);
-	header("Link: </wp-includes/css/dashicons.min.css?ver=4.9.8>; rel=preload; as=style", false);
+	header("Link: </wp-includes/js/wp-emoji-release.min.js?ver=".$wordpress_version.">; rel=preload; as=script", false);
+	header("Link: </wp-includes/css/dashicons.min.css?ver=".$wordpress_version.">; rel=preload; as=style", false);
 	header("Link: <https://stats.wp.com/e-201832.js>; rel=preload; as=script",false);
 	header("Link: <https://www.google-analytics.com/analytics.js>; rel=preload; as=script",false);
-	header("Link: <https://tomjn.com/wp-includes/js/wp-embed.min.js?ver=4.9.8>; rel=preload; as=script", false);
+	header("Link: <https://tomjn.com/wp-includes/js/wp-embed.min.js?ver=".$wordpress_version.">; rel=preload; as=script", false);
 
 	// enqueue our styles
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '4' );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5' );
 	wp_enqueue_style( 'dashicons' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
