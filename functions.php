@@ -148,14 +148,14 @@ function tomjnscripts() {
 	header("Link: <https://www.googletagmanager.com/gtag/js?id=UA-6510359-3>; rel=preload; as=script", false);
 	header("Link: <https://tomjn.com/wp-content/uploads/2016/11/favicon.png>; rel=preload; as=image", false);
 	header("Link: </wp-includes/js/wp-emoji-release.min.js?ver=".$wordpress_version.">; rel=preload; as=script", false);
-	header("Link: </wp-includes/css/dashicons.min.css?ver=".$wordpress_version.">; rel=preload; as=style", false);
+	//header("Link: </wp-includes/css/dashicons.min.css?ver=".$wordpress_version.">; rel=preload; as=style", false);
 	header("Link: <https://stats.wp.com/e-201832.js>; rel=preload; as=script",false);
 	header("Link: <https://www.google-analytics.com/analytics.js>; rel=preload; as=script",false);
 	header("Link: <https://tomjn.com/wp-includes/js/wp-embed.min.js?ver=".$wordpress_version.">; rel=preload; as=script", false);
 
 	// enqueue our styles
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5' );
-	wp_enqueue_style( 'dashicons' );
+	//wp_enqueue_style( 'dashicons' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
