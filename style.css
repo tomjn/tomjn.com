@@ -356,6 +356,7 @@ input[type="radio"] {
   /* Addresses excess padding in IE8/9 */
   width: 32px !important;
   height: 32px;
+  vertical-align: baseline;
 }
 input[type="search"] {
   -webkit-appearance: textfield;
