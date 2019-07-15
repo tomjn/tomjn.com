@@ -39,10 +39,15 @@ and Blueprint http://www.blueprintcss.org/
 
 .tomjn-button-style {
 	padding: 0.25em 0.5em;
-	background: transparent;
-	border: 1px solid #e8e8e8;
-	border-radius: 4px;
+	background: rgba(0,0,0,0.05);
+	border: 2px solid #e0e0e0;
+	border-radius: 6px;
 	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+}
+
+.tomjn_editor_container {
+	border: 2px solid #e0e0e0;
+	border-radius: 6px;
 }
 
 .tomjn-button-style-hover {
@@ -59,10 +64,10 @@ and Blueprint http://www.blueprintcss.org/
 @import "less/type.less";
 
 @media only screen and (min-width: 660px){ 
-	body, #social * {
+	body {
 		font-size:22px;
 	}
-	#social, article {
+	article {
 		font-size:22px;
 	}
 	.entry-title {
@@ -119,7 +124,7 @@ body {
 
 #main {
 	.animated();
-	.fadeInUp();
+	.fadeIn();
 }
 // 8, 10, 14 and 36
 // 16, 20, 28, 72
@@ -136,7 +141,7 @@ body {
 	top:28px;
 }
 
-.mce-content-body, .entry-content, #social .social-comment-body {
+.mce-content-body, .entry-content {
 	.clearfix;
 }
 
@@ -434,21 +439,6 @@ footer {
 		border-radius: 3px;
 		border: 1px solid #EAEAEA;
 		margin-right: 0.5em;
-	}
-}
-
-#content {
-	#social {
-		.social-children {
-			margin-left: 1em;
-		}
-		 .social-replied {
-			top: 0;
-			left: -30px;
-		}
-		.social-comment {
-			border:none;
-		}
 	}
 }
 

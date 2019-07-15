@@ -19,11 +19,15 @@ and Blueprint http://www.blueprintcss.org/
 */
 .tomjn-button-style {
   padding: 0.25em 0.5em;
-  background: transparent;
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
+}
+.tomjn_editor_container {
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
 }
 .tomjn-button-style-hover {
   background: #fafafa;
@@ -316,9 +320,9 @@ html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   padding: 0.25em 0.5em;
-  background: transparent;
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
   -webkit-appearance: button;
@@ -350,6 +354,8 @@ input[type="radio"] {
   /* Addresses box sizing set to content-box in IE8/9 */
   padding: 0;
   /* Addresses excess padding in IE8/9 */
+  width: 32px !important;
+  height: 32px;
 }
 input[type="search"] {
   -webkit-appearance: textfield;
@@ -612,7 +618,7 @@ object {
   display: block;
   margin: 1em;
   margin-left: 0;
-  padding: 1em;
+  padding: 2em 0.5em 1em 0.5em;
   font-family: inherit;
 }
 /* =Widgets
@@ -2982,11 +2988,9 @@ article div.sharedaddy h3.sd-title {
   }
 }
 @media only screen and (min-width: 660px) {
-  body,
-  #social * {
+  body {
     font-size: 22px;
   }
-  #social,
   article {
     font-size: 22px;
   }
@@ -3065,11 +3069,11 @@ body {
   -ms-animation-fill-mode: both;
   -o-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-name: fadeInUp;
-  -moz-animation-name: fadeInUp;
-  -ms-animation-name: fadeInUp;
-  -o-animation-name: fadeInUp;
-  animation-name: fadeInUp;
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  -ms-animation-name: fadeIn;
+  -o-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 #masthead .header-contents,
 .page-padding {
@@ -3085,19 +3089,16 @@ body {
   top: 28px;
 }
 .mce-content-body,
-.entry-content,
-#social .social-comment-body {
+.entry-content {
   zoom: 1;
 }
 .mce-content-body:before,
-.entry-content:before,
-#social .social-comment-body:before {
+.entry-content:before {
   content: '';
   display: block;
 }
 .mce-content-body:after,
-.entry-content:after,
-#social .social-comment-body:after {
+.entry-content:after {
   content: '';
   display: table;
   clear: both;
@@ -3428,9 +3429,9 @@ article footer {
 }
 .commentlist .comment-reply-link {
   padding: 0.25em 0.5em;
-  background: transparent;
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
   margin-top: 0.5em;
@@ -3479,16 +3480,6 @@ article footer {
   border-radius: 3px;
   border: 1px solid #EAEAEA;
   margin-right: 0.5em;
-}
-#content #social .social-children {
-  margin-left: 1em;
-}
-#content #social .social-replied {
-  top: 0;
-  left: -30px;
-}
-#content #social .social-comment {
-  border: none;
 }
 .project_listing_item {
   margin-bottom: 1.5em;
