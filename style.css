@@ -34,6 +34,17 @@ and Blueprint http://www.blueprintcss.org/
   /* Old browsers */
   border-color: #bbb #bbb #aaa #bbb;
 }
+.tomjn-anchor-style {
+  text-decoration: none;
+  background: #fffafa;
+  box-shadow: inset 0 -1px 0 0 #990000;
+  text-shadow: 1px 1px 0 #fff, -1px 1px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff;
+}
+.tomjn-anchor-style:hover,
+.tomjn-anchor-style:active {
+  color: #ff0000;
+  box-shadow: inset 0 -3px 0 0 #ff0000;
+}
 /* pulled from style.css */
 /* =Reset
 -------------------------------------------------------------- */
@@ -276,7 +287,7 @@ sup {
   bottom: 1ex;
 }
 sub {
-  top: .5ex;
+  top: 0.5ex;
 }
 small {
   font-size: 75%;
@@ -2082,7 +2093,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 /**
  * Our breakpoint specific widths classes.
  */
-@media only screen and (max-width: 681px - 1px) {
+@media only screen and (max-width: 680px) {
   /**
      * Whole
      */
@@ -2240,7 +2251,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     width: 91.666%;
   }
 }
-@media only screen and (min-width: 681px) and (max-width: 1024px - 1px) {
+@media only screen and (min-width: 681px) and (max-width: 1023px) {
   /**
      * Whole
      */
@@ -2398,7 +2409,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     width: 91.666%;
   }
 }
-@media only screen and (max-width: 1024px - 1px) {
+@media only screen and (max-width: 1023px) {
   /**
      * Whole
      */
@@ -2797,20 +2808,26 @@ p a,
 p a:visited,
 #social .social-comment-body p a:visited,
 .entry-meta a:visited {
-  margin-bottom: -2px;
-  /*display: inline-block;*/
+  text-decoration: none;
+  background: #fffafa;
+  box-shadow: inset 0 -1px 0 0 #990000;
+  text-shadow: 1px 1px 0 #fff, -1px 1px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff;
   color: #555;
-  border-bottom: 2px dashed #CCC;
 }
 p a:hover,
 #social .social-comment-body p a:hover,
 .entry-meta a:hover,
+p a:visited:hover,
+#social .social-comment-body p a:visited:hover,
+.entry-meta a:visited:hover,
 p a:active,
 #social .social-comment-body p a:active,
-.entry-meta a:active {
-  text-decoration: none;
+.entry-meta a:active,
+p a:visited:active,
+#social .social-comment-body p a:visited:active,
+.entry-meta a:visited:active {
   color: #ff0000;
-  border-color: #ff0000;
+  box-shadow: inset 0 -3px 0 0 #ff0000;
 }
 h1 {
   font-size: 36px;
@@ -3476,6 +3493,7 @@ article footer {
   margin: 0;
 }
 .tax-tag-links a {
+  box-shadow: none;
   background: whiteSmoke;
   padding: 0px 10px;
   border-radius: 3px;
