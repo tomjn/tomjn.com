@@ -155,7 +155,7 @@ add_action( 'init','tomjnhttp2' );
 function tomjnscripts() {
 
 	// enqueue our styles
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '5' );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '6' );
 	//wp_enqueue_style( 'dashicons' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
