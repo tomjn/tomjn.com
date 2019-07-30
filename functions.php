@@ -138,6 +138,16 @@ add_action( 'widgets_init', 'tomjnwidgets_init' );
  * Enqueue scripts and styles
  */
 function tomjnhttp2() {
+	if (
+		wp_doing_cron() ||
+		defined('REST_REQUEST') ||
+		wp_doing_ajax() ||
+		wp_is_xml_request() ||
+		is_admin() ||
+		is_feed()
+	) {
+		return;
+	}
 	$wordpress_version = get_bloginfo( 'version' );
 	// hint to the browser to request a few extra things via http2
 	header("Link: </wp-includes/js/jquery/jquery.js?ver=1.12.4>; rel=preload; as=script", false);
