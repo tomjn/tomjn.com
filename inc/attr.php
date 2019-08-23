@@ -11,7 +11,7 @@
 if ( ! class_exists( 'editor_attr' ) ) {
 	class editor_attr {
 		/**
-		 * @var object self
+		 * @var self|null
 		 */
 		protected static $instance = null;
 
@@ -22,7 +22,7 @@ if ( ! class_exists( 'editor_attr' ) ) {
 
 		/*
 		 * Custom styles for tiny mce
-		 * HT: http://alisothegeek.com/2011/05/tinymce-styles-dropdown-wordpress-visual-editor/
+		 * @link http://alisothegeek.com/2011/05/tinymce-styles-dropdown-wordpress-visual-editor/
 		 */
 		function my_mce_buttons_2( $buttons ) {
 			array_unshift( $buttons, 'styleselect' );
@@ -46,8 +46,10 @@ if ( ! class_exists( 'editor_attr' ) ) {
 			return $settings;
 		}
 
-		public static function instance( ) {
-			null === self::$instance && self::$instance = new self;
+		public static function instance() {
+			if ( ! self::$instance instanceof self ) {
+				self::$instance = new self;
+			}
 			return self::$instance;
 		}
 	}

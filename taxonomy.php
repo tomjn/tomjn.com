@@ -10,7 +10,7 @@
 
 get_header();
 $taxonomy = get_query_var( 'taxonomy' );
-$current_term =	$wp_query->queried_object;
+$current_term = get_queried_object();
 $tname = $taxonomy;
 $taxobj = get_taxonomy( $taxonomy );
 if ( !empty( $taxobj ) ) {

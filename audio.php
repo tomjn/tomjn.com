@@ -27,8 +27,8 @@ get_header();
 									esc_attr( get_the_date( 'c' ) ),
 									esc_html( get_the_date() ),
 									esc_url( wp_get_attachment_url() ),
-									esc_url( get_permalink( $post->post_parent ) ),
-									esc_html( get_the_title( $post->post_parent ) )
+									esc_url( get_permalink( wp_get_post_parent_id( 0 ) ) ),
+									esc_html( get_the_title( wp_get_post_parent_id( 0 ) ) )
 								);
 							?>
 						</div>

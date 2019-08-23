@@ -36,8 +36,8 @@ get_header();
 						</div>
 
 						<nav id="image-navigation">
-							<span class="previous-image"><?php previous_image_link( false, __( '&larr; Previous', '_s' ) ); ?></span>
-							<span class="next-image"><?php next_image_link( false, __( 'Next &rarr;', '_s' ) ); ?></span>
+							<span class="previous-image"><?php previous_image_link( 'none', __( '&larr; Previous', '_s' ) ); ?></span>
+							<span class="next-image"><?php next_image_link( 'none', __( 'Next &rarr;', '_s' ) ); ?></span>
 						</nav>
 					</header>
 
@@ -60,6 +60,7 @@ get_header();
 										'suppress_filters' => false,
 									) );
 									$attachments = array_values( $children );
+									$k = 0;
 									foreach ( $attachments as $k => $attachment ) {
 										if ( $attachment->ID === $post->ID )
 											break;

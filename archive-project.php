@@ -20,7 +20,7 @@ if ( is_tax() ) {
 	}
 }
 
-$current_term =	$wp_query->queried_object;
+$current_term = get_queried_object();
 $tname = $taxonomy;
 $taxobj = get_taxonomy( $taxonomy );
 if ( !empty( $taxobj ) ) {

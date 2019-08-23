@@ -31,7 +31,7 @@ get_header();
 					<?php
 					/* translators: %1$s: smilie */
 					$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', '_s' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>".wp_kses_post($archive_content) );
+					the_widget( 'WP_Widget_Archives', array( 'dropdown' => '1' ), array( 'after_title' => '</h2>' . wp_kses_post( $archive_content ) ) );
 					the_widget( 'WP_Widget_Tag_Cloud' );
 					?>
 				</div>

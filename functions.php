@@ -37,9 +37,9 @@ if ( ! function_exists( 'tomjnsetup' ) ) {
 
 		remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
 		remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windows Live Writer manifest file.
-		remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
-		remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link
-		remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); // Display relational links for the posts adjacent to the current post.
+		remove_action( 'wp_head', 'parent_post_rel_link', 10 ); // prev link
+		remove_action( 'wp_head', 'start_post_rel_link', 10 ); // start link
+		remove_action( 'wp_head', 'adjacent_posts_rel_link', 10 ); // Display relational links for the posts adjacent to the current post.
 		remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that is generated on the wp_head hook, WP version
 
 		/**
@@ -259,7 +259,7 @@ function tomjn_footer_notes() {
 }
 
 function _tomjn_home_cancel_query( $query, \WP_Query $q ) {
-	if ( ! $q->is_admin() && ! $q->is_feed() && $q->is_home() && $q->is_main_query() ) {
+	if ( ! $q->is_admin && ! $q->is_feed() && $q->is_home() && $q->is_main_query() ) {
 		$query = false;
 		$q->set( 'fields', 'ids' );
 	}
@@ -268,7 +268,7 @@ function _tomjn_home_cancel_query( $query, \WP_Query $q ) {
 add_filter( 'posts_request', '_tomjn_home_cancel_query', 100, 2 );
 
 function tomjn_get_the_term_list( $id, $taxonomy, $before, $sep, $after ) {
-	return get_the_term_list( $id, $taxonomy, $before, $sep, $after );
+	// FIXME return get_the_term_list( $id, $taxonomy, $before, $sep, $after );
 	$result = get_transient( 'tomjn_get_the_term_list_'.$id.'_'.$taxonomy );
 	if ( false === $result ) {
 		$result = get_the_term_list( $id, $taxonomy, $before, $sep, $after );
@@ -279,3 +279,4 @@ function tomjn_get_the_term_list( $id, $taxonomy, $before, $sep, $after ) {
 	return $result;
 }
 
+function wp_is_xml_request() { return false; }
