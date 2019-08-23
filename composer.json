@@ -19,9 +19,5 @@
 	"require"    : {
 		"php": ">=5.3.3",
 		"composer/installers": "~1.0"
-	},
-	"require-dev": {
-		"phpstan/phpstan-shim": "^0.11.15",
-		"szepeviktor/phpstan-wordpress": "^0.2.0"
 	}
 }

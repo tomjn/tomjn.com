@@ -278,5 +278,3 @@ function tomjn_get_the_term_list( $id, $taxonomy, $before, $sep, $after ) {
 	}
 	return $result;
 }
-
-function wp_is_xml_request() { return false; }
