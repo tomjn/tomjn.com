@@ -1,6 +1,7 @@
+@import "less/variables";
 @import "style.css";
 
-@backgroundcolour: #ffffff;
+/*@backgroundcolour: #ffffff;
 @headerBGcolour: #ffffff;
 
 
@@ -10,7 +11,7 @@
 @desaturated_background: desaturate( @backgroundcolour,40%);
 @darkened: darken(@desaturated_background, 2%);
 @lightened: lighten(@desaturated_background,2%);
-@block_background_colour: contrast( @backgroundcolour, @darkened, @lightened );
+@block_background_colour: contrast( @backgroundcolour, @darkened, @lightened );*/
 
 /* =Reset
 -------------------------------------------------------------- */
@@ -307,4 +308,20 @@ img {
 	img {
 		margin: 1.2% auto 0;
 	}
+}
+
+
+/* Main column width */
+.wp-block {
+    max-width: 1024px;
+}
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+    max-width: 1080px;
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+    max-width: none;
 }
