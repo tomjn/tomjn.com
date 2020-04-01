@@ -2195,6 +2195,7 @@ body {
 }
 #masthead a {
   text-decoration: none;
+  display: block;
 }
 #masthead hgroup,
 #masthead nav {
