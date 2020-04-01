@@ -1,0 +1,21 @@
+
+// Font weights
+$light: 100;
+$regular: 400;
+$bold: 600;
+$heavy: 900;
+
+// Base Font
+$base-font-family: "JetBrains Mono", monaco, monospace;
+$base-font-weight: $regular;
+$base-font-size: 14px;
+$base-line-height: 1.4;
+
+$desktop-font-size: 22px;
+
+// Fixed Font
+$fixed-font-family: monospace;
+$fixed-font-size: 85%;
+$fixed-line-height: $base-line-height;
+
+@import "../modules/all";

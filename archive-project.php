@@ -20,7 +20,7 @@ if ( is_tax() ) {
 	}
 }
 
-$current_term =	$wp_query->queried_object;
+$current_term =	get_queried_object();
 $tname = $taxonomy;
 $taxobj = get_taxonomy( $taxonomy );
 if ( !empty( $taxobj ) ) {
@@ -35,14 +35,14 @@ if ( have_posts() ) {
 				<header class="page-header">
 					<h1>Projects &amp; Work</h1>
 				</header>
-					<div class="taxonomy-listing grid">
+					<div class="taxonomy-listing columns">
 	<?php
 
 	/* Start the Loop */
 	while ( have_posts() ) {
 		the_post();
 		?>
-		<a href="<?php echo esc_url( get_permalink() ); ?>" class="project_listing_item grid__item one-whole palm-one-whole lap-one-half desk-one-half">
+		<a href="<?php echo esc_url( get_permalink() ); ?>" class="project_listing_item column is-half">
 			<div class="grid">
 				<div class="grid__item one-third palm-one-whole lap-one-whole desk-one-third">
 					<?php the_post_thumbnail( 'project-main' ); ?>

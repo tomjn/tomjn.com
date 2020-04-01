@@ -12,14 +12,13 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>" />
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<div id="page" class="hfeed site">
-		<?php do_action( 'before' ); ?>
 		<header id="masthead" class="site-header">
 			<div class="header-contents">
 				<hgroup>

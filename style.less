@@ -21,16 +21,10 @@ and Blueprint http://www.blueprintcss.org/
 @import "less/variables";
 @import "less/resets";
 @import "less/slimline-animate";
-@import "less/csswizardry-grids";
 @import "less/type";
+@import 'less/comments';
 
 @media only screen and (min-width: 660px){
-	body {
-		font-size:22px;
-	}
-	article {
-		font-size:22px;
-	}
 	.entry-title {
 		font-size: 72px;
 		margin-top:0;
@@ -102,7 +96,7 @@ body {
 	top:28px;
 }
 
-.mce-content-body, .entry-content {
+.entry-content {
 	.clearfix;
 }
 
@@ -201,22 +195,17 @@ body {
 		}
 	}
 }
-#twin-columns,#secondary {
+
+#twin-columns, #secondary {
 	.clearfix;
-	aside {
-		.widget-title {
-			margin-top:0;
-		}
-		ul {
-			margin-left:0;
-			list-style:none;
-		}
+}
+.widget {
+	.widget-title {
+		margin-top:0;
 	}
-	.spot, .widget_text {
-		ul {
-			list-style: disc;
-			margin-left:2em;
-		}
+	ul {
+		margin-left:0;
+		list-style:none;
 	}
 }
 
@@ -321,57 +310,6 @@ footer {
 	border: 1px solid #EFEFEF;
 }
 
-.commentlist {
-
-	article {
-		max-width: 800px;
-		margin-bottom: 1.5em;
-	}
-
-	.avatar {
-		float: left;
-		border-radius:4px;
-		margin-left: -60px;
-	}
-
-	.pingback,
-	li.comment,
-	.social-twitter,
-	.social-twitter-rt {
-		padding-left: 60px;
-		margin-bottom:1em;
-		list-style:none;
-	}
-	li.comment {
-		padding-left: 50px;
-	}
-
-	.comment-reply-link {
-		.tomjn-button-style();
-		&:hover {
-			.tomjn-button-style-hover();
-		}
-		margin-top: 0.5em;
-		display: inline-block;
-	}
-
-	.vcard {
-		min-height: 40px;
-	    border-bottom: 1px solid #e8e8e8;
-	    margin-bottom: 1em;
-	}
-
-	footer {
-		padding-left: 0;
-		padding-right: 0;
-		.commentmetadata {
-			display: none;
-		}
-	}
-	margin-left: 0;
-	list-style: none;
-
-}
 .entry-content, .entry-summary {
 	margin: 1.5em 0;
 }

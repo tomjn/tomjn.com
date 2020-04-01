@@ -23,7 +23,8 @@
   "require": {
     "scss": "*"
   },
-  "dependencies": {
+  "devDependencies": {
+    "bulma": "^0.8.1",
     "less": "^3.11.1",
     "scss": "^0.2.4"
   }

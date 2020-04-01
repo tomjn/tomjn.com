@@ -7,7 +7,6 @@
  * @package _s
  * @since _s 1.0
  */
-global $wp_query;
 get_header();
 $taxonomy = '';
 if ( is_tax() ) {
@@ -20,7 +19,7 @@ if ( is_tax() ) {
 	}
 }
 
-$current_term =	$wp_query->queried_object;
+$current_term =	get_queried_object();
 $tname = $taxonomy;
 $taxobj = get_taxonomy( $taxonomy );
 if ( ! empty( $taxobj ) ) {
@@ -48,8 +47,8 @@ if ( have_posts() ) {
 	}
 	?>
 				</header>
-				<div class="taxonomy-list grid">
-					<div class="taxonomy-listing  grid__item three-quarters palm-one-whole lap-two-thirds desk-three-quarters">
+				<div class="taxonomy-list columns">
+					<div class="taxonomy-listing  column is-three-quarters">
 	<?php
 
 	/* Start the Loop */
@@ -69,7 +68,7 @@ if ( have_posts() ) {
 }
 ?>
 					</div>
-					<div class="taxonomy-term-choices  grid__item one-quarter palm-one-whole lap-one-third desk-one-quarter">
+					<div class="taxonomy-term-choices  column">
 	<?php
 	if ( is_date() ){
 		echo '<h1 class="page-title">';

@@ -1,0 +1,200 @@
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Italic"), local("JetBrainsMono-Italic"), url("../jetbrainsmono/JetBrainsMono-Italic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono ExtraBold"), local("JetBrainsMono-ExtraBold"), url("../jetbrainsmono/JetBrainsMono-ExtraBold.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Bold Italic"), local("JetBrainsMono-BoldItalic"), url("../jetbrainsmono/JetBrainsMono-BoldItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"), url("../jetbrainsmono/JetBrainsMono-Bold.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono ExtraBold Italic"), local("JetBrainsMono-ExtraBoldItalic"), url("../jetbrainsmono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"), url("../jetbrainsmono/JetBrainsMono-Regular.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Medium Italic"), local("JetBrainsMono-MediumItalic"), url("../jetbrainsmono/JetBrainsMono-MediumItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Medium"), local("JetBrainsMono-Medium"), url("../jetbrainsmono/JetBrainsMono-Medium.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Medium Italic"), local("JetBrainsMono-MediumItalic"), url("../jetbrainsmono/JetBrainsMono-MediumItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono ExtraBold"), local("JetBrainsMono-ExtraBold"), url("../jetbrainsmono/JetBrainsMono-ExtraBold.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono ExtraBold Italic"), local("JetBrainsMono-ExtraBoldItalic"), url("../jetbrainsmono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Medium"), local("JetBrainsMono-Medium"), url("../jetbrainsmono/JetBrainsMono-Medium.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"), url("../jetbrainsmono/JetBrainsMono-Regular.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Bold Italic"), local("JetBrainsMono-BoldItalic"), url("../jetbrainsmono/JetBrainsMono-BoldItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"), url("../jetbrainsmono/JetBrainsMono-Bold.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Italic"), local("JetBrainsMono-Italic"), url("../jetbrainsmono/JetBrainsMono-Italic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Italic"), local("JetBrainsMono-Italic"), url("../jetbrainsmono/JetBrainsMono-Italic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono ExtraBold"), local("JetBrainsMono-ExtraBold"), url("../jetbrainsmono/JetBrainsMono-ExtraBold.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Bold Italic"), local("JetBrainsMono-BoldItalic"), url("../jetbrainsmono/JetBrainsMono-BoldItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"), url("../jetbrainsmono/JetBrainsMono-Bold.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono ExtraBold Italic"), local("JetBrainsMono-ExtraBoldItalic"), url("../jetbrainsmono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"), url("../jetbrainsmono/JetBrainsMono-Regular.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Medium Italic"), local("JetBrainsMono-MediumItalic"), url("../jetbrainsmono/JetBrainsMono-MediumItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Medium"), local("JetBrainsMono-Medium"), url("../jetbrainsmono/JetBrainsMono-Medium.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Medium Italic"), local("JetBrainsMono-MediumItalic"), url("../jetbrainsmono/JetBrainsMono-MediumItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono ExtraBold"), local("JetBrainsMono-ExtraBold"), url("../jetbrainsmono/JetBrainsMono-ExtraBold.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono ExtraBold Italic"), local("JetBrainsMono-ExtraBoldItalic"), url("../jetbrainsmono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Medium"), local("JetBrainsMono-Medium"), url("../jetbrainsmono/JetBrainsMono-Medium.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"), url("../jetbrainsmono/JetBrainsMono-Regular.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Bold Italic"), local("JetBrainsMono-BoldItalic"), url("../jetbrainsmono/JetBrainsMono-BoldItalic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"), url("../jetbrainsmono/JetBrainsMono-Bold.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local("JetBrains Mono Italic"), local("JetBrainsMono-Italic"), url("../jetbrainsmono/JetBrainsMono-Italic.woff2") format("woff2"), url("../jetbrainsmono/JetBrainsMono-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic; }
+
+body {
+  font-family: "JetBrains Mono", monaco, monospace;
+  font-weight: 400;
+  font-size: 14px; }
+
+@media only screen and (min-width: 660px) {
+  body, article {
+    font-size: 22px; } }

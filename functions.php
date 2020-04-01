@@ -165,7 +165,8 @@ add_action( 'init','tomjnhttp2' );
 function tomjnscripts() {
 
 	// enqueue our styles
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '6' );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), [], '6' );
+	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [], '6' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -197,11 +198,23 @@ function wpse_59182_bigger_media_thumbs() {
 	<?php
 }
 
-if ( ! function_exists( 'tomjn_typekit_code' ) ) {
-	function tomjn_typekit_code() {
+function tomjn_typekit_code() {
+	$faces = [
+		'Bold-Italic',
+		'Bold',
+		'Italic',
+		'Regular'
+	];
+	foreach ( $faces  as $face ) {
+		$font_url = get_template_directory_uri() . '/assets/jetbrainsmono/woff2/JetBrainsMono-' . $face . '.woff2';
 		?>
-		<script src="https://use.typekit.net/wtc2mfi.js"></script>
-		<script >try{Typekit.load();}catch(e){}</script>
+		<link
+			rel="preload"
+			as="font"
+			href="<?php echo esc_url( $font_url ); ?>"
+			type="font/woff2"
+			crossorigin="anonymous"
+		/>
 		<?php
 	}
 }

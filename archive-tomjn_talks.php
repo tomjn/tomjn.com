@@ -20,7 +20,7 @@ if ( is_tax() ) {
 	}
 }
 
-$current_term =	$wp_query->queried_object;
+$current_term =	get_queried_object();
 $tname = $taxonomy;
 $taxobj = get_taxonomy( $taxonomy );
 if ( !empty( $taxobj ) ) {
@@ -36,7 +36,7 @@ if ( have_posts() ) {
 					<h1>Talks</h1>
 				</header>
 
-					<div class="taxonomy-listing grid">
+					<div class="taxonomy-listing">
 	<?php
 
 	/* Start the Loop */
@@ -44,7 +44,7 @@ if ( have_posts() ) {
 		the_post();
 
 		?>
-		<div class="project_listing_item grid__item one-whole">
+		<div class="project_listing_item ">
 			<header>
 				<h2><a  href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
 				<?php

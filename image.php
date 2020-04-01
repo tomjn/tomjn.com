@@ -49,16 +49,16 @@ get_header();
 									 * Grab the IDs of all the image attachments in a gallery so we can get the URL of the next adjacent image in a gallery,
 									 * or the first image (if we're looking at the last image in a gallery), or, in a gallery of one, just the link to that image file
 									 */
-									$children = get_posts( array(
-										'post_parent' => $post->post_parent,
-										'post_status' => 'inherit',
-										'post_type' => 'attachment',
-										'post_mime_type' => 'image',
-										'order' => 'ASC',
-										'orderby' => 'menu_order ID',
-										'posts_per_page' => 150,
+									$children = get_posts( [
+										'post_parent'      => $post->post_parent,
+										'post_status'      => 'inherit',
+										'post_type'        => 'attachment',
+										'post_mime_type'   => 'image',
+										'order'            => 'ASC',
+										'orderby'          => 'menu_order ID',
+										'posts_per_page'   => 150,
 										'suppress_filters' => false,
-									) );
+									] );
 									$attachments = array_values( $children );
 									foreach ( $attachments as $k => $attachment ) {
 										if ( $attachment->ID === $post->ID )
@@ -79,7 +79,11 @@ get_header();
 									}
 								?>
 
-								<a href="<?php echo esc_url( $next_attachment_url ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php
+								<a
+									href="<?php echo esc_url( $next_attachment_url ); ?>"
+									title="<?php echo esc_attr( get_the_title() ); ?>"
+									rel="attachment"
+								><?php
 									$attachment_size = apply_filters( '_s_attachment_size', array( 1200, 1200 ) ); // Filterable image size.
 									echo wp_get_attachment_image( $post->ID, $attachment_size );
 								?></a>
@@ -98,10 +102,10 @@ get_header();
 
 						<?php
 						the_content();
-						wp_link_pages( array(
+						wp_link_pages( [
 							'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
-							'after' => '</div>'
-						) );
+							'after'  => '</div>'
+						] );
 						?>
 
 					</div>

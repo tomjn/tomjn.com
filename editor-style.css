@@ -387,13 +387,6 @@ a:active {
   padding: 1.5em;
   margin-bottom: 1em;
 }
-body {
-  font-family: "quatro-slab", "Roboto Slab", "Crete Round", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-size: 14px;
-}
-.wf-active body {
-  font-family: "quatro-slab", "Roboto Slab", "Crete Round", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
 ::selection {
   color: #fff;
   background: red;
@@ -414,35 +407,29 @@ a:hover,
 a:active {
   color: red;
 }
-.mce-content-body p,
 .entry-content p,
 #social .social-comment-body p,
 .comment-content p,
-.mce-content-body ul li,
 .entry-content ul li,
 #social .social-comment-body ul li,
 .comment-content ul li {
   max-width: 800px;
 }
-.mce-content-body img,
 .entry-content img,
 #social .social-comment-body img,
 .comment-content img {
   margin: 1.5em;
 }
-.mce-content-body img:first-child,
 .entry-content img:first-child,
 #social .social-comment-body img:first-child,
 .comment-content img:first-child {
   margin-top: 0;
 }
-.mce-content-body img.wp-smiley,
 .entry-content img.wp-smiley,
 #social .social-comment-body img.wp-smiley,
 .comment-content img.wp-smiley {
   margin: 0;
 }
-.mce-content-body .wp-caption img,
 .entry-content .wp-caption img,
 #social .social-comment-body .wp-caption img,
 .comment-content .wp-caption img {

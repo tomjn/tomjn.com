@@ -24,8 +24,8 @@ get_header();
 				_s_content_nav( 'nav-above' );
 				?>
 
-				<div class="taxonomy-list grid">
-					<div class="taxonomy-listing grid__item three-quarters palm-one-whole lap-two-thirds desk-three-quarters">
+				<div class="taxonomy-list columns">
+					<div class="taxonomy-listing column is-three-quarters">
 					<?php
 
 
@@ -37,7 +37,7 @@ get_header();
 
 					?>
 					</div>
-					<div class="taxonomy-term-choices grid__item one-quarter palm-one-whole lap-one-third desk-one-quarter">
+					<div class="taxonomy-term-choices column">
 						<h1 class="page-title">Search:</h1>
 					<?php
 					get_template_part( 'searchform' );
