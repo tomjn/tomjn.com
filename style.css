@@ -17,6 +17,7 @@ Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
 */
+/* pulled from style.css */
 .tomjn-button-style {
   padding: 0.25em 0.5em;
   background: rgba(0, 0, 0, 0.05);
@@ -45,7 +46,6 @@ and Blueprint http://www.blueprintcss.org/
   color: #ff0000;
   box-shadow: inset 0 -3px 0 0 #ff0000;
 }
-/* pulled from style.css */
 /* =Reset
 -------------------------------------------------------------- */
 html,
