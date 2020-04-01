@@ -6,7 +6,6 @@
  * @since tomjn 1.0
  */
 
-require_once( 'inc/attr.php' );
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
@@ -16,66 +15,67 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'tomjnsetup' ) ) {
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which runs
+ * before the init hook. The init hook is too late for some features, such as indicating
+ * support post thumbnails.
+ *
+ * @since tomjn 1.0
+ */
+function tomjnsetup() {
+
 	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which runs
-	 * before the init hook. The init hook is too late for some features, such as indicating
-	 * support post thumbnails.
-	 *
-	 * @since tomjn 1.0
+	 * Custom template tags for this theme.
 	 */
-	function tomjnsetup() {
+	require_once( get_template_directory() . '/inc/template-tags.php' );
 
-		//$attr = editor_attr::instance();
+	remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
+	remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windows Live Writer manifest file.
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
+	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link
+	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); // Display relational links for the posts adjacent to the current post.
+	remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that is generated on the wp_head hook, WP version
 
-		/**
-		 * Custom template tags for this theme.
-		 */
-		require_once( get_template_directory() . '/inc/template-tags.php' );
+	/**
+	 * Make theme available for translation
+	 * Translations can be filed in the /languages/ directory
+	 * If you're building a theme based on tomjn, use a find and replace
+	 * to change 'tomjn' to the name of your theme in all the template files
+	 */
+	load_theme_textdomain( 'tomjn', get_template_directory() . '/languages' );
 
-		remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
-		remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windows Live Writer manifest file.
-		remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
-		remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link
-		remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); // Display relational links for the posts adjacent to the current post.
-		remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that is generated on the wp_head hook, WP version
+	/**
+	 * Add default posts and comments RSS feed links to head
+	 */
+	add_theme_support( 'automatic-feed-links' );
 
-		/**
-		 * Make theme available for translation
-		 * Translations can be filed in the /languages/ directory
-		 * If you're building a theme based on tomjn, use a find and replace
-		 * to change 'tomjn' to the name of your theme in all the template files
-		 */
-		load_theme_textdomain( 'tomjn', get_template_directory() . '/languages' );
+	/**
+	 * Let WP handle the title tag
+	 **/
+	add_theme_support( 'title-tag' );
 
-		/**
-		 * Add default posts and comments RSS feed links to head
-		 */
-		add_theme_support( 'automatic-feed-links' );
+	/**
+	 * Enable support for Post Thumbnails
+	 */
+	add_theme_support( 'post-thumbnails' );
 
-		/**
-		 * Enable support for Post Thumbnails
-		 */
-		add_theme_support( 'post-thumbnails' );
+	add_image_size( 'project-main', 512, 512, true );
 
-		add_image_size( 'project-main', 512, 512, true );
+	/**
+	 * This theme uses wp_nav_menu() in one location.
+	 */
+	register_nav_menus(
+		[
+			'primary' => __( 'Primary Menu', 'tomjn' ),
+		]
+	);
 
-		/**
-		 * This theme uses wp_nav_menu() in one location.
-		 */
-		register_nav_menus(
-			array(
-				'primary' => __( 'Primary Menu', 'tomjn' ),
-			)
-		);
-
-		/**
-		 * Add support for the Aside Post Formats
-		 */
-		add_theme_support( 'post-formats', array( 'aside' ) );
-	}
+	/**
+	 * Add support for the Aside Post Formats
+	 */
+	add_theme_support( 'post-formats', [ 'aside' ] );
 }
 add_action( 'after_setup_theme', 'tomjnsetup' );
 
@@ -86,18 +86,18 @@ add_action( 'after_setup_theme', 'tomjnsetup' );
  */
 function tomjnwidgets_init() {
 	register_sidebar(
-		array(
+		[
 			'name' => __( 'Sidebar', 'tomjn' ),
 			'id' => 'sidebar-1',
 			'before_widget' => '<aside id="%1$s" class="grid__item  one-whole  lap-one-half  desk-one-third widget %2$s">',
 			'after_widget' => '</aside>',
 			'before_title' => '<h1 class="widget-title">',
 			'after_title' => '</h1>',
-		)
+		]
 	);
 
 	register_sidebar(
-		array(
+		[
 			'name' => __( 'Top Home', 'tomjn' ),
 			'description' => __( 'A full width area at the top of the homepage', 'tomjn' ),
 			'id' => 'sidebar-home-top',
@@ -105,11 +105,11 @@ function tomjnwidgets_init() {
 			'after_widget' => '</aside>',
 			'before_title' => '<h1 class="widget-title">',
 			'after_title' => '</h1>',
-		)
+		]
 	);
 
 	register_sidebar(
-		array(
+		[
 			'name' => __( 'Left Home', 'tomjn' ),
 			'description' => __( 'A half width area on the left of the homepage, appears above the right hand on mobiles', 'tomjn' ),
 			'id' => 'sidebar-home-left',
@@ -117,11 +117,11 @@ function tomjnwidgets_init() {
 			'after_widget' => '</aside>',
 			'before_title' => '<h1 class="widget-title">',
 			'after_title' => '</h1>',
-		)
+		]
 	);
 
 	register_sidebar(
-		array(
+		[
 			'name' => __( 'Right Home', 'tomjn' ),
 			'description' => __( 'A half width area on the right of the homepage, appears below the left hand on mobiles', 'tomjn' ),
 			'id' => 'sidebar-home-right',
@@ -129,7 +129,7 @@ function tomjnwidgets_init() {
 			'after_widget' => '</aside>',
 			'before_title' => '<h1 class="widget-title">',
 			'after_title' => '</h1>',
-		)
+		]
 	);
 }
 add_action( 'widgets_init', 'tomjnwidgets_init' );
@@ -166,7 +166,6 @@ function tomjnscripts() {
 
 	// enqueue our styles
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), '6' );
-	//wp_enqueue_style( 'dashicons' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -208,13 +207,12 @@ if ( ! function_exists( 'tomjn_typekit_code' ) ) {
 }
 add_action( 'wp_head', 'tomjn_typekit_code' );
 
-add_filter( 'mce_external_plugins', 'tomjn_mce_external_plugins' );
-function tomjn_mce_external_plugins( $plugin_array ) {
-	$plugin_array['typekit'] = get_template_directory_uri().'/typekit.tinymce.js';
-	return $plugin_array;
-}
-
 add_editor_style( 'editor-style.css' );
+
+function site_block_editor_styles() {
+    wp_enqueue_style( 'site-block-editor-styles', get_theme_file_uri( '/editor-style.css' ), false, '1.0', 'all' );
+}
+add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
 
 // Add Slideshare oEmbed
 function add_oembed_slideshare() {
@@ -240,8 +238,6 @@ function title_format() {
 add_filter( 'private_title_format', 'title_format' );
 add_filter( 'protected_title_format', 'title_format' );
 
-
-
 add_filter( 'wp_title', 'tomjn_hack_wp_title_for_home' );
 function tomjn_hack_wp_title_for_home( $title ) {
 	if ( empty( $title ) && ( is_home() || is_front_page() ) ) {
@@ -249,7 +245,6 @@ function tomjn_hack_wp_title_for_home( $title ) {
 	}
 	return $title;
 }
-
 
 add_action( 'tomjn_footer_notes', 'tomjn_footer_notes' );
 function tomjn_footer_notes() {
@@ -269,11 +264,11 @@ add_filter( 'posts_request', '_tomjn_home_cancel_query', 100, 2 );
 
 function tomjn_get_the_term_list( $id, $taxonomy, $before, $sep, $after ) {
 	return get_the_term_list( $id, $taxonomy, $before, $sep, $after );
-	$result = get_transient( 'tomjn_get_the_term_list_'.$id.'_'.$taxonomy );
+	$result = get_transient( 'tomjn_get_the_term_list_' . $id . '_' . $taxonomy );
 	if ( false === $result ) {
 		$result = get_the_term_list( $id, $taxonomy, $before, $sep, $after );
 		if ( $result ) {
-			set_transient( 'tomjn_get_the_term_list_'.$id.'_'.$taxonomy , $result, 60 * 60 * 24 );
+			set_transient( 'tomjn_get_the_term_list_' . $id . '_' . $taxonomy , $result, 60 * 60 * 24 );
 		}
 	}
 	return $result;
