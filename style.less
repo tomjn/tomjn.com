@@ -102,7 +102,7 @@ body {
 
 #masthead {
 	background: @headerBGcolour;
-	line-height:2.5em;
+	/*line-height:1.5em;*/
 	width: 100%;
 	font-size:22px;
 
@@ -132,10 +132,11 @@ body {
 		.animated();
 		.fadeInDown();
 		margin-right:24px;
+		/*line-height: 1.6em;*/
 		float:left;
 		.menu {
 			a {
-				padding-right: 1em;
+				margin-right: 1em;
 			}
 			li:last-child {
 				a {
@@ -179,11 +180,15 @@ body {
 .home #masthead {
 	h1 {
 		font-size:36px;
+		a {
+			text-decoration: none;
+			border-bottom: none;
+			box-shadow: none;
+		}
 	}
 	hgroup {
 		float:none;
-		margin-top:1em;
-		margin-bottom:0.5em;
+		/*margin-bottom:0.5em;*/
 	}
 	.header-contents {
 		margin-bottom: 0;
@@ -214,15 +219,6 @@ body {
 	list-style: none;
 }
 
-.widget_rss a,
-.widget_recent_entries a,
-.project_links a {
-	display: block;
-	border-bottom: 1px solid #EFEFEF;
-	padding-top: 0.1em;
-	padding-bottom: 0.1em;
-}
-
 .taxonomy-list {
 	.clearfix();
 	margin-bottom: 4em;
@@ -235,12 +231,6 @@ body {
 			.active {
 				font-weight:bold;
 			}
-			a {
-				display: block;
-				border-bottom: 1px solid #EFEFEF;
-				padding-top: 0.1em;
-				padding-bottom: 0.1em;
-			}
 		}
 	}
 
@@ -250,12 +240,16 @@ body {
 		h1, h2, h3, h4, h5, h6 {
 			clear:none;
 		}
-		.entry-title {
-			font-size:36px;
-			margin-bottom: 0.6em;
-			margin-top: 0.4em;
-		}
 	}
+}
+
+.archive #primary .entry-header {
+	.entry-title {
+		margin-bottom: 0;
+		font-size:36px;
+		margin-top: 0.4em;
+	}
+    margin-bottom: 0.6em;
 }
 
 .header-contents {

@@ -337,14 +337,6 @@ textarea {
 .main-navigation ul ul a {
 	width: 200px;
 }
-/*.main-navigation ul ul li {
-}
-.main-navigation li:hover > a {
-}
-.main-navigation ul ul :hover > a {
-}
-.main-navigation ul ul a:hover {
-}*/
 .main-navigation ul li:hover > ul {
 	display: block;
 }
@@ -373,22 +365,10 @@ textarea {
 	.clearfix;
 	clear: both;
 	.tax-tag-links > a {
-		float:left;
+		display:inline-block;
 		margin:5px;
 		margin-left: 0;
 	}
-/*	.post_tag-links a:before, .category-links a:before {
-		content: "\f318";
-		font-family: "dashicons";
-		vertical-align: bottom;
-		margin-right: 5px;
-		:hover {
-			color: @hyperlink_active_colour;
-		}
-	}
-	.post_tag-links a:before {
-		content: "\f323";
-	}*/
 }
 .byline {
 	display: none;
@@ -488,6 +468,7 @@ embed,
 iframe,
 object {
 	max-width: 100%;
+	background: #fafafa;
 }
 
 
@@ -497,21 +478,6 @@ object {
 #content .site-navigation {
 	margin: 0 0 1.5em;
 	overflow: hidden;
-}
-
-/* =Comments
------------------------------------------------ */
-
-.bypostauthor {
-}
-
-#comment {
-    max-width: 600px;
-    display: block;
-    margin: 1em;
-    margin-left: 0;
-    padding: 2em 0.5em 1em 0.5em;
-    font-family: inherit;
 }
 
 /* =Widgets
