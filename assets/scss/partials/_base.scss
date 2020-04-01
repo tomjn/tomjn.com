@@ -11,11 +11,17 @@ $base-font-weight: $regular;
 $base-font-size: 14px;
 $base-line-height: 1.4;
 
+$text-colour: #404040;
+
 $desktop-font-size: 22px;
 
 // Fixed Font
 $fixed-font-family: monospace;
 $fixed-font-size: 85%;
 $fixed-line-height: $base-line-height;
+
+
+$hyperlink_inactive_colour: $text-colour;
+$hyperlink_active_colour:   #ff0000;
 
 @import "../modules/all";

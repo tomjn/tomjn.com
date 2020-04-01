@@ -193,8 +193,18 @@
 body {
   font-family: "JetBrains Mono", monaco, monospace;
   font-weight: 400;
-  font-size: 14px; }
+  font-size: 14px;
+  letter-spacing: -1px; }
 
 @media only screen and (min-width: 660px) {
   body, article {
     font-size: 22px; } }
+
+a {
+  color: #404040;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 0 #990000;
+  text-shadow: 1px 1px 0 #fff, -1px 1px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff; }
+  a:hover, a:active {
+    color: #ff0000;
+    box-shadow: inset 0 -3px 0 0 #ff0000; }

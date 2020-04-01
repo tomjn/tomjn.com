@@ -4,6 +4,7 @@ body {
 	font-family: $base-font-family;
 	font-weight: $base-font-weight;
 	font-size:   $base-font-size;
+	letter-spacing: -1px;
 }
 
 @media only screen and (min-width: 660px){
@@ -11,3 +12,5 @@ body {
 		font-size:$desktop-font-size;
 	}
 }
+
+@import 'anchors';
