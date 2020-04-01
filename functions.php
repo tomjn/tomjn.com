@@ -12,7 +12,7 @@
  * @since tomjn 1.0
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 1024; /* pixels */
 }
 
 /**
