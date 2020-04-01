@@ -46,7 +46,11 @@ if ( have_posts() ) {
 		?>
 		<div class="project_listing_item ">
 			<header>
-				<h2><a  href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
+				<h3>
+					<a href="<?php echo esc_url( get_permalink() ); ?>">
+						<?php the_title(); ?>
+					</a>
+				</h3>
 				<?php
 				$term_list = get_the_term_list( get_the_ID(), 'technology', '', '', '' );
 				if ( !empty( $term_list ) ) {

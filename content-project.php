@@ -12,7 +12,7 @@
 			<header class="entry-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 				<?php
-				$links = array();
+				$links = [];
 				$desired_links = array(
 					'visit_url' => 'Visit the site',
 					'docs_url' => 'View the documentation',
@@ -54,7 +54,7 @@
 					?>
 					<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
 						<?php echo wp_kses_post( $tech_term_list ); ?>
-					</span><br>
+					</span><br/>
 					<?php
 				}
 				?>
@@ -74,30 +74,22 @@
 		?>
 	</div>
 
-
 	<footer class="entry-meta">
 		<?php
 
 		$post_type = get_post_type();
 		foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 		    $term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
-			if ( !empty( $term_list ) ) {
-				$the_tax = get_taxonomy( $tax_name );
-				?>
-				<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
-					<?php printf( wp_kses_post( __( '%1$s: %2$s', '_s' ) ), esc_html( $the_tax->labels->name ) , wp_kses_post( $term_list )  ); ?>
-				</span><br>
-				<?php
+			if ( empty( $term_list ) ) {
+				continue;
 			}
+			$the_tax = get_taxonomy( $tax_name );
+			?>
+			<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
+				<?php printf( wp_kses_post( __( '%1$s: %2$s', '_s' ) ), esc_html( $the_tax->labels->name ) , wp_kses_post( $term_list )  ); ?>
+			</span><br/>
+			<?php
 		}
-
-		$meta_text = __( 'Bookmark the <a href="%1$s" title="Permalink to %2$s" rel="bookmark">permalink</a>.', '_s' );
-
-		printf(
-			wp_kses_post( $meta_text ),
-			esc_url( get_permalink() ),
-			the_title_attribute( 'echo=0' )
-		);
 		?>
 	</footer>
 </article>

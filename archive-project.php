@@ -48,7 +48,7 @@ if ( have_posts() ) {
 					<?php the_post_thumbnail( 'project-main' ); ?>
 				</div>
 				<div class="grid__item two-thirds palm-one-whole lap-one-whole desk-two-thirds">
-					<h2><?php the_title(); ?></h2>
+					<h3><?php the_title(); ?></h3>
 					<?php the_excerpt(); ?>
 				</div>
 			</div>

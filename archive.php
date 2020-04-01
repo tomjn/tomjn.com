@@ -70,7 +70,7 @@ if ( have_posts() ) {
 					</div>
 					<div class="taxonomy-term-choices  column">
 	<?php
-	if ( is_date() ){
+	if ( is_date() ) {
 		echo '<h1 class="page-title">';
 		if ( is_date() ) {
 			echo 'Archives';
@@ -79,7 +79,11 @@ if ( have_posts() ) {
 		}
 		echo '</h1>';
 		echo '<ul class="taxonomy-term-choices-list ">';
-		wp_get_archives( array( 'type' => 'monthly', 'format' => 'li', 'show_post_count' => 0 ) );
+		wp_get_archives( [
+			'type'            => 'monthly',
+			'format'          => 'html',
+			'show_post_count' => 0,
+		] );
 		echo '</ul>';
 	} else {
 		$terms = get_terms( array( $taxonomy ) );
@@ -106,7 +110,11 @@ if ( have_posts() ) {
 		}
 		echo '<h1>By Month</h1>';
 		echo '<ul class="taxonomy-term-choices-list ">';
-		wp_get_archives( array( 'type' => 'monthly', 'format' => 'li', 'show_post_count' => 0 ) );
+		wp_get_archives( [
+			'type'            => 'monthly',
+			'format'          => 'html',
+			'show_post_count' => 0,
+		] );
 		echo '</ul>';
 	}
 	?>
