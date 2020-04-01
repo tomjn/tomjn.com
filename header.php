@@ -13,11 +13,11 @@
 <head>
 	<meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>" />
 	<meta name="viewport" content="width=device-width" />
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<?php wp_body_open(); ?>
 	<div id="page" class="hfeed site">
 		<?php do_action( 'before' ); ?>
 		<header id="masthead" class="site-header">
