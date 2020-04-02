@@ -100,7 +100,7 @@ function _s_content_nav_projects( $nav_id ) {
 				<?php
 			}
 
-		endif;
+		}
 	?>
 
 	</nav>
