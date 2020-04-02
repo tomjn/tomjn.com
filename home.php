@@ -12,7 +12,7 @@ get_header( 'empty' );
 				</h1>
 				<?php
 				$description = get_bloginfo( 'description' );
-				if ( !empty( $description) ) {
+				if ( ! empty( $description ) ) {
 					?>
 					<h2 class="site-description"><?php echo esc_html( $description ); ?></h2>
 					<?php
@@ -30,7 +30,7 @@ get_header( 'empty' );
 
 				<?php
 				wp_nav_menu( [
-					'theme_location' => 'primary'
+					'theme_location' => 'primary',
 				] );
 				?>
 			</nav>
@@ -39,7 +39,7 @@ get_header( 'empty' );
 	<section id="content" class="site-content column is-half" role="main">
 		<article>
 			<div class="entry-content">
-				<?php dynamic_sidebar('sidebar-home-right'); ?>
+				<?php dynamic_sidebar( 'sidebar-home-right' ); ?>
 			</div>
 		</article>
 	</section>

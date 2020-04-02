@@ -15,15 +15,15 @@ if ( is_tax() ) {
 } else {
 	if ( is_category() ) {
 		$taxonomy = 'category';
-	} else if ( is_tag() ) {
+	} elseif ( is_tag() ) {
 		$taxonomy = 'post_tag';
 	}
 }
 
-$current_term =	get_queried_object();
+$current_term = get_queried_object();
 $tname = $taxonomy;
 $taxobj = get_taxonomy( $taxonomy );
-if ( !empty( $taxobj ) ) {
+if ( ! empty( $taxobj ) ) {
 	$tname = $taxobj->labels->name;
 }
 ?>

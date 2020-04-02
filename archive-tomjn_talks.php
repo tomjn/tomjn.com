@@ -15,15 +15,15 @@ if ( is_tax() ) {
 } else {
 	if ( is_category() ) {
 		$taxonomy = 'category';
-	} else if ( is_tag() ) {
+	} elseif ( is_tag() ) {
 		$taxonomy = 'post_tag';
 	}
 }
 
-$current_term =	get_queried_object();
+$current_term = get_queried_object();
 $tname = $taxonomy;
 $taxobj = get_taxonomy( $taxonomy );
-if ( !empty( $taxobj ) ) {
+if ( ! empty( $taxobj ) ) {
 	$tname = $taxobj->labels->name;
 }
 ?>
@@ -52,7 +52,7 @@ if ( !empty( $taxobj ) ) {
 					</h3>
 					<?php
 					$term_list = get_the_term_list( get_the_ID(), 'technology', '', '', '' );
-					if ( !empty( $term_list ) ) {
+					if ( ! empty( $term_list ) ) {
 						$the_tax = get_taxonomy( 'technology' );
 						?>
 						<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
@@ -61,7 +61,7 @@ if ( !empty( $taxobj ) ) {
 						<?php
 					}
 					$tech_term_list = get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', '', '' );
-					if ( !empty( $tech_term_list ) ) {
+					if ( ! empty( $tech_term_list ) ) {
 						$the_tax = get_taxonomy( 'tomjn_talk_tag' );
 						?>
 						<span class="<?php echo esc_attr( $tname ); ?>-links tax-tag-links">

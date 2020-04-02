@@ -20,7 +20,7 @@
 			?>
 			<p><?php printf( wp_kses_post( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', '_s' ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 			<?php
-		} else if ( is_home() ) {
+		} elseif ( is_home() ) {
 			?>
 			<p><?php echo esc_html__( 'There are no posts here yet! Come back later', '_s' ); ?></p>
 			<?php

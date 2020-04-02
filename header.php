@@ -19,7 +19,7 @@
 					</h1>
 					<?php
 					$description = get_bloginfo( 'description' );
-					if ( !empty( $description) ) {
+					if ( ! empty( $description ) ) {
 						?>
 						<h2 class="site-description"><?php echo esc_html( $description ); ?></h2>
 						<?php
@@ -35,7 +35,7 @@
 						</a>
 					</div>
 
-					<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+					<?php wp_nav_menu( [ 'theme_location' => 'primary' ] ); ?>
 				</nav>
 			</div>
 		</header>

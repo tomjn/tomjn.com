@@ -6,10 +6,14 @@
  * @since _s 1.0
  */
 
-$s = get_search_query( false );
 ?>
-<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+<form
+	method="get"
+	id="searchform"
+	action="<?php echo esc_url( home_url( '/' ) ); ?>"
+	role="search"
+>
 	<label for="s" class="assistive-text"><?php esc_html_e( 'Search', '_s' ); ?></label>
-	<input type="text" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search &hellip;', '_s' ); ?>" value="<?php if ( !empty( $s ) ) { echo esc_attr( $s ); } ?>" />
+	<input type="text" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search &hellip;', '_s' ); ?>" value="<?php get_search_query(); ?>" />
 	<input type="submit" class="submit" name="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', '_s' ); ?>" />
 </form>

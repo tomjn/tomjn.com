@@ -26,7 +26,7 @@ function disable_emojis_tinymce( $plugins ) {
 	if ( is_array( $plugins ) ) {
 		return array_diff( $plugins, [ 'wpemoji' ] );
 	} else {
-		return array();
+		return [];
 	}
 }
 
@@ -42,7 +42,7 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 		/** This filter is documented in wp-includes/formatting.php */
 		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
 
-		$urls = array_diff( $urls, array( $emoji_svg_url ) );
+		$urls = array_diff( $urls, [ $emoji_svg_url ] );
 	}
 
 	return $urls;

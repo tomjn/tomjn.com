@@ -11,7 +11,7 @@
  * @package _s
  * @since _s 1.0
  */
-if ( !is_singular() ) {
+if ( ! is_singular() ) {
 	get_template_part( 'archive' );
 	return;
 }
@@ -24,7 +24,6 @@ get_header();
 		while ( have_posts() ) {
 			the_post();
 			get_template_part( 'content', get_post_format() );
-
 		}
 		_s_content_nav( 'nav-below' );
 	} elseif ( current_user_can( 'edit_posts' ) ) {

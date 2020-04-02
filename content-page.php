@@ -15,9 +15,10 @@
 	<div class="entry-content">
 		<?php
 		the_content();
-		wp_link_pages( array(
+		wp_link_pages( [
 			'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
-			'after' => '</div>'
-		) ); ?>
+			'after'  => '</div>',
+		] );
+		?>
 	</div>
 </article>

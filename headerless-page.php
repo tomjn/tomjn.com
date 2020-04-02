@@ -6,7 +6,6 @@
  * @since _s 1.0
  */
 
-
 get_header( 'empty' );
 ?>
 <section id="content" class="site-content" role="main">

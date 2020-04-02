@@ -70,7 +70,7 @@ function tomjnsetup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( [
-			'primary' => __( 'Primary Menu', 'tomjn' ),
+		'primary' => __( 'Primary Menu', 'tomjn' ),
 	] );
 
 	/**
@@ -127,8 +127,8 @@ function tomjnwidgets_init() {
 }
 add_action( 'widgets_init', 'tomjnwidgets_init' );
 
-function tomjn_deregister_scripts(){
-  wp_dequeue_script( 'wp-embed' );
+function tomjn_deregister_scripts() {
+	wp_dequeue_script( 'wp-embed' );
 }
 add_action( 'wp_footer', 'tomjn_deregister_scripts' );
 
@@ -136,7 +136,7 @@ function tomjnscripts() {
 
 	// enqueue our styles
 	wp_enqueue_style( 'tomjn-less', get_stylesheet_uri(), [], '7' );
-	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [ 'tomjn-less'], '7' );
+	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [ 'tomjn-less' ], '7' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -151,7 +151,6 @@ function filter_ptags_on_images( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'filter_ptags_on_images' );
-
 
 add_action( 'admin_head-upload.php', 'wpse_59182_bigger_media_thumbs' );
 function wpse_59182_bigger_media_thumbs() {
@@ -171,8 +170,8 @@ function wpse_59182_bigger_media_thumbs() {
 add_editor_style( 'editor-style.css' );
 
 function site_block_editor_styles() {
-    //wp_enqueue_style( 'site-block-editor-styles-less', get_theme_file_uri( '/editor-style.css' ), false, '1.0', 'all' );
-    wp_enqueue_style( 'site-block-editor-styles-scss', get_theme_file_uri( '/assets/dist/editor.css' ), false, '1.0', 'all' );
+	//wp_enqueue_style( 'site-block-editor-styles-less', get_theme_file_uri( '/editor-style.css' ), false, '1.0', 'all' );
+	wp_enqueue_style( 'site-block-editor-styles-scss', get_theme_file_uri( '/assets/dist/editor.css' ), false, '1.0', 'all' );
 }
 add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
 
@@ -227,4 +226,3 @@ add_filter( 'posts_request', '_tomjn_home_cancel_query', 100, 2 );
 function tomjn_get_the_term_list( $id, $taxonomy, $before, $sep, $after ) {
 	return get_the_term_list( $id, $taxonomy, $before, $sep, $after );
 }
-

@@ -14,7 +14,7 @@ if ( is_tax() ) {
 } else {
 	if ( is_category() ) {
 		$taxonomy = 'category';
-	} else if ( is_tag() ) {
+	} elseif ( is_tag() ) {
 		$taxonomy = 'post_tag';
 	}
 }
@@ -36,7 +36,7 @@ if ( ! empty( $taxobj ) ) {
 			if ( is_date() ) {
 				$title = 'Archive: '.get_the_time( 'F, Y' );
 			} else {
-				if ( !empty( $taxobj->labels->singular_name ) && !empty( $current_term->name ) ) {
+				if ( ! empty( $taxobj->labels->singular_name ) && ! empty( $current_term->name ) ) {
 					$title = $taxobj->labels->singular_name.': ' . $current_term->name;
 				}
 			}
@@ -48,22 +48,22 @@ if ( ! empty( $taxobj ) ) {
 		<div class="taxonomy-list columns">
 			<div class="taxonomy-listing  column is-three-quarters">
 			<?php
-				/* Start the Loop */
-				while ( have_posts() ) {
-					the_post();
+			/* Start the Loop */
+			while ( have_posts() ) {
+				the_post();
 
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to overload this in a child theme then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'excerpt', get_post_type() );
-				}
-				_s_content_nav( 'nav-below' );
-
-			} else {
-				get_template_part( 'no-results', 'archive' );
+				/* Include the Post-Format-specific template for the content.
+				 * If you want to overload this in a child theme then include a file
+				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				 */
+				get_template_part( 'excerpt', get_post_type() );
 			}
-			?>
+			_s_content_nav( 'nav-below' );
+
+		} else {
+			get_template_part( 'no-results', 'archive' );
+		}
+		?>
 		</div>
 		<div class="taxonomy-term-choices  column">
 			<?php
@@ -83,8 +83,8 @@ if ( ! empty( $taxobj ) ) {
 				] );
 				echo '</ul>';
 			} else {
-				$terms = get_terms( array( $taxonomy ) );
-				if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
+				$terms = get_terms( [ $taxonomy ] );
+				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 					echo '<h1 class="page-title">';
 					if ( is_date() ) {
 						echo 'Terms';
@@ -99,8 +99,8 @@ if ( ! empty( $taxobj ) ) {
 							$class = 'active';
 						}
 						$term_link = get_term_link( $term->slug, $taxonomy );
-						if ( !is_wp_error( $term_link ) ) {
-						    echo '<li class="' . esc_attr( $class ) . '"><a href="' . esc_url( $term_link ) . '">'.esc_html( $term->name ) . '</a></li>';
+						if ( ! is_wp_error( $term_link ) ) {
+							echo '<li class="' . esc_attr( $class ) . '"><a href="' . esc_url( $term_link ) . '">' . esc_html( $term->name ) . '</a></li>';
 						}
 					}
 					echo '</ul>';

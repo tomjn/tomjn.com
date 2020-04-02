@@ -11,10 +11,10 @@
 	<div class="entry-content">
 		<?php
 		the_content();
-		wp_link_pages( array(
+		wp_link_pages( [
 			'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
-			'after' => '</div>'
-		) );
+			'after'  => '</div>',
+		] );
 		?>
 	</div>
 
@@ -23,7 +23,7 @@
 		$post_type = get_post_type();
 		foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
 			$term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
-			if ( !empty( $term_list ) ) {
+			if ( ! empty( $term_list ) ) {
 				$the_tax = get_taxonomy( $tax_name );
 				?>
 				<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
