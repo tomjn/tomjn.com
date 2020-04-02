@@ -6,6 +6,9 @@
  * @since tomjn 1.0
  */
 
+require_once 'inc/http2.php';
+require_once 'inc/remove-emoji.php';
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
@@ -66,11 +69,9 @@ function tomjnsetup() {
 	/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */
-	register_nav_menus(
-		[
+	register_nav_menus( [
 			'primary' => __( 'Primary Menu', 'tomjn' ),
-		]
-	);
+	] );
 
 	/**
 	 * Add support for the Aside Post Formats
@@ -85,88 +86,57 @@ add_action( 'after_setup_theme', 'tomjnsetup' );
  * @since tomjn 1.0
  */
 function tomjnwidgets_init() {
-	register_sidebar(
-		[
-			'name' => __( 'Sidebar', 'tomjn' ),
-			'id' => 'sidebar-1',
-			'before_widget' => '<aside id="%1$s" class="grid__item  one-whole  lap-one-half  desk-one-third widget %2$s">',
-			'after_widget' => '</aside>',
-			'before_title' => '<h1 class="widget-title">',
-			'after_title' => '</h1>',
-		]
-	);
+	register_sidebar( [
+		'name'          => __( 'Sidebar', 'tomjn' ),
+		'id'            => 'sidebar-1',
+		'before_widget' => '<aside id="%1$s" class="column is-third widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	] );
 
-	register_sidebar(
-		[
-			'name' => __( 'Top Home', 'tomjn' ),
-			'description' => __( 'A full width area at the top of the homepage', 'tomjn' ),
-			'id' => 'sidebar-home-top',
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget' => '</aside>',
-			'before_title' => '<h1 class="widget-title">',
-			'after_title' => '</h1>',
-		]
-	);
+	register_sidebar( [
+		'name'          => __( 'Top Home', 'tomjn' ),
+		'description'   => __( 'A full width area at the top of the homepage', 'tomjn' ),
+		'id'            => 'sidebar-home-top',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	] );
 
-	register_sidebar(
-		[
-			'name' => __( 'Left Home', 'tomjn' ),
-			'description' => __( 'A half width area on the left of the homepage, appears above the right hand on mobiles', 'tomjn' ),
-			'id' => 'sidebar-home-left',
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget' => '</aside>',
-			'before_title' => '<h1 class="widget-title">',
-			'after_title' => '</h1>',
-		]
-	);
+	register_sidebar( [
+		'name'          => __( 'Left Home', 'tomjn' ),
+		'description'   => __( 'A half width area on the left of the homepage, appears above the right hand on mobiles', 'tomjn' ),
+		'id'            => 'sidebar-home-left',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	] );
 
-	register_sidebar(
-		[
-			'name' => __( 'Right Home', 'tomjn' ),
-			'description' => __( 'A half width area on the right of the homepage, appears below the left hand on mobiles', 'tomjn' ),
-			'id' => 'sidebar-home-right',
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget' => '</aside>',
-			'before_title' => '<h1 class="widget-title">',
-			'after_title' => '</h1>',
-		]
-	);
+	register_sidebar( [
+		'name'          => __( 'Right Home', 'tomjn' ),
+		'description'   => __( 'A half width area on the right of the homepage, appears below the left hand on mobiles', 'tomjn' ),
+		'id'            => 'sidebar-home-right',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	] );
 }
 add_action( 'widgets_init', 'tomjnwidgets_init' );
 
-/**
- * Enqueue scripts and styles
- */
-function tomjnhttp2() {
-	if (
-		wp_doing_cron() ||
-		defined('REST_REQUEST') ||
-		wp_doing_ajax() ||
-		wp_is_xml_request() ||
-		is_admin() ||
-		is_feed()
-	) {
-		return;
-	}
-	$wordpress_version = get_bloginfo( 'version' );
-	// hint to the browser to request a few extra things via http2
-	header("Link: </wp-includes/js/jquery/jquery.js?ver=1.12.4>; rel=preload; as=script", false);
-	header("Link: </wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1>; rel=preload; as=script", false);
-	header("Link: <https://use.typekit.net/wtc2mfi.js>; rel=preload; as=script", false);
-	header("Link: <https://www.googletagmanager.com/gtag/js?id=UA-6510359-3>; rel=preload; as=script", false);
-	header("Link: </wp-content/uploads/2016/11/favicon.png>; rel=preload; as=image", false);
-	header("Link: </wp-includes/js/wp-emoji-release.min.js?ver=".$wordpress_version.">; rel=preload; as=script", false);
-	header("Link: <https://stats.wp.com/e-201904.js>; rel=preload; as=script",false);
-	header("Link: <https://www.google-analytics.com/analytics.js>; rel=preload; as=script",false);
-	header("Link: </wp-includes/js/wp-embed.min.js?ver=".$wordpress_version.">; rel=preload; as=script", false);
+function tomjn_deregister_scripts(){
+  wp_dequeue_script( 'wp-embed' );
 }
-add_action( 'init','tomjnhttp2' );
+add_action( 'wp_footer', 'tomjn_deregister_scripts' );
 
 function tomjnscripts() {
 
 	// enqueue our styles
-	wp_enqueue_style( 'style', get_stylesheet_uri(), [], '6' );
-	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [], '6' );
+	wp_enqueue_style( 'tomjn-less', get_stylesheet_uri(), [], '7' );
+	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [ 'tomjn-less'], '7' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -197,28 +167,6 @@ function wpse_59182_bigger_media_thumbs() {
 	</script>
 	<?php
 }
-
-function tomjn_typekit_code() {
-	$faces = [
-		'Bold-Italic',
-		'Bold',
-		'Italic',
-		'Regular'
-	];
-	foreach ( $faces  as $face ) {
-		$font_url = get_template_directory_uri() . '/assets/jetbrainsmono/woff2/JetBrainsMono-' . $face . '.woff2';
-		?>
-		<link
-			rel="preload"
-			as="font"
-			href="<?php echo esc_url( $font_url ); ?>"
-			type="font/woff2"
-			crossorigin="anonymous"
-		/>
-		<?php
-	}
-}
-add_action( 'wp_head', 'tomjn_typekit_code' );
 
 add_editor_style( 'editor-style.css' );
 
@@ -278,13 +226,5 @@ add_filter( 'posts_request', '_tomjn_home_cancel_query', 100, 2 );
 
 function tomjn_get_the_term_list( $id, $taxonomy, $before, $sep, $after ) {
 	return get_the_term_list( $id, $taxonomy, $before, $sep, $after );
-	$result = get_transient( 'tomjn_get_the_term_list_' . $id . '_' . $taxonomy );
-	if ( false === $result ) {
-		$result = get_the_term_list( $id, $taxonomy, $before, $sep, $after );
-		if ( $result ) {
-			set_transient( 'tomjn_get_the_term_list_' . $id . '_' . $taxonomy , $result, 60 * 60 * 24 );
-		}
-	}
-	return $result;
 }
 
