@@ -17,9 +17,10 @@ if ( ! function_exists( '_s_content_nav' ) ) {
 	function _s_content_nav( $nav_id ) {
 		global $wp_query;
 
-		$nav_class = 'site-navigation paging-navigation';
-		if ( is_single() )
-			$nav_class = 'site-navigation post-navigation';
+		$nav_class = 'site-navigation paging-navigation columns is-gapless';
+		if ( is_singular() ) {
+			$nav_class = 'site-navigation post-navigation columns is-gapless';
+		}
 
 		?>
 		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo esc_attr( $nav_class ); ?>">
@@ -28,25 +29,36 @@ if ( ! function_exists( '_s_content_nav' ) ) {
 		if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
 			$post_type = get_post_type();
 			?>
-			<div><a href="<?php echo esc_url( get_post_type_archive_link( $post_type ) );?>">&larr; View All</a></div>
+			<div class="column is-full"><a href="<?php echo esc_url( get_post_type_archive_link( $post_type ) );?>">&larr; View All</a></div>
 			<?php
 		}
-		if ( is_single() ) : // navigation links for single posts
 
-			previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', '_s' ) . '</span> %title' );
-			next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', '_s' ) . '</span>' );
+		// navigation links for single posts
+		if ( is_singular() ) {
+			previous_post_link(
+				'<div class="nav-previous column is-half">%link</div>',
+				'<span class="meta-nav">' . _x( '&larr;', 'Previous post link', '_s' ) . '</span> %title'
+			);
+			next_post_link( '<div class="nav-next column is-half">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', '_s' ) . '</span>' );
 
-		elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
+		} elseif (
+			$wp_query->max_num_pages > 1
+			&& ( is_home() || is_archive() || is_search() )
+		) {
+			// navigation links for home, archive, and search pages
 
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_s' ) ); ?></div>
-			<?php endif; ?>
-
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
-			<?php endif; ?>
-
-		<?php endif; ?>
+			if ( get_next_posts_link() ) {
+				?>
+			<div class="nav-previous column is-half"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_s' ) ); ?></div>
+				<?php
+			}
+			if ( get_previous_posts_link() ) {
+				?>
+			<div class="nav-next column is-half"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
+				<?php
+			}
+		}
+		?>
 
 		</nav>
 		<?php
@@ -64,9 +76,10 @@ if ( ! function_exists( '_s_content_nav_projects' ) ):
 function _s_content_nav_projects( $nav_id ) {
 	global $wp_query;
 
-	$nav_class = 'site-navigation paging-navigation';
-	if ( is_single() )
-		$nav_class = 'site-navigation post-navigation';
+	$nav_class = 'site-navigation paging-navigation columns is-gapless';
+	if ( is_single() ) {
+		$nav_class = 'site-navigation post-navigation columns is-gapless';
+	}
 
 	?>
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo esc_attr( $nav_class ); ?>">
@@ -75,17 +88,17 @@ function _s_content_nav_projects( $nav_id ) {
 	if ( is_single() && !is_singular( array( 'post', 'page', 'attachment' ) ) ) {
 		$post_type = get_post_type();
 		?>
-		<div><a href="<?php echo esc_url( get_post_type_archive_link( $post_type ) );?>">&larr; View All</a></div>
+		<div class="column is-full"><a href="<?php echo esc_url( get_post_type_archive_link( $post_type ) );?>">&larr; View All</a></div>
 		<?php
 	}
 	if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_s' ) ); ?></div>
+		<div class="nav-previous column is-half"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_s' ) ); ?></div>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
+		<div class="nav-next column is-half"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
 		<?php endif; ?>
 
 	<?php endif; ?>
