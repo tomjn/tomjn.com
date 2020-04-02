@@ -37,18 +37,11 @@ get_header( 'empty' );
 		</div>
 	</header>
 	<section id="content" class="site-content column is-half" role="main">
-		<?php
-		while ( have_posts() ) {
-			the_post();
-			?>
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<div class="entry-content">
-					<?php dynamic_sidebar('sidebar-home-right'); ?>
-				</div>
-			</article>
-			<?php
-		}
-		?>
+		<article>
+			<div class="entry-content">
+				<?php dynamic_sidebar('sidebar-home-right'); ?>
+			</div>
+		</article>
 	</section>
 </div>
 <?php
