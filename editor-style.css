@@ -375,14 +375,6 @@ input {
   padding: 1.5em;
   margin-bottom: 1em;
 }
-::selection {
-  color: #fff;
-  background: red;
-}
-::-moz-selection {
-  color: #fff;
-  background: red;
-}
 .entry-title {
   font-size: 48px;
 }
@@ -436,9 +428,6 @@ h4 {
   font-size: 20px;
   text-transform: uppercase;
 }
-.archive .entry-summary {
-  margin: 0.3em 0;
-}
 @media only screen and (max-width: 500px) {
   .entry-title {
     font-size: 36px;
@@ -456,6 +445,9 @@ h4 {
     font-size: 16px;
     text-transform: uppercase;
   }
+}
+.archive .entry-summary {
+  margin: 0.3em 0;
 }
 .taxonomy-list .taxonomy-listing .entry-title:first-child,
 h1:first-child,
@@ -524,40 +516,9 @@ blockquote footer,
 .gist .gist-file .gist-data .line-pre {
   max-width: none;
 }
-code,
-kbd,
-tt,
-var {
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  font-size: 90%;
-  /* the font looks a bit weirdly big compared to quaddro sans */
-  background: #fffafa;
-  border: 1px solid #fff0f0;
-  color: #500;
-}
-pre > code,
-pre > kbd,
-pre > tt,
-pre > var {
-  color: inherit;
-  font-size: inherit;
-  background: transparent;
-  border: none;
-}
 #social .social-comment-body {
   font-size: inherit;
   line-height: inherit;
-}
-pre {
-  max-width: 600px;
-  background: #fafafa;
-  border-left: 4px solid #DDD;
-  padding: 1.5em;
-  margin-bottom: 1em;
-  max-width: 100%;
-}
-#masthead .main-small-navigation .menu ul {
-  list-style: none;
 }
 .pullquote {
   float: right;

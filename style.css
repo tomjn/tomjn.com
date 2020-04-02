@@ -247,23 +247,6 @@ blockquote {
 address {
   margin: 0 0 1.5em;
 }
-pre {
-  background: #eee;
-  font-family: "Courier 10 Pitch", Courier, monospace;
-  font-size: 15px;
-  font-size: 1.5rem;
-  line-height: 1.6;
-  margin-bottom: 1.6em;
-  padding: 1.6em;
-  overflow: auto;
-  max-width: 100%;
-}
-code,
-kbd,
-tt,
-var {
-  font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-}
 abbr,
 acronym {
   border-bottom: 1px dotted #666;
@@ -1777,14 +1760,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   padding: 1.5em;
   margin-bottom: 1em;
 }
-::selection {
-  color: #fff;
-  background: red;
-}
-::-moz-selection {
-  color: #fff;
-  background: red;
-}
 .entry-title {
   font-size: 48px;
 }
@@ -1838,9 +1813,6 @@ h4 {
   font-size: 20px;
   text-transform: uppercase;
 }
-.archive .entry-summary {
-  margin: 0.3em 0;
-}
 @media only screen and (max-width: 500px) {
   .entry-title {
     font-size: 36px;
@@ -1858,6 +1830,9 @@ h4 {
     font-size: 16px;
     text-transform: uppercase;
   }
+}
+.archive .entry-summary {
+  margin: 0.3em 0;
 }
 .taxonomy-list .taxonomy-listing .entry-title:first-child,
 h1:first-child,
@@ -1926,40 +1901,9 @@ blockquote footer,
 .gist .gist-file .gist-data .line-pre {
   max-width: none;
 }
-code,
-kbd,
-tt,
-var {
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  font-size: 90%;
-  /* the font looks a bit weirdly big compared to quaddro sans */
-  background: #fffafa;
-  border: 1px solid #fff0f0;
-  color: #500;
-}
-pre > code,
-pre > kbd,
-pre > tt,
-pre > var {
-  color: inherit;
-  font-size: inherit;
-  background: transparent;
-  border: none;
-}
 #social .social-comment-body {
   font-size: inherit;
   line-height: inherit;
-}
-pre {
-  max-width: 600px;
-  background: #fafafa;
-  border-left: 4px solid #DDD;
-  padding: 1.5em;
-  margin-bottom: 1em;
-  max-width: 100%;
-}
-#masthead .main-small-navigation .menu ul {
-  list-style: none;
 }
 .pullquote {
   float: right;
@@ -2068,11 +2012,9 @@ article div.sharedaddy h3.sd-title {
 }
 @media only screen and (min-width: 660px) {
   .entry-title {
-    font-size: 72px;
+    font-size: 96px;
+    line-height: 1.05em;
     margin-top: 0;
-  }
-  .home #masthead .site-title {
-    font-size: 72px;
   }
   .single .entry-title {
     line-height: 1em;
@@ -2095,7 +2037,6 @@ article div.sharedaddy h3.sd-title {
   }
 }
 @media print {
-  #masthead,
   .edit-link,
   #secondary,
   .site-footer,
@@ -2145,17 +2086,17 @@ body {
   -o-animation-name: fadeIn;
   animation-name: fadeIn;
 }
-#masthead .header-contents,
+#masthead.full-mast .header-contents,
 .page-padding {
   padding: 28px 16px;
 }
 @media only screen and (min-width: 500px) {
-  #masthead .header-contents,
+  #masthead.full-mast .header-contents,
   .page-padding {
     padding: 28px;
   }
 }
-.admin-bar #masthead {
+.admin-bar #masthead.full-mast {
   top: 28px;
 }
 .entry-content {
@@ -2172,12 +2113,6 @@ body {
 }
 #masthead {
   background: #ffffff;
-  /*line-height:1.5em;*/
-  width: 100%;
-  font-size: 22px;
-}
-#masthead .site-description {
-  display: none;
 }
 #masthead .header-contents {
   padding-bottom: 0;
@@ -2245,35 +2180,6 @@ body {
 }
 #masthead .main-small-navigation .menu .current_page_item a {
   background: #cccccc;
-}
-#masthead .menu-top-menu-container,
-#masthead #menu-top-menu {
-  float: left;
-}
-.home #masthead h1 {
-  font-size: 36px;
-}
-.home #masthead h1 a {
-  text-decoration: none;
-  border-bottom: none;
-  box-shadow: none;
-}
-.home #masthead hgroup {
-  float: none;
-  /*margin-bottom:0.5em;*/
-}
-.home #masthead .header-contents {
-  margin-bottom: 0;
-}
-@media only screen and (max-width: 660px) {
-  .home #masthead .header-contents {
-    padding-top: 0;
-  }
-}
-@media only screen and (min-width: 660px) {
-  .home #masthead .header-contents {
-    margin-top: 2em;
-  }
 }
 #twin-columns,
 #secondary {

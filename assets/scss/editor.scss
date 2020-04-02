@@ -3,6 +3,28 @@
 // Modules and Variables
 @import "partials/base";
 
-// Partials
-@import "partials/typeface";
-@import "partials/typography";
+.editor-styles-wrapper {
+	// Partials
+	@import "partials/selection";
+	@import "partials/typeface";
+	@import "partials/typography";
+
+	font-family: "Merriweather", !important;
+	.wp-block,
+	p.wp-block {
+	    font-family: "Merriweather";
+	}
+
+	p, h1, h2, h3, h4, h5, h6, ul, li {
+		@include base-text();
+	}
+	.block-editor-block-list__block {
+		margin-left: 0;
+	}
+	.wp-block {
+		max-width:640px;
+	}
+
+}
+
+/* Style overall content */

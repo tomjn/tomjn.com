@@ -1,16 +1,21 @@
 @import 'typeface';
+@import 'code';
 
-body {
+@mixin base-text {
 	font-family: $base-font-family;
 	font-weight: $base-font-weight;
 	font-size:   $base-font-size;
-//	letter-spacing: -1px;
-}
-
-@media only screen and (min-width: 660px){
-	body, article {
+	@media only screen and (min-width: 660px){
 		font-size:$desktop-font-size;
 	}
+}
+
+body, article {
+	@include base-text();
+}
+
+p, ul li {
+	max-width:800px;
 }
 
 @import 'anchors';

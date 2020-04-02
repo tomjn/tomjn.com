@@ -223,7 +223,8 @@ add_action( 'wp_head', 'tomjn_typekit_code' );
 add_editor_style( 'editor-style.css' );
 
 function site_block_editor_styles() {
-    wp_enqueue_style( 'site-block-editor-styles', get_theme_file_uri( '/editor-style.css' ), false, '1.0', 'all' );
+    //wp_enqueue_style( 'site-block-editor-styles-less', get_theme_file_uri( '/editor-style.css' ), false, '1.0', 'all' );
+    wp_enqueue_style( 'site-block-editor-styles-scss', get_theme_file_uri( '/assets/dist/editor.css' ), false, '1.0', 'all' );
 }
 add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
 

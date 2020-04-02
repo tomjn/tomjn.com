@@ -1,0 +1,56 @@
+
+
+@media only screen and (min-width: 660px){
+	.home #masthead .site-title {
+		font-size:72px;
+	}
+}
+
+// Make sure the homepage halfmast is pushed down a bit towards the center
+.half-mast-spacing {
+    margin-top: 20vh;
+}
+
+// half page masthead
+#masthead.half-mast {
+    h1.site-title {
+    	font-size: 96px;
+    	line-height:1em;
+    	a {
+			text-decoration: none;
+			border-bottom: none;
+			box-shadow: none;
+		}
+    }
+	hgroup {
+		float:none;
+	}
+}
+
+.home {
+	.widget-title {
+		display:none;
+	}
+	#masthead.full-mast {
+		h1 {
+			font-size:36px;
+			a {
+				text-decoration: none;
+				border-bottom: none;
+				box-shadow: none;
+			}
+		}
+		hgroup {
+			float:none;
+		}
+		.header-contents {
+			margin-bottom: 0;
+			@media only screen and ( max-width: 660px ) {
+				padding-top:0;
+			}
+			@media only screen and ( min-width: 660px ) {
+				margin-top:2em;
+			}
+		}
+	}
+}

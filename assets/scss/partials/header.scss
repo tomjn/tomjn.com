@@ -1,0 +1,29 @@
+
+
+#masthead {
+	font-size:22px;
+
+	.main-small-navigation .menu ul {
+		list-style: none;
+	}
+
+	&.full-mast {
+		width: 100%;
+	}
+
+	.site-description{
+		display:none;
+	}
+
+	.menu-top-menu-container,
+	#menu-top-menu {
+		float: left;
+	}
+}
+
+
+@media print {
+	#masthead {
+		display: none !important;
+	}
+}

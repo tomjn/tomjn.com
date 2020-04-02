@@ -26,11 +26,9 @@ and Blueprint http://www.blueprintcss.org/
 
 @media only screen and (min-width: 660px){
 	.entry-title {
-		font-size: 72px;
-		margin-top:0;
-	}
-	.home #masthead .site-title {
-		font-size:72px;
+		font-size: 96px;
+		line-height: 1.05em;
+		margin-top: 0;
 	}
 	.single {
 		.entry-title {
@@ -52,7 +50,7 @@ and Blueprint http://www.blueprintcss.org/
 }
 
 @media print {
-	#masthead, .edit-link, #secondary, .site-footer, #respond {
+	.edit-link, #secondary, .site-footer, #respond {
 		display: none !important;
 	}
 }
@@ -81,7 +79,7 @@ body {
 // 8, 10, 14 and 36
 // 16, 20, 28, 72
 
-#masthead .header-contents,
+#masthead.full-mast .header-contents,
 .page-padding {
 	padding:28px 16px;
 	@media only screen and ( min-width: 500px ) {
@@ -89,7 +87,7 @@ body {
 	}
 }
 
-.admin-bar #masthead{
+.admin-bar #masthead.full-mast {
 	top:28px;
 }
 
@@ -99,13 +97,7 @@ body {
 
 #masthead {
 	background: @headerBGcolour;
-	/*line-height:1.5em;*/
-	width: 100%;
-	font-size:22px;
 
-	.site-description{
-		display:none;
-	}
 	.header-contents {
 		padding-bottom:0;
 		margin-bottom:28px;
@@ -166,35 +158,6 @@ body {
 			.current_page_item a {
 				background: darken(@headerBGcolour,20%);
 			}
-		}
-	}
-
-	.menu-top-menu-container,
-	#menu-top-menu {
-		float: left;
-	}
-}
-
-.home #masthead {
-	h1 {
-		font-size:36px;
-		a {
-			text-decoration: none;
-			border-bottom: none;
-			box-shadow: none;
-		}
-	}
-	hgroup {
-		float:none;
-		/*margin-bottom:0.5em;*/
-	}
-	.header-contents {
-		margin-bottom: 0;
-		@media only screen and ( max-width: 660px ) {
-			padding-top:0;
-		}
-		@media only screen and ( min-width: 660px ) {
-			margin-top:2em;
 		}
 	}
 }
