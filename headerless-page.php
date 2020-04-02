@@ -9,18 +9,14 @@
 
 get_header( 'empty' );
 ?>
-
-<div id="primary" class="site-content">
-	<div id="content" role="main">
-<?php
-while ( have_posts() ) {
-	the_post();
-	get_template_part( 'content', 'page' );
-}
-?>
-	</div>
-</div>
-
+<section id="content" class="site-content" role="main">
+	<?php
+	while ( have_posts() ) {
+		the_post();
+		get_template_part( 'content', 'page' );
+	}
+	?>
+</section>
 <?php
 get_sidebar();
 get_footer();

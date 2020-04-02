@@ -1,13 +1,3 @@
-<?php
-/**
- * The Header for our theme.
- *
- * Displays all of the <head> section and everything up till <div id="main">
- *
- * @package _s
- * @since _s 1.0
- */
-?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -19,7 +9,7 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<div id="page" class="hfeed site">
-		<header id="masthead" class="site-header">
+		<header id="masthead" class="full-mast site-header">
 			<div class="header-contents">
 				<hgroup>
 					<h1 class="site-title">

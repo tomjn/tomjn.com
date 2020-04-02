@@ -1,13 +1,4 @@
-<?php
-/**
- * The Header for our theme.
- *
- * Displays all of the <head> section and everything up till <div id="main">
- *
- * @package _s
- * @since _s 1.0
- */
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -18,11 +9,6 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<?php wp_body_open(); ?>
 	<div id="page" class="hfeed site">
-		<?php do_action( 'before' ); ?>
-		<header id="masthead" class="site-header" role="banner">
-			<div class="header-contents">
-			</div>
-		</header>
-
 		<div id="main">
