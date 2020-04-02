@@ -2079,13 +2079,10 @@ article div.sharedaddy h3.sd-title {
     line-height: 1em;
   }
   #content .nav-previous {
-    float: left;
-    width: 50%;
+    text-align: left;
   }
   #content .nav-next {
-    float: right;
     text-align: right;
-    width: 50%;
   }
 }
 @media only screen and (min-width: 660px) {

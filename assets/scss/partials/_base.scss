@@ -21,8 +21,13 @@ $fixed-font-family: monospace;
 $fixed-font-size: 85%;
 $fixed-line-height: $base-line-height;
 
+// Hyperlinks
+$hyperlink-inactive-colour:          $text-colour;
+$hyperlink-active-colour:            #600;
+$hyperlink-active-background-colour: #fee;
+$hyperlink-underline-colour:         #f00;
 
-$hyperlink_inactive_colour: $text-colour;
-$hyperlink_active_colour:   #ff0000;
+// Radii
+$radius: 4px;
 
 @import "../modules/all";
