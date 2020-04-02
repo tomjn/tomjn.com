@@ -17,25 +17,23 @@ if ( !is_singular() ) {
 }
 get_header();
 ?>
-		<div id="primary" class="site-content">
-			<div id="content" role="main">
-			<?php
-			if ( have_posts() ) {
-				_s_content_nav( 'nav-above' );
-				while ( have_posts() ) {
-					the_post();
-					get_template_part( 'content', get_post_format() );
+<section id="content" class="site-content" role="main">
+	<?php
+	if ( have_posts() ) {
+		_s_content_nav( 'nav-above' );
+		while ( have_posts() ) {
+			the_post();
+			get_template_part( 'content', get_post_format() );
 
-				}
-				_s_content_nav( 'nav-below' );
-			} elseif ( current_user_can( 'edit_posts' ) ) {
+		}
+		_s_content_nav( 'nav-below' );
+	} elseif ( current_user_can( 'edit_posts' ) ) {
 
-				get_template_part( 'no-results', 'index' );
+		get_template_part( 'no-results', 'index' );
 
-			}
-			?>
-			</div>
-		</div>
+	}
+	?>
+</section>
 
 <?php
 get_sidebar();

@@ -27,67 +27,65 @@ if ( !empty( $taxobj ) ) {
 	$tname = $taxobj->labels->name;
 }
 ?>
-		<section id="primary" class="site-content">
-			<div id="content" role="main">
-<?php
-if ( have_posts() ) {
-	?>
-				<header class="page-header">
-					<h1>Talks</h1>
-				</header>
-
-					<div class="taxonomy-listing">
+<section id="content" class="site-content" role="main">
 	<?php
-
-	/* Start the Loop */
-	while ( have_posts() ) {
-		the_post();
-
+	if ( have_posts() ) {
 		?>
-		<div class="project_listing_item ">
-			<header>
-				<h3>
-					<a href="<?php echo esc_url( get_permalink() ); ?>">
-						<?php the_title(); ?>
-					</a>
-				</h3>
-				<?php
-				$term_list = get_the_term_list( get_the_ID(), 'technology', '', '', '' );
-				if ( !empty( $term_list ) ) {
-					$the_tax = get_taxonomy( 'technology' );
-					?>
-					<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
-						<?php echo wp_kses_post( $term_list ); ?>
-					</span>
-					<?php
-				}
-				$tech_term_list = tomjn_get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', '', '' );
-				if ( !empty( $tech_term_list ) ) {
-					$the_tax = get_taxonomy( 'tomjn_talk_tag' );
-					?>
-					<span class="<?php echo esc_attr( $tname ); ?>-links tax-tag-links">
-						<?php echo wp_kses_post( $tech_term_list ); ?>
-					</span>
-					<?php
-				}
-				?>
-			</header>
-			<?php
-			the_excerpt();
-			?>
-		</div>
-		<?php
-	}
-	_s_content_nav( 'nav-below' );
+	<header class="page-header">
+		<h1>Talks</h1>
+	</header>
 
-} else {
-	get_template_part( 'no-results', 'archive' );
-}
-?>
-					</div>
-				</div>
+	<div class="taxonomy-listing">
+		<?php
+
+		/* Start the Loop */
+		while ( have_posts() ) {
+			the_post();
+
+			?>
+			<div class="project_listing_item ">
+				<header>
+					<h3>
+						<a href="<?php echo esc_url( get_permalink() ); ?>">
+							<?php the_title(); ?>
+						</a>
+					</h3>
+					<?php
+					$term_list = get_the_term_list( get_the_ID(), 'technology', '', '', '' );
+					if ( !empty( $term_list ) ) {
+						$the_tax = get_taxonomy( 'technology' );
+						?>
+						<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
+							<?php echo wp_kses_post( $term_list ); ?>
+						</span>
+						<?php
+					}
+					$tech_term_list = tomjn_get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', '', '' );
+					if ( !empty( $tech_term_list ) ) {
+						$the_tax = get_taxonomy( 'tomjn_talk_tag' );
+						?>
+						<span class="<?php echo esc_attr( $tname ); ?>-links tax-tag-links">
+							<?php echo wp_kses_post( $tech_term_list ); ?>
+						</span>
+						<?php
+					}
+					?>
+				</header>
+				<?php
+				the_excerpt();
+				?>
 			</div>
-		</section>
+			<?php
+		}
+		_s_content_nav( 'nav-below' );
+
+	} else {
+		get_template_part( 'no-results', 'archive' );
+	}
+	?>
+		</div>
+	</div>
+</section>
 <?php
 get_sidebar();
 get_footer();

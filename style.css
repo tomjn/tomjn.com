@@ -600,8 +600,7 @@ object {
 /* =Navigation
 ----------------------------------------------- */
 #content .site-navigation {
-  margin: 0 0 1.5em;
-  overflow: hidden;
+  margin-bottom: 1.5em;
 }
 /* =Widgets
 ----------------------------------------------- */
@@ -2364,10 +2363,10 @@ body {
 .taxonomy-list .taxonomy-listing h6 {
   clear: none;
 }
-.archive #primary .entry-header {
+.archive #content .entry-header {
   margin-bottom: 0.6em;
 }
-.archive #primary .entry-header .entry-title {
+.archive #content .entry-header .entry-title {
   margin-bottom: 0;
   font-size: 36px;
   margin-top: 0.4em;

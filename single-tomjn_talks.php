@@ -1,23 +1,21 @@
 <?php
 get_header();
 ?>
-		<div id="primary" class="site-content">
-			<div id="content" role="main">
-			<?php
-			while ( have_posts() ) {
-				the_post();
-				_s_content_nav_projects( 'nav-above' );
-				get_template_part( 'content', 'project' );
-				_s_content_nav( 'nav-below' );
+<section id="content" class="site-content" role="main">
+	<?php
+	while ( have_posts() ) {
+		the_post();
+		_s_content_nav_projects( 'nav-above' );
+		get_template_part( 'content', 'project' );
+		_s_content_nav( 'nav-below' );
 
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || have_comments() )
-					comments_template( '', true );
-			}
-			?>
-
-			</div>
-		</div>
+		// If comments are open or we have at least one comment, load up the comment template
+		if ( comments_open() || have_comments() ) {
+			comments_template( '', true );
+		}
+	}
+	?>
+</section>
 
 <?php
 get_sidebar();
