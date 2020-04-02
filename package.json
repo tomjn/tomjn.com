@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The WP theme for tomjn.com",
   "scripts": {
-    "build:scss": "node-sass assets/scss/frontend.scss assets/dist/frontend.css && node-sass assets/scss/editor.scss assets/dist/editor.css",
+    "build:scss": "node-sass assets/scss/frontend.scss assets/dist/frontend.css --output-style compressed && node-sass assets/scss/editor.scss assets/dist/editor.css --output-style compressed",
     "build:less": "lessc style.less style.css && lessc editor-style.less editor-style.css"
   },
   "repository": {
