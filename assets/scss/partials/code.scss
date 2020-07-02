@@ -1,17 +1,21 @@
 @import '../modules/type';
 
+pre, code, kbd, tt, var {
+	font-size: 15px;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
 pre {
+	@include block_text();
 	font-size: 15px;
 	font-size: 1.5rem;
 	line-height: 1.6;
 	overflow: auto;
 	max-width:100%;
-	@include block_text();
+	background: $pale_highlight_colour;
 }
 
 code, kbd, tt, var {
-	font-size: 15px;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 90%; /* the font looks a bit weirdly big compared to quaddro sans */
 	background: $pale_highlight_colour;
 	border: 1px solid $pale_highlight_border_colour;

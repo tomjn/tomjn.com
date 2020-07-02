@@ -160,9 +160,6 @@ blockquote,
 q {
   quotes: "" "";
 }
-a:focus {
-  outline: thin dotted;
-}
 a:hover,
 a:active {
   /* Improves readability when focused and also mouse hovered in all browsers people.opera.com/patrickl/experiments/keyboard/test */
@@ -1950,8 +1947,9 @@ article div.sharedaddy h3.sd-title {
   display: block;
   margin: 1em;
   margin-left: 0;
-  padding: 2em 0.5em 1em 0.5em;
+  padding: 0.5em 0.5em 1em 0.5em;
   font-family: inherit;
+  border-radius: 4px;
 }
 .commentlist {
   margin-left: 0;
@@ -2269,11 +2267,13 @@ body {
 .taxonomy-list .taxonomy-listing h6 {
   clear: none;
 }
-.archive #content .entry-header {
+.archive #content .entry-header,
+.search #content .entry-header {
   margin-bottom: 0.6em;
 }
-.archive #content .entry-header .entry-title {
-  margin-bottom: 0;
+.archive #content .entry-header .entry-title,
+.search #content .entry-header .entry-title {
+  margin-bottom: 0.3em;
   font-size: 36px;
   margin-top: 0.4em;
 }

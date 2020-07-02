@@ -34,7 +34,7 @@ get_header();
 
 			while ( have_posts() ) {
 				the_post();
-				get_template_part( 'content', 'search' );
+				get_template_part( 'excerpt', get_post_type() );
 			}
 			_s_content_nav( 'nav-below' );
 
@@ -49,7 +49,7 @@ get_header();
 			echo '<ul class="taxonomy-term-choices-list ">';
 			wp_get_archives( [
 				'type'            => 'monthly',
-				'format'          => 'li',
+				'format'          => 'html',
 				'show_post_count' => 0,
 			] );
 			echo '</ul>';

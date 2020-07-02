@@ -20,3 +20,15 @@ p, ul li {
 }
 
 @import 'anchors';
+
+*:focus {
+	border: 2px solid red;
+}
+
+a:focus {
+	background: $hyperlink-focus-background-colour;
+	border-radius: $radius;
+	border: none;
+	color: $hyperlink-focus-colour;
+	text-shadow: none;
+}

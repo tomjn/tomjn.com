@@ -1,7 +1,8 @@
 @mixin block_text() {
     max-width: 100%;
     background: $block-background-colour;
-    border-left: 4px solid #DDD;
+    border: 2px solid $pale_highlight_border_colour;
+    border-radius: $radius;
     padding: 1.5em;
     margin-bottom:1em;
 }
