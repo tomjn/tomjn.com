@@ -15,7 +15,8 @@ require_once 'inc/remove-emoji.php';
  * @since tomjn 1.0
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 1024; /* pixels */
+	// this is the max width of a paragraph tag
+	$content_width = 800; /* pixels */
 }
 
 /**
@@ -173,7 +174,7 @@ function site_block_editor_styles() {
 	//wp_enqueue_style( 'site-block-editor-styles-less', get_theme_file_uri( '/editor-style.css' ), false, '1.0', 'all' );
 	wp_enqueue_style( 'site-block-editor-styles-scss', get_theme_file_uri( '/assets/dist/editor.css' ), false, '1.0', 'all' );
 }
-add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
+//add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
 
 // Add Slideshare oEmbed
 function add_oembed_slideshare() {
