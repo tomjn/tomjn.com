@@ -15,6 +15,7 @@
 		}
 		?>
 	</header>
+	<?php /*
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div>
@@ -34,5 +35,5 @@
 			<?php
 		}
 		?>
-	</footer>
+	</footer> */  ?>
 </article>
