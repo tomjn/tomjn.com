@@ -42,9 +42,8 @@ if ( ! empty( $taxobj ) ) {
 		/* Start the Loop */
 		while ( have_posts() ) {
 			the_post();
-
 			?>
-			<div class="project_listing_item ">
+			<article id="post-<?php the_ID(); ?>" <?php post_class('project_listing_item'); ?>>
 				<header>
 					<h3>
 						<a href="<?php echo esc_url( get_permalink() ); ?>">
@@ -71,7 +70,7 @@ if ( ! empty( $taxobj ) ) {
 					}
 					?>
 				</footer>
-			</div>
+			</article>
 			<?php
 		}
 		_s_content_nav( 'nav-below' );
