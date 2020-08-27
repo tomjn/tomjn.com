@@ -34,7 +34,7 @@ if ( ! empty( $taxobj ) ) {
 			<?php
 			$title = 'Archive';
 			if ( is_date() ) {
-				$title = 'Archive: '.get_the_time( 'F, Y' );
+				$title = 'Archive: ' . get_the_time( 'Y' );
 			} else {
 				if ( ! empty( $taxobj->labels->singular_name ) && ! empty( $current_term->name ) ) {
 					$title = $taxobj->labels->singular_name.': ' . $current_term->name;
