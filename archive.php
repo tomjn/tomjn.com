@@ -70,14 +70,14 @@ if ( ! empty( $taxobj ) ) {
 			if ( is_date() ) {
 				echo '<h1 class="page-title">';
 				if ( is_date() ) {
-					echo 'Archives';
+					echo 'By Year';
 				} else {
 					echo esc_html( $tname );
 				}
 				echo '</h1>';
 				echo '<ul class="taxonomy-term-choices-list ">';
 				wp_get_archives( [
-					'type'            => 'monthly',
+					'type'            => 'yearly',
 					'format'          => 'html',
 					'show_post_count' => 0,
 				] );
