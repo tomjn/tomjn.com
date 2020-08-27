@@ -105,10 +105,10 @@ if ( ! empty( $taxobj ) ) {
 					}
 					echo '</ul>';
 				}
-				echo '<h1>By Month</h1>';
+				echo '<h1>By Year</h1>';
 				echo '<ul class="taxonomy-term-choices-list ">';
 				wp_get_archives( [
-					'type'            => 'monthly',
+					'type'            => 'yearly',
 					'format'          => 'html',
 					'show_post_count' => 0,
 				] );
