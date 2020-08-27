@@ -9,6 +9,7 @@
  */
 
 get_header();
+$post_type = get_post_type();
 $taxonomy = '';
 if ( is_tax() ) {
 	$taxonomy = get_query_var( 'taxonomy' );
@@ -50,30 +51,26 @@ if ( ! empty( $taxobj ) ) {
 							<?php the_title(); ?>
 						</a>
 					</h3>
+				</header>
+				<div class="entry-summary">
+					<?php the_excerpt(); ?>
+				</div>
+				<footer class="entry-meta">
 					<?php
-					$term_list = get_the_term_list( get_the_ID(), 'technology', '', '', '' );
-					if ( ! empty( $term_list ) ) {
-						$the_tax = get_taxonomy( 'technology' );
+					foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
+						$term_list = get_the_term_list( get_the_ID(), $tax_name, '', '', '' );
+						if ( empty( $term_list ) ) {
+							continue;
+						}
+						$the_tax = get_taxonomy( $tax_name );
 						?>
 						<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
 							<?php echo wp_kses_post( $term_list ); ?>
 						</span>
 						<?php
 					}
-					$tech_term_list = get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', '', '' );
-					if ( ! empty( $tech_term_list ) ) {
-						$the_tax = get_taxonomy( 'tomjn_talk_tag' );
-						?>
-						<span class="<?php echo esc_attr( $tname ); ?>-links tax-tag-links">
-							<?php echo wp_kses_post( $tech_term_list ); ?>
-						</span>
-						<?php
-					}
 					?>
-				</header>
-				<?php
-				the_excerpt();
-				?>
+				</footer>
 			</div>
 			<?php
 		}
