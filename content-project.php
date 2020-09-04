@@ -43,7 +43,7 @@
 		if ( ! empty( $term_list ) ) {
 			$the_tax = get_taxonomy( 'technology' );
 			?>
-			<span class="<?php echo esc_attr( $tax_name ); ?>-links tax-tag-links">
+			<span class="<?php echo esc_attr( $the_tax->name ); ?>-links tax-tag-links">
 				<?php echo wp_kses_post( $term_list ); ?>
 			</span><br>
 			<?php
