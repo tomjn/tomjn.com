@@ -1,0 +1,49 @@
+.wp-block-table {
+	border: 1px solid lightgray;
+	border-radius: 8px;
+
+	table {
+		font-size: 16px;
+		margin-bottom: 0;
+		border-collapse: collapse;
+		position: relative;
+
+		thead {
+			th {
+				/*top: 0;
+				position: sticky;*/
+				border-bottom: 1px solid lightgray;
+				padding: 8px 16px;
+
+				&:hover,
+				&:focus {
+					background: #fffafa;
+				}
+			}
+		}
+
+		tbody {
+			tr{
+				&:hover,
+				&:focus {
+					background: #fafafa;
+				}
+			}
+			td {
+				padding: 9px 16px;
+				border-bottom: 1px solid #e0e0e0;
+				border-right: 1px solid #eaeaea;
+
+				&:hover,
+				&:focus {
+					background: #fff9f9;
+					border: 1px solid #ffe0e0;
+				}
+
+				//&:first-child {
+					white-space: nowrap;
+				//}
+			}
+		}
+	}
+}
