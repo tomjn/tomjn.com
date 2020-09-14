@@ -24,11 +24,15 @@
 
 		tbody {
 			tr{
+				&:nth-child(even) {
+					background: #fefcfc;
+				}
 				&:hover,
 				&:focus {
-					background: #fafafa;
+					background: #f6f6f6;
 				}
 			}
+
 			td {
 				padding: 9px 16px;
 				border-bottom: 1px solid #e0e0e0;
@@ -36,8 +40,8 @@
 
 				&:hover,
 				&:focus {
-					background: #fff9f9;
-					border: 1px solid #ffe0e0;
+					background: #fff0f0;
+					border-color: 1px solid #ffe0e0;
 				}
 
 				//&:first-child {
