@@ -4,8 +4,8 @@
   "description": "The WP theme for tomjn.com",
   "scripts": {
     "build": "npm run build:less && npm run build:scss",
-    "build:scss": "node-sass assets/scss/frontend.scss assets/dist/frontend.css --output-style compressed && node-sass assets/scss/editor.scss assets/dist/editor.css --output-style compressed",
-    "build:less": "lessc style.less style.css && lessc editor-style.less editor-style.css"
+    "build:scss": "sass assets/scss/frontend.scss:assets/dist/frontend.css && sass assets/scss/editor.scss:assets/dist/editor.css",
+    "build:less": "lessc style.less assets/dist/less.css"
   },
   "repository": {
     "type": "git",
@@ -25,8 +25,11 @@
     "scss": "*"
   },
   "devDependencies": {
-    "bulma": "^0.8.1",
-    "less": "^3.11.1",
-    "scss": "^0.2.4"
+    "bulma": "^0.8.2",
+    "less": "^3.13.1",
+    "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1"
   }
 }

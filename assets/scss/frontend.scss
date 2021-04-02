@@ -5,6 +5,9 @@
 
 // Partials
 @import "partials/reset";
+
+// import legacy LESS stylesheet
+@import "../dist/less.css";
 @import "partials/selection";
 @import "partials/layout";
 @import "partials/typeface";

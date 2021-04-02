@@ -133,11 +133,10 @@ function tomjn_deregister_scripts() {
 }
 add_action( 'wp_footer', 'tomjn_deregister_scripts' );
 
-function tomjnscripts() {
+function tomjnscripts() : void {
 
-	// enqueue our styles
-	wp_enqueue_style( 'tomjn-less', get_stylesheet_uri(), [], '7' );
-	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [ 'tomjn-less' ], '7' );
+	// Enqueue our styles.
+	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [], '8' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -145,7 +144,7 @@ function tomjnscripts() {
 }
 add_action( 'wp_enqueue_scripts', 'tomjnscripts' );
 
-function filter_ptags_on_images( $content ) {
+function filter_ptags_on_images( string $content ) : string {
 	$content = preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
 	// and iframe tags too
 	$content = preg_replace( '/<p>\s*(<a .*>)?\s*(<iframe .*><\/iframe>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
@@ -154,7 +153,8 @@ function filter_ptags_on_images( $content ) {
 add_filter( 'the_content', 'filter_ptags_on_images' );
 
 add_action( 'admin_head-upload.php', 'wpse_59182_bigger_media_thumbs' );
-function wpse_59182_bigger_media_thumbs() {
+
+function wpse_59182_bigger_media_thumbs() : void {
 	?>
 	<script>
 		jQuery(document).ready( function($) {
@@ -170,14 +170,13 @@ function wpse_59182_bigger_media_thumbs() {
 
 add_editor_style( 'editor-style.css' );
 
-function site_block_editor_styles() {
-	//wp_enqueue_style( 'site-block-editor-styles-less', get_theme_file_uri( '/editor-style.css' ), false, '1.0', 'all' );
+function site_block_editor_styles() : void {
 	wp_enqueue_style( 'site-block-editor-styles-scss', get_theme_file_uri( '/assets/dist/editor.css' ), false, '1.0', 'all' );
 }
 //add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
 
 // Add Slideshare oEmbed
-function add_oembed_slideshare() {
+function add_oembed_slideshare() : void {
 	wp_oembed_add_provider( 'http://www.slideshare.net/*', 'http://api.embed.ly/v1/api/oembed' );
 	wp_oembed_add_provider( 'https://www.slideshare.net/*', 'http://api.embed.ly/v1/api/oembed' );
 }
@@ -194,14 +193,16 @@ function password_post_filter( $where = '' ) {
 }
 add_filter( 'posts_where', 'password_post_filter' );
 
-function title_format() {
+function title_format() : string {
 	return '%s';
 }
+
 add_filter( 'private_title_format', 'title_format' );
 add_filter( 'protected_title_format', 'title_format' );
 
 add_filter( 'wp_title', 'tomjn_hack_wp_title_for_home' );
-function tomjn_hack_wp_title_for_home( $title ) {
+
+function tomjn_hack_wp_title_for_home( $title ) : string {
 	if ( empty( $title ) && ( is_home() || is_front_page() ) ) {
 		return  get_bloginfo( 'name' );
 	}
@@ -209,7 +210,7 @@ function tomjn_hack_wp_title_for_home( $title ) {
 }
 
 add_action( 'tomjn_footer_notes', 'tomjn_footer_notes' );
-function tomjn_footer_notes() {
+function tomjn_footer_notes() : void {
 	?>
 	<p>Content licensed as <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="licensei noreferrer noopener">cc-by-sa-3</a> with attribution required, <a href="https://twitter.com/tarendai" rel="me noreferrer noopener">twitter</a></p>
 	<?php
