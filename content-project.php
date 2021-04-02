@@ -1,7 +1,6 @@
 <?php
 /**
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
 ?>
 
@@ -9,7 +8,7 @@
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 		<?php
-		$links = [];
+		$final_links = [];
 		$desired_links = [
 			'visit_url'    => 'Visit the site',
 			'docs_url'     => 'View the documentation',
@@ -20,15 +19,15 @@
 		foreach ( $desired_links as $key => $desc ) {
 			$meta = get_post_meta( get_the_ID(), $key, true );
 			if ( ! empty( $meta ) ) {
-				$links[] = [
+				$final_links[] = [
 					'url'  => $meta,
 					'text' => $desc,
 				];
 			}
 		}
-		if ( ! empty( $links ) ) {
+		if ( ! empty( $final_links ) ) {
 			echo '<ul class="project_links">';
-			foreach ( $links as $link ) {
+			foreach ( $final_links as $link ) {
 				?>
 				<li class="project_link">
 					<a href="<?php echo esc_url( $link['url'] ); ?>">
@@ -39,6 +38,7 @@
 			}
 			echo '</ul>';
 		}
+
 		$term_list = get_the_term_list( get_the_ID(), 'technology', '', ' ', '' );
 		if ( ! empty( $term_list ) ) {
 			$the_tax = get_taxonomy( 'technology' );
@@ -48,6 +48,7 @@
 			</span><br>
 			<?php
 		}
+
 		$tech_term_list = get_the_term_list( get_the_ID(), 'tomjn_talk_tag', '', ' ', '' );
 		if ( ! empty( $tech_term_list ) ) {
 			$the_tax = get_taxonomy( 'tomjn_talk_tag' );
@@ -65,18 +66,20 @@
 	<div class="entry-content">
 		<?php
 		the_content();
-		wp_link_pages( [
-			'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
-			'after'  => '</div>',
-		] );
+		wp_link_pages(
+			[
+				'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
+				'after'  => '</div>',
+			]
+		);
 		?>
 	</div>
 
 	<footer class="entry-meta">
 		<?php
-		$post_type = get_post_type();
-		foreach ( get_object_taxonomies( $post_type ) as $tax_name ) {
-		    $term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
+		$ptype = get_post_type();
+		foreach ( get_object_taxonomies( $ptype ) as $tax_name ) {
+			$term_list = get_the_term_list( get_the_ID(), $tax_name, '', ' ', '' );
 			if ( empty( $term_list ) ) {
 				continue;
 			}
