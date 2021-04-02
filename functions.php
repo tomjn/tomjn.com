@@ -168,7 +168,7 @@ function wpse_59182_bigger_media_thumbs() : void {
 	<?php
 }
 
-add_editor_style( 'editor-style.css' );
+//add_editor_style( 'editor-style.css' );
 
 function site_block_editor_styles() : void {
 	wp_enqueue_style( 'site-block-editor-styles-scss', get_theme_file_uri( '/assets/dist/editor.css' ), false, '1.0', 'all' );

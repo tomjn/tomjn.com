@@ -863,11 +863,6 @@ article div.sharedaddy h3.sd-title {
     padding: 28px 16px;
   }
 }
-@media only screen and (min-width: 660px) and only screen and (min-width: 500px) {
-  .header-contents {
-    padding: 28px;
-  }
-}
 @media print {
   .edit-link,
   #secondary,
@@ -1069,20 +1064,10 @@ body {
   padding: 28px 16px;
   padding-top: 20px;
 }
-@media only screen and (min-width: 500px) {
-  #main {
-    padding: 28px;
-  }
-}
 footer {
   padding: 28px 16px;
   padding-top: 2em;
   padding-bottom: 2em;
-}
-@media only screen and (min-width: 500px) {
-  footer {
-    padding: 28px;
-  }
 }
 article footer {
   padding: 0;

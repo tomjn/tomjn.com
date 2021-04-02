@@ -28,7 +28,7 @@ function tomjnhttp2() {
 	}
 	header( 'Link: <https://www.google-analytics.com/analytics.js>; rel=preload; as=script', false );
 }
-add_action( 'init','tomjnhttp2' );
+add_action( 'init', 'tomjnhttp2' );
 
 function tomjn_font_preload() {
 	$faces = [
