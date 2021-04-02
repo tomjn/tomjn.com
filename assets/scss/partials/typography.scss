@@ -6,16 +6,19 @@
 	font-weight:  $base-font-weight;
 	font-size:    $base-font-size;
 	font-display: swap;
+
 	@media only screen and (min-width: 660px){
 		font-size: $desktop-font-size;
 	}
 }
 
-body, article {
+body,
+article {
 	@include base-text();
 }
 
-p, ul li {
+p,
+ul li {
 	max-width:800px;
 }
 
