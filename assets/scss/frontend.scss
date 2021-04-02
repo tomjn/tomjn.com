@@ -8,10 +8,14 @@
 
 // import legacy LESS stylesheet
 @import "../dist/less.css";
+
+// partials
 @import "partials/selection";
 @import "partials/layout";
 @import "partials/typeface";
+@import "partials/inputs";
 @import "partials/typography";
 @import "partials/tables";
 @import "partials/header";
 @import "partials/homepage";
+@import "partials/animation";

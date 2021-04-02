@@ -1,0 +1,76 @@
+@import '../../../node_modules/animate.css/source/_vars';
+@import '../../../node_modules/animate.css/source/_base';
+@import '../../../node_modules/animate.css/source/fading_entrances/fadeIn';
+@import '../../../node_modules/animate.css/source/fading_entrances/fadeInDown';
+
+/* All animations will take twice as long to finish */
+:root {
+	--animate-duration: 500ms;
+}
+
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translate3d(-10%, 0, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+		opacity: 0;
+		transform: translate3d(10%, 0, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+
+.taxonomy-list {
+	.taxonomy-term-choices {
+		@extend .animated;
+		animation-name: fadeInRight;
+	}
+
+	.taxonomy-listing {
+		@extend .animated;
+		animation-name: fadeInLeft;
+	}
+}
+
+#main,
+footer {
+	@extend .animated;
+	@extend .fadeIn;
+}
+
+#masthead {
+	hgroup,
+	nav {
+		@extend .animated;
+		@extend .fadeInDown;
+	}
+}
+
+.home {
+	#masthead {
+		hgroup,
+		nav {
+			@extend .fadeIn;
+		}
+	}
+}
+
+.archive {
+	.page-header {
+		@extend .animated;
+		animation-name: fadeInLeft;
+	}
+}

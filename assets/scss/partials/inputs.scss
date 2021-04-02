@@ -1,0 +1,17 @@
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box; /* Addresses box sizing set to content-box in IE8/9 */
+	padding: 0; /* Addresses excess padding in IE8/9 */
+	width: 1em !important;
+    height: 1em;
+	vertical-align: middle;
+}
+
+input[type="radio"],
+input[type="checkbox"],
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    line-height: 1.5em;
+    vertical-align: middle;
+    margin-right: 0.5em;
+}

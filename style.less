@@ -20,7 +20,6 @@ and Blueprint http://www.blueprintcss.org/
 
 @import "less/variables";
 @import "less/resets";
-@import "less/slimline-animate";
 @import "less/type";
 @import 'less/comments';
 
@@ -72,18 +71,14 @@ body {
 	}
 }
 
-#main {
-	.animated();
-	.fadeIn();
-}
 // 8, 10, 14 and 36
 // 16, 20, 28, 72
 
 #masthead.full-mast .header-contents,
 .page-padding {
-	padding:28px 16px;
+	padding: 28px 16px;
 	@media only screen and ( min-width: 500px ) {
-		padding:28px;
+		padding: 28px;
 	}
 }
 
@@ -119,11 +114,10 @@ body {
 	nav {
 		width:auto;
 		clear:none;
-		.animated();
-		.fadeInDown();
 		margin-right:24px;
 		/*line-height: 1.6em;*/
 		float:left;
+
 		.menu {
 			a {
 				margin-right: 1em;
@@ -135,6 +129,7 @@ body {
 			}
 		}
 	}
+
 	.main-small-navigation {
 		margin-right:0;
 		width:100%;
@@ -183,12 +178,12 @@ body {
 .taxonomy-list {
 	.clearfix();
 	margin-bottom: 4em;
+
 	.taxonomy-term-choices {
-		.animated();
-		.fadeInRight();
 		.taxonomy-term-choices-list {
 			list-style: none;
 			margin-left: 0;
+
 			.active {
 				font-weight:bold;
 			}
@@ -196,8 +191,6 @@ body {
 	}
 
 	.taxonomy-listing {
-		.animated();
-		.fadeInLeft();
 		h1, h2, h3, h4, h5, h6 {
 			clear:none;
 		}
