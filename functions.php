@@ -223,7 +223,3 @@ function _tomjn_home_cancel_query( $query, \WP_Query $q ) {
 	return $query;
 }
 add_filter( 'posts_request', '_tomjn_home_cancel_query', 100, 2 );
-
-function tomjn_get_the_term_list( $id, $taxonomy, $before, $sep, $after ) {
-	return get_the_term_list( $id, $taxonomy, $before, $sep, $after );
-}
