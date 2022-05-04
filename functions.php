@@ -7,7 +7,7 @@
  */
 
 require_once 'inc/template-tags.php';
-require_once 'inc/hooks.php';
+require_once 'inc/namespace.php';
 
 /**
  * Set the content width based on the theme's design and stylesheet.

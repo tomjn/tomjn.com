@@ -121,5 +121,4 @@ if ( ! empty( $taxobj ) ) {
 </section>
 
 <?php
-get_sidebar();
 get_footer();

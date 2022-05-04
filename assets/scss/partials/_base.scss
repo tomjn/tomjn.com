@@ -7,7 +7,7 @@ $heavy: 900;
 
 // Base Font
 $base-font-family: "JetBrains Mono", monaco, monospace;
-$base-font-family: "Merriweather", sans-serif, monospace;
+$base-font-family: "Radio Canada", sans-serif, monospace;
 $base-font-weight: $regular;
 $base-font-size: 14px;
 $base-line-height: 1.4;
@@ -22,20 +22,22 @@ $fixed-font-size: 85%;
 $fixed-line-height: $base-line-height;
 
 // Hyperlinks
+$hyperlink-underline-colour:         #1882e4;
 $hyperlink-inactive-colour:          $text-colour;
-$hyperlink-active-colour:            #600;
-$hyperlink-active-background-colour: #fee;
-$hyperlink-underline-colour:         #f00;
+$hyperlink-active-colour:            #26f;
+$hyperlink-active-background-colour: #eef;
 
-
-$hyperlink-focus-colour: #ffffff;
+$hyperlink-focus-colour: $text-colour;
 $hyperlink-focus-background-colour: $hyperlink-underline-colour;
+
+$hyperlink-border-width: 2px;
+
 // Radii
 $radius: 4px;
 
 
-$pale_highlight_colour:        #fffafa;
-$pale_highlight_border_colour: #fff0f0;
+$pale_highlight_colour:        #fafaff;
+$pale_highlight_border_colour: #f0f0ff;
 $block-background-colour: #FAFAFA;
 
 @import "../modules/all";

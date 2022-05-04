@@ -7,8 +7,8 @@
 
 namespace tomjn;
 
-require_once 'inc/http2.php';
-require_once 'inc/remove-emoji.php';
+require_once 'http2.php';
+require_once 'remove-emoji.php';
 
 \tomjn\emoji\bootstrap();
 \tomjn\http2\bootstrap();

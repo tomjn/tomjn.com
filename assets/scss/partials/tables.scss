@@ -15,7 +15,7 @@
 
 				&:hover,
 				&:focus {
-					background: #fffafa;
+					background: #fafaff;
 				}
 			}
 		}
@@ -23,7 +23,7 @@
 		tbody {
 			tr{
 				&:nth-child(even) {
-					background: #fefcfc;
+					background: #fcfcfe;
 				}
 
 				&:hover,
@@ -39,8 +39,8 @@
 
 				&:hover,
 				&:focus {
-					background: #fff0f0;
-					border-color: 1px solid #ffe0e0;
+					background: #f0f0ff;
+					border-color: 1px solid #e0e0ff;
 				}
 
 				white-space: nowrap;

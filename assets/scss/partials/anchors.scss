@@ -1,14 +1,18 @@
 a {
 	color: $hyperlink_inactive_colour;
 	text-decoration: none;
-	border-bottom: 1px solid $hyperlink-underline-colour;
-	text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 4px 0 0 #fff, -4px 0 0 #fff;
+	border-bottom: $hyperlink-border-width solid $hyperlink-underline-colour;
 
 	&:hover,
 	&:active {
 		color: $hyperlink-active-colour;
-	    background: $hyperlink-active-background-colour;
-	    text-shadow: none;
-	    border-radius: 4px;
+		background: $hyperlink-active-background-colour;
+		text-shadow: none;
+		border-radius: 4px;
+	}
+
+	&:focus {
+		color: $hyperlink-focus-colour;
+		background: $hyperlink-focus-background-colour;
 	}
 }

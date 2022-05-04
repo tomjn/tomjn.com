@@ -63,5 +63,5 @@ if ( ! empty( $taxobj ) ) {
 	</div>
 </section>
 <?php
-get_sidebar();
+
 get_footer();

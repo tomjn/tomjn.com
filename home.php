@@ -51,5 +51,4 @@ get_header( 'empty' );
 	</section>
 </div>
 <?php
-get_sidebar();
 get_footer();
