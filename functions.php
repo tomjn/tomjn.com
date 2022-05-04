@@ -140,7 +140,7 @@ add_action( 'wp_footer', 'tomjn_deregister_scripts' );
  */
 function tomjnscripts() : void {
 	// Enqueue our styles.
-	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [], '8' );
+	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [], '9' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
