@@ -2,11 +2,10 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
-?>
 
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>

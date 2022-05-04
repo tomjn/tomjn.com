@@ -4,9 +4,9 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
+
 get_header();
 $taxonomy = '';
 if ( is_tax() ) {
@@ -19,7 +19,7 @@ if ( is_tax() ) {
 	}
 }
 
-$current_term =	get_queried_object();
+$current_term = get_queried_object();
 $tname = $taxonomy;
 $taxobj = get_taxonomy( $taxonomy );
 if ( ! empty( $taxobj ) ) {
@@ -37,7 +37,7 @@ if ( ! empty( $taxobj ) ) {
 				$title = 'Archive: ' . get_the_time( 'Y' );
 			} else {
 				if ( ! empty( $taxobj->labels->singular_name ) && ! empty( $current_term->name ) ) {
-					$title = $taxobj->labels->singular_name.': ' . $current_term->name;
+					$title = $taxobj->labels->singular_name . ': ' . $current_term->name;
 				}
 			}
 			if ( ! empty( $title ) ) {
@@ -52,7 +52,8 @@ if ( ! empty( $taxobj ) ) {
 			while ( have_posts() ) {
 				the_post();
 
-				/* Include the Post-Format-specific template for the content.
+				/*
+				 * Include the Post-Format-specific template for the content.
 				 * If you want to overload this in a child theme then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
@@ -60,10 +61,10 @@ if ( ! empty( $taxobj ) ) {
 			}
 			_s_content_nav( 'nav-below' );
 
-		} else {
-			get_template_part( 'no-results', 'archive' );
-		}
-		?>
+	} else {
+		get_template_part( 'no-results', 'archive' );
+	}
+	?>
 		</div>
 		<div class="taxonomy-term-choices  column">
 			<?php

@@ -1,9 +1,8 @@
 <?php
 /**
- * The template for displaying search forms in _s
+ * The template for displaying search forms
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
 
 ?>

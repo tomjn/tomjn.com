@@ -4,6 +4,7 @@
  *
  * @package tomjn.com
  */
+
 ?>
 	</div>
 	<footer id="colophon" class="site-footer">

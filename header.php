@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+/**
+ * Header template
+ *
+ * @package tomjn.com
+ */
+
+?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>" />

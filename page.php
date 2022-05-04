@@ -1,4 +1,10 @@
 <?php
+/**
+ * Theme template
+ *
+ * @package tomjn.com
+ */
+
 get_header();
 ?>
 <section id="content" class="site-content" role="main">

@@ -1,13 +1,13 @@
 <?php
 /**
- * tomjn functions and definitions
+ * Tomjn.com functions and definitions
  *
  * @package tomjn
  * @since tomjn 1.0
  */
 
-require_once 'inc/http2.php';
-require_once 'inc/remove-emoji.php';
+require_once 'inc/template-tags.php';
+require_once 'inc/hooks.php';
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -15,7 +15,7 @@ require_once 'inc/remove-emoji.php';
  * @since tomjn 1.0
  */
 if ( ! isset( $content_width ) ) {
-	// this is the max width of a paragraph tag
+	// this is the max width of a paragraph tag.
 	$content_width = 800; /* pixels */
 }
 
@@ -30,38 +30,33 @@ if ( ! isset( $content_width ) ) {
  */
 function tomjnsetup() {
 
-	/**
-	 * Custom template tags for this theme.
-	 */
-	require_once( get_template_directory() . '/inc/template-tags.php' );
-
-	remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
+	remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds.
 	remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windows Live Writer manifest file.
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
-	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link.
+	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link.
 	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); // Display relational links for the posts adjacent to the current post.
-	remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that is generated on the wp_head hook, WP version
+	remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that is generated on the wp_head hook, WP version.
 
 	/**
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
 	 * If you're building a theme based on tomjn, use a find and replace
-	 * to change 'tomjn' to the name of your theme in all the template files
+	 * to change 'tomjn' to the name of your theme in all the template files.
 	 */
 	load_theme_textdomain( 'tomjn', get_template_directory() . '/languages' );
 
 	/**
-	 * Add default posts and comments RSS feed links to head
+	 * Add default posts and comments RSS feed links to head.
 	 */
 	add_theme_support( 'automatic-feed-links' );
 
 	/**
-	 * Let WP handle the title tag
-	 **/
+	 * Let WP handle the title tag.
+	 */
 	add_theme_support( 'title-tag' );
 
 	/**
-	 * Enable support for Post Thumbnails
+	 * Enable support for Post Thumbnails.
 	 */
 	add_theme_support( 'post-thumbnails' );
 
@@ -75,14 +70,14 @@ function tomjnsetup() {
 	] );
 
 	/**
-	 * Add support for the Aside Post Formats
+	 * Add support for the Aside Post Formats.
 	 */
 	add_theme_support( 'post-formats', [ 'aside' ] );
 }
 add_action( 'after_setup_theme', 'tomjnsetup' );
 
 /**
- * Register widgetized area and update sidebar with default widgets
+ * Register widgetized area and update sidebar with default widgets.
  *
  * @since tomjn 1.0
  */
@@ -128,13 +123,22 @@ function tomjnwidgets_init() {
 }
 add_action( 'widgets_init', 'tomjnwidgets_init' );
 
+/**
+ * Remove wp embed and other scripts.
+ *
+ * @return void
+ */
 function tomjn_deregister_scripts() {
 	wp_dequeue_script( 'wp-embed' );
 }
 add_action( 'wp_footer', 'tomjn_deregister_scripts' );
 
+/**
+ * Register frontend scripts.
+ *
+ * @return void
+ */
 function tomjnscripts() : void {
-
 	// Enqueue our styles.
 	wp_enqueue_style( 'tomjn-scss', get_template_directory_uri() . '/assets/dist/frontend.css', [], '8' );
 
@@ -144,6 +148,13 @@ function tomjnscripts() : void {
 }
 add_action( 'wp_enqueue_scripts', 'tomjnscripts' );
 
+/**
+ * Don't wrap images in p tags.
+ *
+ * @param string $content content
+ *
+ * @return string content
+ */
 function filter_ptags_on_images( string $content ) : string {
 	$content = preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
 	// and iframe tags too
@@ -151,7 +162,6 @@ function filter_ptags_on_images( string $content ) : string {
 	return $content;
 }
 add_filter( 'the_content', 'filter_ptags_on_images' );
-
 add_action( 'admin_head-upload.php', 'wpse_59182_bigger_media_thumbs' );
 
 function wpse_59182_bigger_media_thumbs() : void {
@@ -168,12 +178,12 @@ function wpse_59182_bigger_media_thumbs() : void {
 	<?php
 }
 
-//add_editor_style( 'editor-style.css' );
+// add_editor_style( 'editor-style.css' );
 
 function site_block_editor_styles() : void {
 	wp_enqueue_style( 'site-block-editor-styles-scss', get_theme_file_uri( '/assets/dist/editor.css' ), false, '1.0', 'all' );
 }
-//add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
+// add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
 
 // Add Slideshare oEmbed
 function add_oembed_slideshare() : void {
@@ -182,11 +192,11 @@ function add_oembed_slideshare() : void {
 }
 add_action( 'init', 'add_oembed_slideshare' );
 
-// Create a new filtering function that will add our where clause to the query
-function password_post_filter( $where = '' ) {
-	// Make sure this only applies to loops / feeds on the frontend
+// Create a new filtering function that will add our where clause to the query.
+function password_post_filter( $where = '' ) : string {
+	// Make sure this only applies to loops / feeds on the frontend.
 	if ( ! is_single() && ! is_page() && ! is_admin() ) {
-		// exclude password protected
+		// exclude password protected.
 		$where .= " AND post_password = ''";
 	}
 	return $where;

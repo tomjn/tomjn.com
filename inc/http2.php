@@ -1,9 +1,26 @@
 <?php
+/**
+ * HTTP 2 enhancements
+ *
+ * @package tomjn.com
+ */
+
+namespace tomjn\http2;
+
+/**
+ * Adds hooks
+ *
+ * @return void
+ */
+function bootstrap() : void {
+	add_action( 'init', __NAMESPACE__ . '\tomjnhttp2' );
+	add_action( 'wp_head', __NAMESPACE__ . '\tomjn_font_preload' );
+}
 
 /**
  * Enqueue scripts and styles
  */
-function tomjnhttp2() {
+function tomjnhttp2() : void {
 	if (
 		wp_doing_cron()
 		|| defined( 'REST_REQUEST' )
@@ -16,7 +33,7 @@ function tomjnhttp2() {
 	}
 	$wordpress_version = get_bloginfo( 'version' );
 
-	// hint to the browser to request a few extra things via http2
+	// hint to the browser to request a few extra things via http2.
 	header( 'Link: <https://www.googletagmanager.com/gtag/js?id=UA-6510359-3>; rel=preload; as=script', false );
 	$icon_32  = get_site_icon_url( 32 );
 	$icon_192 = get_site_icon_url( 192 );
@@ -28,9 +45,13 @@ function tomjnhttp2() {
 	}
 	header( 'Link: <https://www.google-analytics.com/analytics.js>; rel=preload; as=script', false );
 }
-add_action( 'init', 'tomjnhttp2' );
 
-function tomjn_font_preload() {
+/**
+ * Preload fonts
+ *
+ * @return void
+ */
+function tomjn_font_preload() : void {
 	$faces = [
 		'700',
 		'700italic',
@@ -50,4 +71,3 @@ function tomjn_font_preload() {
 		<?php
 	}
 }
-add_action( 'wp_head', 'tomjn_font_preload' );

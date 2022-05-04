@@ -2,8 +2,7 @@
 /**
  * The template for displaying image attachments.
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
 
 get_header();

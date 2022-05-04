@@ -1,4 +1,20 @@
 <?php
+/**
+ * Disable wp emojis
+ *
+ * @package tomjn.com
+ */
+
+namespace tomjn\emoji;
+
+/**
+ * Set up hooks
+ *
+ * @return void
+ */
+function bootstrap() : void {
+	add_action( 'init', 'disable_emojis' );
+}
 
 /**
  * Disable the emoji's
@@ -14,12 +30,11 @@ function disable_emojis() {
 	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
 	add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
 }
-add_action( 'init', 'disable_emojis' );
 
 /**
  * Filter function used to remove the tinymce emoji plugin.
  *
- * @param array $plugins
+ * @param array $plugins tiny mce plugins
  * @return array Difference betwen the two arrays
  */
 function disable_emojis_tinymce( $plugins ) {
@@ -38,7 +53,7 @@ function disable_emojis_tinymce( $plugins ) {
  * @return array Difference betwen the two arrays.
  */
 function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
-	if ( 'dns-prefetch' == $relation_type ) {
+	if ( 'dns-prefetch' === $relation_type ) {
 		/** This filter is documented in wp-includes/formatting.php */
 		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
 

@@ -1,4 +1,11 @@
-<a href="<?php echo esc_url( get_permalink() ); ?>" class="project_listing_item grid__item one-whole palm-one-whole lap-one-half desk-one-half">
+<?php
+/**
+ * Theme template
+ *
+ * @package tomjn.com
+ */
+
+?><a href="<?php echo esc_url( get_permalink() ); ?>" class="project_listing_item grid__item one-whole palm-one-whole lap-one-half desk-one-half">
 	<div class="grid">
 		<div class="grid__item one-third palm-one-whole lap-one-whole desk-one-whole">
 			<?php the_post_thumbnail( 'project-main' ); ?>

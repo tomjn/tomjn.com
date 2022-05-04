@@ -8,13 +8,14 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
+
 if ( ! is_singular() ) {
 	get_template_part( 'archive' );
 	return;
 }
+
 get_header();
 ?>
 <section id="content" class="site-content" role="main">

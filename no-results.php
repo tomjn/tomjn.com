@@ -4,11 +4,10 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
-?>
 
+?>
 <article id="post-0" class="post no-results not-found">
 	<header class="entry-header">
 		<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', '_s' ); ?></h1>

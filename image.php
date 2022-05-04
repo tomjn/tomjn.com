@@ -1,9 +1,8 @@
 <?php
 /**
- * The template for displaying image attachments.
+ * Theme template
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
 
 get_header();
@@ -65,17 +64,17 @@ get_header();
 							}
 						}
 						$k++;
-						// If there is more than 1 attachment in a gallery
+						// If there is more than 1 attachment in a gallery.
 						if ( count( $attachments ) > 1 ) {
 							if ( isset( $attachments[ $k ] ) ) {
-								// get the URL of the next image attachment
+								// get the URL of the next image attachment.
 								$next_attachment_url = get_attachment_link( $attachments[ $k ]->ID );
 							} else {
-								// or get the URL of the first image attachment
+								// or get the URL of the first image attachment.
 								$next_attachment_url = get_attachment_link( $attachments[0]->ID );
 							}
 						} else {
-							// or, if there's only 1 image, get the URL of the image
+							// or, if there's only 1 image, get the URL of the image.
 							$next_attachment_url = wp_get_attachment_url();
 						}
 						?>

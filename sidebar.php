@@ -1,10 +1,10 @@
 <?php
 /**
- * The Sidebar containing the main widget areas.
+ * Theme template
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
+
 ?>
 <section id="secondary" class="widget-area container" role="complementary">
 	<div class="columns">

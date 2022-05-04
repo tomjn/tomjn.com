@@ -4,8 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
 
 get_header();
@@ -43,7 +42,7 @@ if ( ! empty( $taxobj ) ) {
 		while ( have_posts() ) {
 			the_post();
 			?>
-			<article id="post-<?php the_ID(); ?>" <?php post_class('project_listing_item'); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class( 'project_listing_item' ); ?>>
 				<header>
 					<h3>
 						<a href="<?php echo esc_url( get_permalink() ); ?>">

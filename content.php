@@ -1,10 +1,11 @@
 <?php
 /**
- * @package _s
- * @since _s 1.0
+ * Theme template
+ *
+ * @package tomjn.com
  */
-?>
 
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title">
@@ -22,8 +23,8 @@
 	</header>
 
 <?php
+// Only display Excerpts for Search and archives.
 if ( is_search() || is_archive() ) {
-	// Only display Excerpts for Search and archives
 	?>
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>

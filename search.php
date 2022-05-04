@@ -2,8 +2,7 @@
 /**
  * The template for displaying Search Results pages.
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
 
 get_header();

@@ -1,6 +1,6 @@
 {
   "name": "tomjn.com",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The WP theme for tomjn.com",
   "scripts": {
     "build": "npm run build:less && npm run build:scss",
@@ -25,9 +25,9 @@
     "scss": "*"
   },
   "devDependencies": {
-    "bulma": "^0.8.2",
-    "less": "^3.13.1",
-    "sass": "^1.32.8"
+    "bulma": "^0.9.3",
+    "less": "^4.1.2",
+    "sass": "^1.51.0"
   },
   "dependencies": {
     "animate.css": "^4.1.1"

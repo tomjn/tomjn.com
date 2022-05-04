@@ -4,4 +4,5 @@
  *
  * @package tomjn.com
  */
+
 get_template_part( 'archive' );

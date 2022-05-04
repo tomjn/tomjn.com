@@ -1,4 +1,10 @@
 <?php
+/**
+ * Theme template
+ *
+ * @package tomjn.com
+ */
+
 get_header( 'empty' );
 ?>
 <div class="columns half-mast-spacing">

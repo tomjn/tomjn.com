@@ -2,8 +2,7 @@
 /**
  * Template Name: Headerless page
  *
- * @package _s
- * @since _s 1.0
+ * @package tomjn.com
  */
 
 get_header( 'empty' );

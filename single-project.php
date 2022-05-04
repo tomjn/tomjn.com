@@ -1,4 +1,10 @@
 <?php
+/**
+ * Theme template
+ *
+ * @package tomjn.com
+ */
+
 get_header();
 ?>
 <section id="content" class="site-content" role="main">
@@ -9,7 +15,7 @@ get_header();
 		get_template_part( 'content', 'project' );
 		_s_content_nav( 'nav-below' );
 
-		// If comments are open or we have at least one comment, load up the comment template
+		// If comments are open or we have at least one comment, load up the comment template.
 		if ( comments_open() || have_comments() ) {
 			comments_template( '', true );
 		}
