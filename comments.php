@@ -29,7 +29,7 @@ if ( have_comments() ) {
 		printf(
 			wp_kses_post(
 				_n(
-					'%1$ thought on &ldquo;%2$s&rdquo;',
+					'%1$s thought on &ldquo;%2$s&rdquo;',
 					'%1$s thoughts on &ldquo;%2$s&rdquo;',
 					intval( get_comments_number() ),
 					'_s'
