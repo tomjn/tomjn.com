@@ -30,6 +30,10 @@
         }
     }
 
+    #prompt-comment-subscribe {
+        margin-bottom: 1em;
+    }
+
     #comment {
         margin-top: 0.2em;
     }
@@ -64,6 +68,10 @@
             padding-left: 50px;
             margin-bottom: 1em;
             list-style: none;
+        }
+
+        .pingback {
+            padding-left: 0;
         }
 
         li.comment {
