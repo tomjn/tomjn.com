@@ -1,0 +1,106 @@
+#comment {
+    max-width: 600px;
+    display: block;
+    margin: 1em;
+    margin-left: 0;
+    padding: 0.5em 0.5em 1em 0.5em;
+	font-family: inherit;
+	border-radius: $radius;
+}
+
+#respond {
+    #cancel-comment-reply-link {
+        font-size: 80%;
+        font-weight: normal;
+        margin-left: 0.75em;
+    }
+
+    .comment-form-comment {
+        label {
+            margin-bottom: 0.5em;
+        }
+    }
+
+    .comment-form-author,
+    .comment-form-email,
+    .comment-form-url {
+        label {
+            display: inline-block;
+            min-width: 85px;
+        }
+    }
+
+    #comment {
+        margin-top: 0.2em;
+    }
+
+    .required {
+        color: crimson;
+    }
+}
+
+.comments-area {
+    .commentlist {
+        margin-left: 0;
+        list-style: none;
+
+        article {
+            max-width: 800px;
+            margin-bottom: 1.5em;
+        }
+
+        .avatar {
+            background-color: $block-background-colour;
+            float: left;
+            border-radius: $radius;
+            margin-left: -50px;
+            outline: 2px solid $pale_highlight_border_colour;
+        }
+
+        .pingback,
+        li.comment,
+        .social-twitter,
+        .social-twitter-rt {
+            padding-left: 50px;
+            margin-bottom: 1em;
+            list-style: none;
+        }
+
+        li.comment {
+            padding-left: 50px;
+        }
+
+        .children {
+            margin-left: 0;
+            > .comment {
+                padding-left: 30px;
+            }
+        }
+
+        .comment-reply-link {
+            font-size: 80%;
+            font-weight: bold;
+        }
+
+        .vcard {
+            margin-bottom: 0.5em;
+            font-size: 90%;
+        }
+
+        footer {
+            padding-left: 0;
+            padding-right: 0;
+
+            .commentmetadata {
+                display: none;
+            }
+        }
+
+        .comment-content {
+            // my block comments plugin put br tags in some blocks that weren't allowed
+            br {
+                display: none;
+            }
+        }
+    }
+}

@@ -15,3 +15,22 @@ input[type="radio"] + label {
     vertical-align: middle;
     margin-right: 0.5em;
 }
+
+input[type="text"],
+input[type="search"],
+textarea {
+    border-radius: $radius;
+    border-width: 2px;
+
+    &:disabled {
+        background: #eee;
+        border-color: #ddd;
+        cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled),
+    &:active:not(:disabled),
+    &:focus:not(:disabled) {
+        border-color: $hyperlink-active-colour;
+    }
+}

@@ -2,7 +2,7 @@
 // Font weights
 $light: 100;
 $regular: 400;
-$bold: 600;
+$bold: 700;
 $heavy: 900;
 
 // Base Font
@@ -24,8 +24,8 @@ $fixed-line-height: $base-line-height;
 // Hyperlinks
 $hyperlink-underline-colour:         #1882e4;
 $hyperlink-inactive-colour:          $text-colour;
-$hyperlink-active-colour:            #26f;
-$hyperlink-active-background-colour: #eef;
+$hyperlink-active-colour:            $hyperlink-underline-colour;
+$hyperlink-active-background-colour: #ecf2f9;
 
 $hyperlink-focus-colour: $text-colour;
 $hyperlink-focus-background-colour: $hyperlink-underline-colour;
