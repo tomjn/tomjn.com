@@ -223,9 +223,11 @@ add_action( 'tomjn_footer_notes', 'tomjn_footer_notes' );
 function tomjn_footer_notes() : void {
 	?>
 	<p>
-		Content licensed as <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="licensei noreferrer noopener">cc-by-sa-3</a> with attribution required.<br/>
 		Mastodon: <a rel="me" href="https://mastodon.online/@tomjn">@tomjn@mastodon.online</a><br/>
 		Twitter: <a href="https://twitter.com/tarendai" rel="me noreferrer noopener">@tarendai Twitter</a>
+	</p>
+	<p>
+		Content licensed as <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="licensei noreferrer noopener">cc-by-sa-3</a> with attribution required.
 	</p>
 	<?php
 }
