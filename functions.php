@@ -222,7 +222,7 @@ function tomjn_hack_wp_title_for_home( $title ) : string {
 add_action( 'tomjn_footer_notes', 'tomjn_footer_notes' );
 function tomjn_footer_notes() : void {
 	?>
-	<p>Content licensed as <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="licensei noreferrer noopener">cc-by-sa-3</a> with attribution required, <a href="https://twitter.com/tarendai" rel="me noreferrer noopener">twitter</a></p>
+	<p>Content licensed as <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="licensei noreferrer noopener">cc-by-sa-3</a> with attribution required, <a rel="me" href="https://mastodon.online/@tomjn"><em>@tomjn@mastodon.online</em> Mastodon</a>, <a href="https://twitter.com/tarendai" rel="me noreferrer noopener"><em>@tarendai</em> Twitter</a></p>
 	<?php
 }
 
