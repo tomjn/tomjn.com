@@ -224,7 +224,7 @@ function tomjn_footer_notes() : void {
 	?>
 	<p>
 		Mastodon: <a rel="me" href="https://mastodon.online/@tomjn">@tomjn@mastodon.online</a><br/>
-		Twitter: <a href="https://twitter.com/tarendai" rel="me noreferrer noopener">@tarendai Twitter</a>
+		Twitter: <a href="https://twitter.com/tarendai" rel="me noreferrer noopener">@tarendai</a>
 	</p>
 	<p>
 		Content licensed as <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="licensei noreferrer noopener">cc-by-sa-3</a> with attribution required.
