@@ -6,7 +6,7 @@
 	font-weight:  $base-font-weight;
 	font-size:    $base-font-size;
 	font-display: swap;
-	letter-spacing: -0.5px;
+	letter-spacing: 0;
 
 	@media only screen and (min-width: 660px){
 		font-size: $desktop-font-size;
@@ -34,5 +34,4 @@ a:focus {
 	border-radius: $radius;
 	border: none;
 	color: $hyperlink-focus-colour;
-	text-shadow: none;
 }
