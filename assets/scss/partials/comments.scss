@@ -4,8 +4,7 @@
     margin: 1em;
     margin-left: 0;
     padding: 0.5em 0.5em 1em 0.5em;
-	font-family: inherit;
-	border-radius: $radius;
+    border-radius: $radius;
 }
 
 #respond {
@@ -41,6 +40,14 @@
 
     .required {
         color: crimson;
+    }
+}
+
+.comment {
+    &-edit-link,
+    &-reply-link{
+        font-family: $ui-font-family;
+        font-size: 80%;
     }
 }
 
@@ -84,11 +91,6 @@
             > .comment {
                 padding-left: 30px;
             }
-        }
-
-        .comment-reply-link {
-            font-size: 80%;
-            font-weight: bold;
         }
 
         .vcard {

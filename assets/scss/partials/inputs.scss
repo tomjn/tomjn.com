@@ -1,9 +1,16 @@
+input,
+input + label,
+button,
+textarea {
+  font-family: $ui-font-family;
+}
+
 input[type="checkbox"],
 input[type="radio"] {
 	box-sizing: border-box; /* Addresses box sizing set to content-box in IE8/9 */
 	padding: 0; /* Addresses excess padding in IE8/9 */
 	width: 1em !important;
-    height: 1em;
+  height: 1em;
 	vertical-align: middle;
 }
 
@@ -19,6 +26,7 @@ input[type="radio"] + label {
 input[type="text"],
 input[type="search"],
 textarea {
+    border-color: #6c8093;
     border-radius: $radius;
     border-width: 2px;
 
@@ -33,4 +41,17 @@ textarea {
     &:focus:not(:disabled) {
         border-color: $hyperlink-active-colour;
     }
+}
+
+input[type="text"],
+input[type="search"],
+input[type="submit"],
+button {
+  background: transparent;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus:not(:disabled) {
+      color: $hyperlink-active-colour;
+  }
 }

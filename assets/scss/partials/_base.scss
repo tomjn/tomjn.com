@@ -13,6 +13,8 @@ $base-font-weight: $regular;
 $base-font-size: 14px;
 $base-line-height: 1.4;
 
+$ui-font-family: helvetica, sans-serif;
+
 $text-colour: #404040;
 
 $desktop-font-size: 22px;
@@ -34,8 +36,7 @@ $hyperlink-focus-background-colour: $hyperlink-underline-colour;
 $hyperlink-border-width: 2px;
 
 // Radii
-$radius: 4px;
-
+$radius: 6px;
 
 $pale_highlight_colour:        #fafaff;
 $pale_highlight_border_colour: #f0f0ff;

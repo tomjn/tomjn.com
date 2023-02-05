@@ -19,8 +19,7 @@ and Blueprint http://www.blueprintcss.org/
 */
 .tomjn-button-style {
   padding: 0.25em 0.5em;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px solid #e0e0e0;
+  border: 2px solid #6c8093;
   border-radius: 6px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
@@ -30,9 +29,8 @@ and Blueprint http://www.blueprintcss.org/
   border-radius: 6px;
 }
 .tomjn-button-style-hover {
-  background: #fafafa;
-  /* Old browsers */
   border-color: #1882e4;
+  color: #1882e4;
 }
 /* =Reset
 -------------------------------------------------------------- */
@@ -299,8 +297,7 @@ html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   padding: 0.25em 0.5em;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px solid #e0e0e0;
+  border: 2px solid #6c8093;
   border-radius: 6px;
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
@@ -311,9 +308,8 @@ button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-  background: #fafafa;
-  /* Old browsers */
   border-color: #1882e4;
+  color: #1882e4;
 }
 button:focus,
 html input[type="button"]:focus,
@@ -1073,11 +1069,4 @@ article footer {
 }
 .site-footer:hover {
   opacity: 1;
-}
-.wp-block-gallery {
-  margin: 3em -8px 2em -8px;
-}
-.wp-block-gallery .blocks-gallery-item img {
-  border: 1px solid #f6f6f6;
-  border-radius: 4px;
 }
