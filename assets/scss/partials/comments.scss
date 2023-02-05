@@ -9,7 +9,6 @@
 
 #respond {
     #cancel-comment-reply-link {
-        font-size: 80%;
         font-weight: normal;
         margin-left: 0.75em;
     }
@@ -43,12 +42,10 @@
     }
 }
 
-.comment {
-    &-edit-link,
-    &-reply-link{
-        font-family: $ui-font-family;
-        font-size: 80%;
-    }
+#cancel-comment-reply-link,
+.comment-edit-link,
+.comment-reply-link {
+    font-family: $ui-font-family;
 }
 
 .comments-area {
