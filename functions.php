@@ -73,6 +73,8 @@ function tomjnsetup() {
 	 * Add support for the Aside Post Formats.
 	 */
 	add_theme_support( 'post-formats', [ 'aside' ] );
+
+	add_theme_support( 'wp-block-styles' );
 }
 add_action( 'after_setup_theme', 'tomjnsetup' );
 

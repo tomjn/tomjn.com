@@ -1,39 +1,43 @@
-/* libre-caslon-text-regular - latin */
+/* quatro-slab-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Libre Caslon Text';
+  font-family: 'Quatro Slab';
   font-style: normal;
   font-weight: 400;
-  src: url('../libre-caslon-text/libre-caslon-text-v3-latin-regular.eot'); /* IE9 Compat Modes */
-  src: url('../libre-caslon-text/libre-caslon-text-v3-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-regular.svg#LibreCaslonText') format('svg'); /* Legacy iOS */
+  src: url('../quatro-slab/QuatroSlab-Regular.woff'); /* IE9 Compat Modes */
+  src: url('../quatro-slab/QuatroSlab-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../quatro-slab/QuatroSlab-Regular.woff') format('woff') /* Modern Browsers */
 }
-/* libre-caslon-text-italic - latin */
+
+/* quatro-slab-italic - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Libre Caslon Text';
+  font-family: 'Quatro Slab';
   font-style: italic;
   font-weight: 400;
-  src: url('../libre-caslon-text/libre-caslon-text-v3-latin-italic.eot'); /* IE9 Compat Modes */
-  src: url('../libre-caslon-text/libre-caslon-text/libre-caslon-text-v3-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-italic.woff') format('woff'), /* Modern Browsers */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-italic.svg#LibreCaslonText') format('svg'); /* Legacy iOS */
+  src: url('../quatro-slab/QuatroSlab-Italic.woff'); /* IE9 Compat Modes */
+  src: url('../quatro-slab/QuatroSlab-Italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../quatro-slab/QuatroSlab-Italic.woff') format('woff') /* Modern Browsers */
 }
-/* libre-caslon-text-700 - latin */
+
+/* quatro-slab-semibold - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Libre Caslon Text';
+  font-family: 'Quatro Slab';
   font-style: normal;
   font-weight: 700;
-  src: url('../libre-caslon-text/libre-caslon-text-v3-latin-700.eot'); /* IE9 Compat Modes */
-  src: url('../libre-caslon-text/libre-caslon-text-v3-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../libre-caslon-text/libre-caslon-text-v3-latin-700.svg#LibreCaslonText') format('svg'); /* Legacy iOS */
+  src: url('../quatro-slab/QuatroSlab-SemiBold.woff'); /* IE9 Compat Modes */
+  src: url('../quatro-slab/QuatroSlab-SemiBold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../quatro-slab/QuatroSlab-SemiBold.woff') format('woff') /* Modern Browsers */
+}
+
+/* quatro-slab-semibold-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Quatro Slab';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../quatro-slab/QuatroSlab-SemiBoldItalic.woff'); /* IE9 Compat Modes */
+  src: url('../quatro-slab/QuatroSlab-SemiBoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../quatro-slab/QuatroSlab-SemiBoldItalic.woff') format('woff') /* Modern Browsers */
 }
