@@ -51,13 +51,13 @@ function tomjnhttp2() : void {
  */
 function tomjn_font_preload() : void {
 	$faces = [
-		'700',
-		'700italic',
-		'italic',
-		'regular',
+		'Regular',
+		'Italic',
+		'SemiBold',
+		'SemiBoldItalic',
 	];
 	foreach ( $faces  as $face ) {
-		$font_url = get_template_directory_uri() . '/assets/merriweather/merriweather-v21-latin-' . $face . '.woff2';
+		$font_url = get_template_directory_uri() . '/assets/quatro-slab/QuatroSlab-' . $face . '.woff2';
 		?>
 		<link
 			rel="preload"
