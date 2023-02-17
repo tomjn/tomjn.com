@@ -34,7 +34,6 @@ function tomjnhttp2() : void {
 	$wordpress_version = get_bloginfo( 'version' );
 
 	// hint to the browser to request a few extra things via http2.
-	header( 'Link: <https://www.googletagmanager.com/gtag/js?id=UA-6510359-3>; rel=preload; as=script', false );
 	$icon_32  = get_site_icon_url( 32 );
 	$icon_192 = get_site_icon_url( 192 );
 	if ( ! empty( $icon_32 ) ) {
@@ -43,7 +42,6 @@ function tomjnhttp2() : void {
 	if ( ! empty( $icon_192 ) ) {
 		header( 'Link: <' . esc_url( $icon_192 ) . '>; rel=preload; as=image', false );
 	}
-	header( 'Link: <https://www.google-analytics.com/analytics.js>; rel=preload; as=script', false );
 }
 
 /**
